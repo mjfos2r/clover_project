@@ -39,3 +39,6 @@ vignettes/*.pdf
 .Renviron
 #ignore .DS_Store files 
 .DS_Store
+
+#ignore all of the raw illumina data, please no.
+*.fq.gz
