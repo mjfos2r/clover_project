@@ -457,8 +457,454 @@ using https://github.com/trinityrnaseq/trinityrnaseq as reference:
 
 update: ACTUALLY using https://github.com/trinityrnaseq/trinityrnaseq/wiki
 downloading from https://github.com/trinityrnaseq/trinityrnaseq/releases:
-downloaded package: trinityrnaseq-v2.14.0.FULL_with_extendedTestData.tar.gz
-https://github.com/trinityrnaseq/trinityrnaseq/releases/download/Trinity-v2.14.0/trinityrnaseq-v2.14.0.FULL_with_extendedTestData.tar.gz
+#### Downloaded for trinity installation.
+URL TO DOWNLOAD: https://github.com/trinityrnaseq/trinityrnaseq/releases/download/Trinity-v2.14.0/trinityrnaseq-v2.14.0.FULL_with_extendedTestData.tar.gz
 ```
+❯ wget https://github.com/trinityrnaseq/trinityrnaseq/releases/download/Trinity-v2.14.0/trinityrnaseq-v2.14.0.FULL_with_extendedTestData.tar.gz
+--2022-06-03 10:30:52--  https://github.com/trinityrnaseq/trinityrnaseq/releases/download/Trinity-v2.14.0/trinityrnaseq-v2.14.0.FULL_with_extendedTestData.tar.gz
+Resolving github.com (github.com)... 140.82.114.3
+Connecting to github.com (github.com)|140.82.114.3|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://objects.githubusercontent.com/github-production-release-asset-2e65be/22736952/92daf8fa-50b2-47a9-9b92-3739a0a53b10?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20220603%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220603T153037Z&X-Amz-Expires=300&X-Amz-Signature=8181b99037841c9d60df13c30ebe8dfb3f73cf4fc0837eeecbd1392d73726b57&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=22736952&response-content-disposition=attachment%3B%20filename%3Dtrinityrnaseq-v2.14.0.FULL_with_extendedTestData.tar.gz&response-content-type=application%2Foctet-stream [following]
+--2022-06-03 10:30:52--  https://objects.githubusercontent.com/github-production-release-asset-2e65be/22736952/92daf8fa-50b2-47a9-9b92-3739a0a53b10?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20220603%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220603T153037Z&X-Amz-Expires=300&X-Amz-Signature=8181b99037841c9d60df13c30ebe8dfb3f73cf4fc0837eeecbd1392d73726b57&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=22736952&response-content-disposition=attachment%3B%20filename%3Dtrinityrnaseq-v2.14.0.FULL_with_extendedTestData.tar.gz&response-content-type=application%2Foctet-stream
+Resolving objects.githubusercontent.com (objects.githubusercontent.com)... 185.199.109.133, 185.199.108.133, 185.199.111.133, ...
+Connecting to objects.githubusercontent.com (objects.githubusercontent.com)|185.199.109.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 310361867 (296M) [application/octet-stream]
+Saving to: ‘trinityrnaseq-v2.14.0.FULL_with_extendedTestData.tar.gz’
+
+trinityrnaseq-v2.14.0.FULL 100%[======================================>] 295.98M  2.20MB/s    in 2m 14s
+
+2022-06-03 10:33:07 (2.21 MB/s) - ‘trinityrnaseq-v2.14.0.FULL_with_extendedTestData.tar.gz’ saved [310361867/310361867]
+```
+okay now lets unzip and decompress that package.
 
 ```
+❯ cp ~/bioinformatics/trinityrnaseq-v2.14.0.FULL_with_extendedTestData.tar.gz .
+❯ ls
+trinityrnaseq-v2.14.0.FULL_with_extendedTestData.tar.gz
+❯ tar -xkzf trinityrnaseq-v2.14.0.FULL_with_extendedTestData.tar.gz
+❯ ls
+trinityrnaseq-v2.14.0
+trinityrnaseq-v2.14.0.FULL_with_extendedTestData.tar.gz
+```
+### Cool now lets explore the directory unzipped.
+
+### from README.md apparently I can install via bioconda but probably not with ARM64 ..... \n
+### oh the joys of apple silicon.
+```
+[![install with bioconda](https://img.shields.io/badge/install%20with-bioconda-brightgreen.svg?style=flat-square)](https://bioconda.github.io/recipes/trinity/README.html)
+```
+maybe again with bioconda...?
+UPDATE: Nope. 
+okay from source it is. The following should work on x86 machines.
+```
+conda install trinity
+```
+back to source...
+
+from the github for trinity:
+"""
+Quick Guide for the Impatient
+Trinity assembles transcript sequences from Illumina RNA-Seq data.
+
+Download Trinity here.
+
+Build Trinity by typing 'make' in the base installation directory.
+"""
+okay lets do that then:
+
+```
+❯ pwd
+/Users/michaelfoster/sequencing/summer/clover_project/trinity/trinityrnaseq-v2.14.0
+❯ make
+Using gnu compiler for Inchworm and Chrysalis
+cd Inchworm && /Applications/Xcode.app/Contents/Developer/usr/bin/make
+mkdir -p build
+cd build && cmake -DCMAKE_INSTALL_PREFIX="" ../ && make DESTDIR=../ install
+-- No build type specified so building in RELEASE mode.
+-- system: Darwin
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/michaelfoster/sequencing/summer/clover_project/trinity/trinityrnaseq-v2.14.0/Inchworm/build
+[  3%] Building CXX object CMakeFiles/inchworm.dir/src/Fasta_entry.cpp.o
+clang: error: unsupported option '-fopenmp'
+make[4]: *** [CMakeFiles/inchworm.dir/src/Fasta_entry.cpp.o] Error 1
+make[3]: *** [CMakeFiles/inchworm.dir/all] Error 2
+make[2]: *** [all] Error 2
+make[1]: *** [all] Error 2
+make: *** [inchworm_target] Error 2
+```
+### WONDERFUL. OF COURSE.
+### But there is a script titled "make.macOSX.sh" so lets cat that out.
+```
+❯ cat make.macOSX.sh
+#!/bin/bash
+
+make CXX=g++ CC=gcc
+make plugins CXX=g++ CC=gcc
+```
+okay lets run that one.
+
+```
+❯ ./make.macOSX.sh
+Using gnu compiler for Inchworm and Chrysalis
+cd Inchworm && /Applications/Xcode.app/Contents/Developer/usr/bin/make
+mkdir -p build
+cd build && cmake -DCMAKE_INSTALL_PREFIX="" ../ && make DESTDIR=../ install
+-- No build type specified so building in RELEASE mode.
+-- system: Darwin
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/michaelfoster/sequencing/summer/clover_project/trinity/trinityrnaseq-v2.14.0/Inchworm/build
+[  3%] Building CXX object CMakeFiles/inchworm.dir/src/Fasta_entry.cpp.o
+clang: error: unsupported option '-fopenmp'
+make[4]: *** [CMakeFiles/inchworm.dir/src/Fasta_entry.cpp.o] Error 1
+make[3]: *** [CMakeFiles/inchworm.dir/all] Error 2
+make[2]: *** [all] Error 2
+make[1]: *** [all] Error 2
+make: *** [inchworm_target] Error 2
+cd trinity-plugins && /Applications/Xcode.app/Contents/Developer/usr/bin/make plugins
+cd slclust && /Applications/Xcode.app/Contents/Developer/usr/bin/make CXX=g++ CC=gcc install
+X=`pwd`; \
+	for i in src; \
+	do echo '<<<' $i '>>>'; cd $X/$i; /Applications/Xcode.app/Contents/Developer/usr/bin/make install; done
+<<< src >>>
+g++ -I../include -Wall    -c -o slcluster.o slcluster.cpp
+In file included from slcluster.cpp:4:
+../include/cmd_line_opts.h:1:9: warning: '__CMD_LINE_OPTS_H__' is used as a header guard here, followed by #define of a different macro [-Wheader-guard]
+#ifndef __CMD_LINE_OPTS_H__
+        ^~~~~~~~~~~~~~~~~~~
+../include/cmd_line_opts.h:2:9: note: '__CMD_LiNE_OPTS_H__' is defined here; did you mean '__CMD_LINE_OPTS_H__'?
+#define __CMD_LiNE_OPTS_H__
+        ^~~~~~~~~~~~~~~~~~~
+        __CMD_LINE_OPTS_H__
+1 warning generated.
+g++ -I../include -Wall    -c -o graph.o graph.cpp
+g++ -I../include -Wall    -c -o graphnode.o graphnode.cpp
+g++ -I../include -Wall    -c -o cmd_line_opts.o cmd_line_opts.cpp
+In file included from cmd_line_opts.cpp:1:
+../include/cmd_line_opts.h:1:9: warning: '__CMD_LINE_OPTS_H__' is used as a header guard here, followed by #define of a different macro [-Wheader-guard]
+#ifndef __CMD_LINE_OPTS_H__
+        ^~~~~~~~~~~~~~~~~~~
+../include/cmd_line_opts.h:2:9: note: '__CMD_LiNE_OPTS_H__' is defined here; did you mean '__CMD_LINE_OPTS_H__'?
+#define __CMD_LiNE_OPTS_H__
+        ^~~~~~~~~~~~~~~~~~~
+        __CMD_LINE_OPTS_H__
+1 warning generated.
+g++  slcluster.o graph.o graphnode.o cmd_line_opts.o  -o slclust
+chmod 755 slclust
+mv slclust ../bin/
+cd COLLECTL && tar xvf "collectl-4.1.0".src.tar.gz && ln -sf "collectl-4.1.0" collectl
+x collectl-4.1.0/
+x collectl-4.1.0/service/
+x collectl-4.1.0/service/collectl.service
+x collectl-4.1.0/docs/
+x collectl-4.1.0/docs/TheMath.html
+x collectl-4.1.0/docs/RunningAsAService.html
+x collectl-4.1.0/docs/Ganglia3.jpg
+x collectl-4.1.0/docs/SlowProc.html
+x collectl-4.1.0/docs/Tutorial-Lustre.html
+x collectl-4.1.0/docs/Playback.html
+x collectl-4.1.0/docs/Memory.html
+x collectl-4.1.0/docs/WhySummary.html
+x collectl-4.1.0/docs/Matrix.html
+x collectl-4.1.0/docs/Data.html
+x collectl-4.1.0/docs/Infiniband.html
+x collectl-4.1.0/docs/Interrupts.html
+x collectl-4.1.0/docs/style.css
+x collectl-4.1.0/docs/SlabInfo.html
+x collectl-4.1.0/docs/OutputFiles.html
+x collectl-4.1.0/docs/Data-brief.html
+x collectl-4.1.0/docs/Ganglia.jpg
+x collectl-4.1.0/docs/Tutorial.html
+x collectl-4.1.0/docs/Examples.html
+x collectl-4.1.0/docs/colmux.html
+x collectl-4.1.0/docs/Gexpr.html
+x collectl-4.1.0/docs/markseger,collectl@web.sourceforge.net
+x collectl-4.1.0/docs/Inodes.html
+x collectl-4.1.0/docs/OperationalModes.html
+x collectl-4.1.0/docs/Data-verbose.html
+x collectl-4.1.0/docs/Plotfiles.html
+x collectl-4.1.0/docs/Ganglia2.jpg
+x collectl-4.1.0/docs/NfsInfo.html
+x collectl-4.1.0/docs/InputFiles.html
+x collectl-4.1.0/docs/Messages.html
+x collectl-4.1.0/docs/Disks.html
+x collectl-4.1.0/docs/Hello.html
+x collectl-4.1.0/docs/HiResTime.html
+x collectl-4.1.0/docs/Startup.html
+x collectl-4.1.0/docs/Network.html
+x collectl-4.1.0/docs/FAQ-collectl.html
+x collectl-4.1.0/docs/Misc.html
+x collectl-4.1.0/docs/slub.jpg
+x collectl-4.1.0/docs/Graphite.html
+x collectl-4.1.0/docs/OutputFormats.html
+x collectl-4.1.0/docs/Data-detail.html
+x collectl-4.1.0/docs/Sockets.html
+x collectl-4.1.0/docs/Process.html
+x collectl-4.1.0/docs/ColmuxCPU.jpg
+x collectl-4.1.0/docs/Environmental.html
+x collectl-4.1.0/docs/Socket.html
+x collectl-4.1.0/docs/Export.html
+x collectl-4.1.0/docs/FileNaming.html
+x collectl-4.1.0/docs/Lustre.html
+x collectl-4.1.0/docs/Import.html
+x collectl-4.1.0/docs/Performance.html
+x collectl-4.1.0/docs/Exceptions.html
+x collectl-4.1.0/docs/CPUs.html
+x collectl-4.1.0/docs/Logging.html
+x collectl-4.1.0/docs/ColmuxLustre.jpg
+x collectl-4.1.0/docs/Documentation.html
+x collectl-4.1.0/docs/OpenStack.html
+x collectl-4.1.0/docs/BuddyInfo.html
+x collectl-4.1.0/ARTISTIC
+x collectl-4.1.0/envrules.std
+x collectl-4.1.0/COPYING
+x collectl-4.1.0/vmsum.ph
+x collectl-4.1.0/vnet.ph
+x collectl-4.1.0/gexpr.ph
+x collectl-4.1.0/GPL
+x collectl-4.1.0/README-WINDOWS
+x collectl-4.1.0/client.pl
+x collectl-4.1.0/man1/
+x collectl-4.1.0/man1/colmux.1
+x collectl-4.1.0/man1/collectl.1
+x collectl-4.1.0/vmstat.ph
+x collectl-4.1.0/misc.ph
+x collectl-4.1.0/initd/
+x collectl-4.1.0/initd/collectl-suse
+x collectl-4.1.0/initd/collectl
+x collectl-4.1.0/initd/collectl-debian
+x collectl-4.1.0/initd/collectl-generic
+x collectl-4.1.0/collectl.conf
+x collectl-4.1.0/collectl
+x collectl-4.1.0/colmux
+x collectl-4.1.0/INSTALL
+x collectl-4.1.0/graphite.ph
+x collectl-4.1.0/proctree.ph
+x collectl-4.1.0/README
+x collectl-4.1.0/UNINSTALL
+x collectl-4.1.0/RELEASE-collectl
+x collectl-4.1.0/hello.ph
+x collectl-4.1.0/formatit.ph
+x collectl-4.1.0/lexpr.ph
+x collectl-4.1.0/statsd.ph
+x collectl-4.1.0/col2tlviz.pl
+
+
+** Done building plugins **
+
+
+sh ./util/support_scripts/plugin_install_tests.sh
+## Checking plugin installations:
+
+slclust:                 has been Installed Properly
+collectl:                has been Installed Properly
+```
+### F OPENMP INDEED
+
+lets see if it worked.
+
+```
+❯ ./trinity
+
+
+
+###############################################################################
+#
+
+     ______  ____   ____  ____   ____  ______  __ __
+    |      ||    \ |    ||    \ |    ||      ||  |  |
+    |      ||  D  ) |  | |  _  | |  | |      ||  |  |
+    |_|  |_||    /  |  | |  |  | |  | |_|  |_||  ~  |
+      |  |  |    \  |  | |  |  | |  |   |  |  |___, |
+      |  |  |  .  \ |  | |  |  | |  |   |  |  |     |
+      |__|  |__|\_||____||__|__||____|  |__|  |____/
+
+    Trinity-v2.14.0
+
+
+#
+#
+# Required:
+#
+#  --seqType <string>      :type of reads: ('fa' or 'fq')
+#
+#  --max_memory <string>      :suggested max memory to use by Trinity where limiting can be enabled. (jellyfish, sorting, etc)
+#                            provided in Gb of RAM, ie.  '--max_memory 10G'
+#
+#  If paired reads:
+#      --left  <string>    :left reads, one or more file names (separated by commas, no spaces)
+#      --right <string>    :right reads, one or more file names (separated by commas, no spaces)
+#
+#  Or, if unpaired reads:
+#      --single <string>   :single reads, one or more file names, comma-delimited (note, if single file contains pairs, can use flag: --run_as_paired )
+#
+#  Or,
+#      --samples_file <string>         tab-delimited text file indicating biological replicate relationships.
+#                                   ex.
+#                                        cond_A    cond_A_rep1    A_rep1_left.fq    A_rep1_right.fq
+#                                        cond_A    cond_A_rep2    A_rep2_left.fq    A_rep2_right.fq
+#                                        cond_B    cond_B_rep1    B_rep1_left.fq    B_rep1_right.fq
+#                                        cond_B    cond_B_rep2    B_rep2_left.fq    B_rep2_right.fq
+#
+#                      # if single-end instead of paired-end, then leave the 4th column above empty.
+#
+####################################
+##  Misc:  #########################
+#
+#  --SS_lib_type <string>          :Strand-specific RNA-Seq read orientation.
+#                                   if paired: RF or FR,
+#                                   if single: F or R.   (dUTP method = RF)
+#                                   See web documentation.
+#
+#  --CPU <int>                     :number of CPUs to use, default: 2
+#  --min_contig_length <int>       :minimum assembled contig length to report
+#                                   (def=200, must be >= 100)
+#
+#  --long_reads <string>           :fasta file containing error-corrected or circular consensus (CCS) pac bio reads
+#                                   (** note: experimental parameter **, this functionality continues to be under development)
+#
+#  --genome_guided_bam <string>    :genome guided mode, provide path to coordinate-sorted bam file.
+#                                   (see genome-guided param section under --show_full_usage_info)
+#
+#  --long_reads_bam <string>       :long reads to include for genome-guided Trinity
+#                                  (bam file consists of error-corrected or circular consensus (CCS) pac bio read aligned to the genome)
+#
+#  --jaccard_clip                  :option, set if you have paired reads and
+#                                   you expect high gene density with UTR
+#                                   overlap (use FASTQ input file format
+#                                   for reads).
+#                                   (note: jaccard_clip is an expensive
+#                                   operation, so avoid using it unless
+#                                   necessary due to finding excessive fusion
+#                                   transcripts w/o it.)
+#
+#  --trimmomatic                   :run Trimmomatic to quality trim reads
+#                                        see '--quality_trimming_params' under full usage info for tailored settings.
+#
+#  --output <string>               :name of directory for output (will be
+#                                   created if it doesn't already exist)
+#                                   default( your current working directory: "/Users/michaelfoster/sequencing/summer/clover_project/trinity/trinityrnaseq-v2.14.0/trinity_out_dir"
+#                                    note: must include 'trinity' in the name as a safety precaution! )
+#
+#  --full_cleanup                  :only retain the Trinity fasta file, rename as ${output_dir}.Trinity.fasta
+#
+#  --cite                          :show the Trinity literature citation
+#
+#  --verbose                       :provide additional job status info during the run.
+#
+#  --version                       :reports Trinity version (Trinity-v2.14.0) and exits.
+#
+#  --show_full_usage_info          :show the many many more options available for running Trinity (expert usage).
+#
+#
+###############################################################################
+#
+#  *Note, a typical Trinity command might be:
+#
+#        Trinity --seqType fq --max_memory 50G --left reads_1.fq  --right reads_2.fq --CPU 6
+#
+#            (if you have multiple samples, use --samples_file ... see above for details)
+#
+#    and for Genome-guided Trinity, provide a coordinate-sorted bam:
+#
+#        Trinity --genome_guided_bam rnaseq_alignments.csorted.bam --max_memory 50G
+#                --genome_guided_max_intron 10000 --CPU 6
+#
+#     see: /Users/michaelfoster/sequencing/summer/clover_project/trinity/trinityrnaseq-v2.14.0/sample_data/test_Trinity_Assembly/
+#          for sample data and 'runMe.sh' for example Trinity execution
+#
+#     For more details, visit: http://trinityrnaseq.github.io
+#
+###############################################################################
+```
+# WOO Looks like it worked!! 
+lets try some test data.
+```
+❯ cd sample_data
+❯ ls
+Makefile              test_Trinity_Assembly
+❯ cd test_Trinity_Assembly
+❯ ls
+Makefile                  longReads.fa              reads.right.fa.gz         runMe.sh
+README                    misc_run_tests            reads.right.fq.gz         samples.PE.txt
+__indiv_ex_sample_derived reads.left.fa.gz          reads2.left.fq.gz         samples.SE.txt
+cleanme.pl                reads.left.fq.gz          reads2.right.fq.gz        test_FL.sh
+❯ cat runMe.sh
+#!/bin/bash -ve
+
+#######################################################
+##  Run Trinity to Generate Transcriptome Assemblies ##
+#######################################################
+
+if [ -z ${TRINITY_HOME} ]; then
+    echo "Must set env var TRINITY_HOME"
+    exit 1
+fi
+
+
+${TRINITY_HOME}/Trinity --seqType fq --max_memory 2G \
+              --left reads.left.fq.gz \
+              --right reads.right.fq.gz \
+              --SS_lib_type RF \
+              --CPU 1
+
+##### Done Running Trinity #####
+
+if [ $* ]; then
+    # check full-length reconstruction stats:
+
+    ${TRINITY_HOME}/util/misc/illustrate_ref_comparison.pl __indiv_ex_sample_derived/refSeqs.fa trinity_out_dir.Trinity.fasta 90
+
+    ./test_FL.sh --query  trinity_out_dir.Trinity.fasta --target __indiv_ex_sample_derived/refSeqs.fa --no_reuse
+
+fi
+```
+Okay lets run the "Run me" script.
+```
+❯ ./runMe.sh
+#!/bin/bash -ve
+
+#######################################################
+##  Run Trinity to Generate Transcriptome Assemblies ##
+#######################################################
+
+if [ -z ${TRINITY_HOME} ]; then
+    echo "Must set env var TRINITY_HOME"
+    exit 1
+fi
+Must set env var TRINITY_HOME
+```
+ugh.
+I don't want to have to use docker.....
+Just let me install it from source ffs.
+Okay, lets see if the var is set properly.
+```
+❯ echo $TRINITY_HOME
+/Users/michaelfoster/sequencing/summer/clover_project/trinity/trinityrnaseq-v2.14.0
+```
+looks to be in order.
+lets not run the shell script and insted run the piece of the script to keep from falling into subshell hell...
+```
+${TRINITY_HOME}/Trinity --seqType fq --max_memory 2G \
+--left reads.left.fq.gz \
+--right reads.right.fq.gz \
+--SS_lib_type RF \
+--CPU 1
+```
+okay ran the above and got this output:
+```
+❯ ${TRINITY_HOME}/Trinity --seqType fq --max_memory 2G \
+--left reads.left.fq.gz \
+--right reads.right.fq.gz \
+--SS_lib_type RF \
+--CPU 1
+
+
+	Error, cannot locate Trinity-specific tool: ParaFly in the PATH setting: /Users/michaelfoster/sequencing/summer/clover_project/trinity/trinityrnaseq-v2.14.0/trinity-plugins/BIN:/opt/homebrew/Caskroom/miniforge/base/envs/CloverRNASeq/bin:/opt/homebrew/opt/openjdk/bin:/Users/michaelfoster/scripts:/opt/homebrew/Caskroom/miniconda/base/condabin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/michaelfoster/bin:/Users/michaelfoster/bin:/usr/local/include:/usr/local/lib,  be sure to install Trinity by running 'make' in the base installation directory
+```
+I GUESS ITS TIME FOR ROSETTA TERM!!!
+HOORAY?
+
