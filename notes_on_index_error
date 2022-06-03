@@ -1,0 +1,46 @@
+Thank you so much for you patience. I am writing to inform you that we have finished sequencing for your libraries, while we found the index of two libraries showed no output. And the lab informed me that there are some undetermined data showed below. Since this is a whole lane project we could release all the undetermined data without demultiplexing these index. 
+
+ 
+
+Low/no output: (sample ID+ Index sequence+ data output) 
+
+ 
+
+CKDL210019355-1a-AK2133 GACGAT .006519600 
+
+CKDL210019355-1a-AK7030 ACACGC .008691900
+
+ 
+
+Undetermined: (Data output+ index sequence+ index name) 
+
+ 
+
+2.346828000 TCGTTC AK3590 
+
+1.867548000 AGGCAT AK1960
+
+0.029604000 CTAAGA AK22334
+
+ 
+
+Please feel free to let me know your decision. 
+
+  
+
+Bests,
+XXXXXX
+*******************************
+Hello,
+
+ 
+
+I checked the index file again and found 2 errors that should resolve the issue.
+
+ 
+
+The sample with no data output identified as index GACCAT should be index TCGTTC.
+
+The sample with no data output identified as index ACACGC should be index AGGCAT.
+
+There is no index sequence of CTAAGA in the kit.
