@@ -958,4 +958,205 @@ Sealed Resources=none
 Internal requirements count=1 size=168
 ```
 fantastic. lets try making trinity now.
+### Still failed. why for the love of all things good and holy did apple stop shipping openMP in their compiler???????
+okay lets try adding it to CPPFlags.
+okay so i added the following to the cmakelists.txt in inchworm and got the following error. ITS MOVING FORWARD. JUST NEED TO REF THE RIGHT LIBS
+what I added. 
+```
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pipe -W -Wall -Wpedantic -Xclang -fopenmp -m64")
+```
+-Xclang was added to the above.
+still isn't making.
+```
+❯ make
+Using gnu compiler for Inchworm and Chrysalis
+cd Inchworm && /Applications/Xcode.app/Contents/Developer/usr/bin/make
+mkdir -p build
+cd build && cmake -DCMAKE_INSTALL_PREFIX="" ../ && make DESTDIR=../ install
+-- No build type specified so building in RELEASE mode.
+-- system: Darwin
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/michaelfoster/sequencing/summer/clover_project/trinity/trinityrnaseq-v2.14.0/Inchworm/build
+Consolidate compiler generated dependencies of target inchworm
+[  3%] Building CXX object CMakeFiles/inchworm.dir/src/IRKE_run.cpp.o
+/Users/michaelfoster/sequencing/summer/clover_project/trinity/trinityrnaseq-v2.14.0/Inchworm/src/IRKE_run.cpp:9:10: fatal error: 'omp.h' file not found
+#include <omp.h>
+         ^~~~~~~
+1 error generated.
+make[4]: *** [CMakeFiles/inchworm.dir/src/IRKE_run.cpp.o] Error 1
+make[3]: *** [CMakeFiles/inchworm.dir/all] Error 2
+make[2]: *** [all] Error 2
+make[1]: *** [all] Error 2
+make: *** [inchworm_target] Error 2
+```
+okay lets try to use the mac os script.
 
+```
+❯ ./make.macOSX.sh
+Using gnu compiler for Inchworm and Chrysalis
+cd Inchworm && /Applications/Xcode.app/Contents/Developer/usr/bin/make
+mkdir -p build
+cd build && cmake -DCMAKE_INSTALL_PREFIX="" ../ && make DESTDIR=../ install
+-- No build type specified so building in RELEASE mode.
+-- system: Darwin
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/michaelfoster/sequencing/summer/clover_project/trinity/trinityrnaseq-v2.14.0/Inchworm/build
+Consolidate compiler generated dependencies of target inchworm
+[  3%] Building CXX object CMakeFiles/inchworm.dir/src/IRKE_run.cpp.o
+/Users/michaelfoster/sequencing/summer/clover_project/trinity/trinityrnaseq-v2.14.0/Inchworm/src/IRKE_run.cpp:9:10: fatal error: 'omp.h' file not found
+#include <omp.h>
+         ^~~~~~~
+1 error generated.
+make[4]: *** [CMakeFiles/inchworm.dir/src/IRKE_run.cpp.o] Error 1
+make[3]: *** [CMakeFiles/inchworm.dir/all] Error 2
+make[2]: *** [all] Error 2
+make[1]: *** [all] Error 2
+make: *** [inchworm_target] Error 2
+cd trinity-plugins && /Applications/Xcode.app/Contents/Developer/usr/bin/make plugins
+cd slclust && /Applications/Xcode.app/Contents/Developer/usr/bin/make CXX=g++ CC=gcc install
+X=`pwd`; \
+	for i in src; \
+	do echo '<<<' $i '>>>'; cd $X/$i; /Applications/Xcode.app/Contents/Developer/usr/bin/make install; done
+<<< src >>>
+g++ -I../include -Wall    -c -o slcluster.o slcluster.cpp
+In file included from slcluster.cpp:4:
+../include/cmd_line_opts.h:1:9: warning: '__CMD_LINE_OPTS_H__' is used as a header guard here, followed by #define of a different macro [-Wheader-guard]
+#ifndef __CMD_LINE_OPTS_H__
+        ^~~~~~~~~~~~~~~~~~~
+../include/cmd_line_opts.h:2:9: note: '__CMD_LiNE_OPTS_H__' is defined here; did you mean '__CMD_LINE_OPTS_H__'?
+#define __CMD_LiNE_OPTS_H__
+        ^~~~~~~~~~~~~~~~~~~
+        __CMD_LINE_OPTS_H__
+1 warning generated.
+g++ -I../include -Wall    -c -o graph.o graph.cpp
+g++ -I../include -Wall    -c -o graphnode.o graphnode.cpp
+g++ -I../include -Wall    -c -o cmd_line_opts.o cmd_line_opts.cpp
+In file included from cmd_line_opts.cpp:1:
+../include/cmd_line_opts.h:1:9: warning: '__CMD_LINE_OPTS_H__' is used as a header guard here, followed by #define of a different macro [-Wheader-guard]
+#ifndef __CMD_LINE_OPTS_H__
+        ^~~~~~~~~~~~~~~~~~~
+../include/cmd_line_opts.h:2:9: note: '__CMD_LiNE_OPTS_H__' is defined here; did you mean '__CMD_LINE_OPTS_H__'?
+#define __CMD_LiNE_OPTS_H__
+        ^~~~~~~~~~~~~~~~~~~
+        __CMD_LINE_OPTS_H__
+1 warning generated.
+g++  slcluster.o graph.o graphnode.o cmd_line_opts.o  -o slclust
+chmod 755 slclust
+mv slclust ../bin/
+cd COLLECTL && tar xvf "collectl-4.1.0".src.tar.gz && ln -sf "collectl-4.1.0" collectl
+x collectl-4.1.0/
+x collectl-4.1.0/service/
+x collectl-4.1.0/service/collectl.service
+x collectl-4.1.0/docs/
+x collectl-4.1.0/docs/TheMath.html
+x collectl-4.1.0/docs/RunningAsAService.html
+x collectl-4.1.0/docs/Ganglia3.jpg
+x collectl-4.1.0/docs/SlowProc.html
+x collectl-4.1.0/docs/Tutorial-Lustre.html
+x collectl-4.1.0/docs/Playback.html
+x collectl-4.1.0/docs/Memory.html
+x collectl-4.1.0/docs/WhySummary.html
+x collectl-4.1.0/docs/Matrix.html
+x collectl-4.1.0/docs/Data.html
+x collectl-4.1.0/docs/Infiniband.html
+x collectl-4.1.0/docs/Interrupts.html
+x collectl-4.1.0/docs/style.css
+x collectl-4.1.0/docs/SlabInfo.html
+x collectl-4.1.0/docs/OutputFiles.html
+x collectl-4.1.0/docs/Data-brief.html
+x collectl-4.1.0/docs/Ganglia.jpg
+x collectl-4.1.0/docs/Tutorial.html
+x collectl-4.1.0/docs/Examples.html
+x collectl-4.1.0/docs/colmux.html
+x collectl-4.1.0/docs/Gexpr.html
+x collectl-4.1.0/docs/markseger,collectl@web.sourceforge.net
+x collectl-4.1.0/docs/Inodes.html
+x collectl-4.1.0/docs/OperationalModes.html
+x collectl-4.1.0/docs/Data-verbose.html
+x collectl-4.1.0/docs/Plotfiles.html
+x collectl-4.1.0/docs/Ganglia2.jpg
+x collectl-4.1.0/docs/NfsInfo.html
+x collectl-4.1.0/docs/InputFiles.html
+x collectl-4.1.0/docs/Messages.html
+x collectl-4.1.0/docs/Disks.html
+x collectl-4.1.0/docs/Hello.html
+x collectl-4.1.0/docs/HiResTime.html
+x collectl-4.1.0/docs/Startup.html
+x collectl-4.1.0/docs/Network.html
+x collectl-4.1.0/docs/FAQ-collectl.html
+x collectl-4.1.0/docs/Misc.html
+x collectl-4.1.0/docs/slub.jpg
+x collectl-4.1.0/docs/Graphite.html
+x collectl-4.1.0/docs/OutputFormats.html
+x collectl-4.1.0/docs/Data-detail.html
+x collectl-4.1.0/docs/Sockets.html
+x collectl-4.1.0/docs/Process.html
+x collectl-4.1.0/docs/ColmuxCPU.jpg
+x collectl-4.1.0/docs/Environmental.html
+x collectl-4.1.0/docs/Socket.html
+x collectl-4.1.0/docs/Export.html
+x collectl-4.1.0/docs/FileNaming.html
+x collectl-4.1.0/docs/Lustre.html
+x collectl-4.1.0/docs/Import.html
+x collectl-4.1.0/docs/Performance.html
+x collectl-4.1.0/docs/Exceptions.html
+x collectl-4.1.0/docs/CPUs.html
+x collectl-4.1.0/docs/Logging.html
+x collectl-4.1.0/docs/ColmuxLustre.jpg
+x collectl-4.1.0/docs/Documentation.html
+x collectl-4.1.0/docs/OpenStack.html
+x collectl-4.1.0/docs/BuddyInfo.html
+x collectl-4.1.0/ARTISTIC
+x collectl-4.1.0/envrules.std
+x collectl-4.1.0/COPYING
+x collectl-4.1.0/vmsum.ph
+x collectl-4.1.0/vnet.ph
+x collectl-4.1.0/gexpr.ph
+x collectl-4.1.0/GPL
+x collectl-4.1.0/README-WINDOWS
+x collectl-4.1.0/client.pl
+x collectl-4.1.0/man1/
+x collectl-4.1.0/man1/colmux.1
+x collectl-4.1.0/man1/collectl.1
+x collectl-4.1.0/vmstat.ph
+x collectl-4.1.0/misc.ph
+x collectl-4.1.0/initd/
+x collectl-4.1.0/initd/collectl-suse
+x collectl-4.1.0/initd/collectl
+x collectl-4.1.0/initd/collectl-debian
+x collectl-4.1.0/initd/collectl-generic
+x collectl-4.1.0/collectl.conf
+x collectl-4.1.0/collectl
+x collectl-4.1.0/colmux
+x collectl-4.1.0/INSTALL
+x collectl-4.1.0/graphite.ph
+x collectl-4.1.0/proctree.ph
+x collectl-4.1.0/README
+x collectl-4.1.0/UNINSTALL
+x collectl-4.1.0/RELEASE-collectl
+x collectl-4.1.0/hello.ph
+x collectl-4.1.0/formatit.ph
+x collectl-4.1.0/lexpr.ph
+x collectl-4.1.0/statsd.ph
+x collectl-4.1.0/col2tlviz.pl
+
+
+** Done building plugins **
+
+
+sh ./util/support_scripts/plugin_install_tests.sh
+## Checking plugin installations:
+
+slclust:                 has been Installed Properly
+collectl:                has been Installed Properly
+```
+I DON'T TRUST IT BECAUSE SEE:
+```
+/Users/michaelfoster/sequencing/summer/clover_project/trinity/trinityrnaseq-v2.14.0/Inchworm/src/IRKE_run.cpp:9:10: fatal error: 'omp.h' file not found
+#include <omp.h>
+         ^~~~~~~
+1 error generated.
+```
+I NEED A BREAK. DAMN YOU APPLE.
