@@ -905,6 +905,57 @@ okay ran the above and got this output:
 
 	Error, cannot locate Trinity-specific tool: ParaFly in the PATH setting: /Users/michaelfoster/sequencing/summer/clover_project/trinity/trinityrnaseq-v2.14.0/trinity-plugins/BIN:/opt/homebrew/Caskroom/miniforge/base/envs/CloverRNASeq/bin:/opt/homebrew/opt/openjdk/bin:/Users/michaelfoster/scripts:/opt/homebrew/Caskroom/miniconda/base/condabin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/michaelfoster/bin:/Users/michaelfoster/bin:/usr/local/include:/usr/local/lib,  be sure to install Trinity by running 'make' in the base installation directory
 ```
-I GUESS ITS TIME FOR ROSETTA TERM!!!
-HOORAY?
+---I GUESS ITS TIME FOR ROSETTA TERM!!!--- no. will make this sand bend to my will.
+https://mac.r-project.org/openmp/
+I need openMP anyways.
+time to break my cmake.
+### from the above link
+OpenMP run-time downloads
+The follwing are links to libomp OpenMP run-time built from official LLVM release sources using Xcode compilers. They are signed and support macOS 10.13 (High Sierra) and higher. All tar-balls contain the system tree usr/local/lib and usr/local/include so the recommended installation is:
+    curl -O https://mac.r-project.org/openmp/openmp-12.0.1-darwin20-Release.tar.gz
+    sudo tar fvxz openmp-12.0.1-darwin20-Release.tar.gz -C /
+The contained set of files is the same in all tar balls:
+    usr/local/lib/libomp.dylib
+    usr/local/include/ompt.h
+    usr/local/include/omp.h
+    usr/local/include/omp-tools.h
+so you can simply remove those to uninstall. Note that any package you compile against libomp.dylib will need that run-time so you have to ship it with your package or have users install it. You can verify the signature in the library via codetool (see below).
+
+okay neat.
+
+```
+❯ cd ~
+❯ curl -O https://mac.r-project.org/openmp/openmp-12.0.1-darwin20-Release.tar.gz
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  514k  100  514k    0     0   499k      0  0:00:01  0:00:01 --:--:--  501k
+```
+now for line two:
+```
+#sudo tar fvxz openmp-12.0.1-darwin20-Release.tar.gz -C /
+❯ sudo tar fvxz openmp-12.0.1-darwin20-Release.tar.gz -C /
+Password:
+x usr/local/include/omp-tools.h
+x usr/local/include/omp.h
+x usr/local/include/ompt.h
+x usr/local/lib/libomp.dylib
+```
+okay lets verify it now
+```
+❯ codesign -d -vv /usr/local/lib/libomp.dylib
+Executable=/usr/local/lib/libomp.dylib
+Identifier=libomp
+Format=Mach-O universal (x86_64 arm64)
+CodeDirectory v=20400 size=5354 flags=0x0(none) hashes=162+2 location=embedded
+Signature size=8926
+Authority=Developer ID Application: Simon Urbanek (VZLD955F6P)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=Nov 10, 2021 at 18:15:26
+Info.plist=not bound
+TeamIdentifier=VZLD955F6P
+Sealed Resources=none
+Internal requirements count=1 size=168
+```
+fantastic. lets try making trinity now.
 
