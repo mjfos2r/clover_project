@@ -1,0 +1,29 @@
+okay, so fastQC can be used in scripts.
+
+per documentation at:
+https://www.bioinformatics.babraham.ac.uk/projects/fastqc/
+
+documentation at:
+https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/
+
+installation specific documentation at:
+https://www.bioinformatics.babraham.ac.uk/projects/fastqc/INSTALL.txt
+
+downloaded zip folder and moved to bioinformatics directory.
+decompressed it and then made the fastqc binary executable.
+```
+chmod 755 fastqc
+```
+
+okay cool. now lets see if we can feed it the illumina data from the clover run.
+
+well first, lets plan out the script to load all of the reads. I may have to un-gzip all of the files.
+
+so:
+1. decompress all fastq files
+2. copy directory structure into output folder for fastQC reports.
+3. feed sample directory containing reads into fastQC
+4. output report into corresponding directory in output
+5. move onto next sample directory
+6. ???
+7. profit
