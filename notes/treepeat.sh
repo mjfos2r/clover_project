@@ -17,4 +17,4 @@ TARGETDIR="$OUTPUT/"
 echo "copying directory structure of $METADIR into $TARGETDIR"
 tree -dfi --noreport $SOURCEDIR | xargs -I{} mkdir -p "$TARGETDIR/{}"
 echo "treePeat done!"
-tree -dfi $TARGETDIR
+tree -df $TARGETDIR
