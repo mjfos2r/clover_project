@@ -17,4 +17,6 @@ tree $DATADIR
 ./treepeat.sh $DATADIR $REPORTDIR
 #run fastQC and output reports to the reportdirs.
 #if this works first time I'll buy a lotto ticket
-find *.fq.gz | xargs fastQC --output-dir $REPORTDIR 
+find *.fq.gz | xargs fastQC --outdir $REPORTDIR 
+#okay lets try multiQC now
+multiqc $REPORTDIR

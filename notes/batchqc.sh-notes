@@ -1,0 +1,292 @@
+okay, finished typing batchQC.sh script, then attempted to run it on the raw clover data.
+this is the output I got.
+
+```
+❯ ls
+RNASeq data Trifolium repens 2021
+❯ cd RNASeq\ data\ Trifolium\ repens\ 2021
+❯ ls
+MD5            MD5.txt        MD5.zip        MD5_Result.txt Readme.html    checkSize.xls  report
+❯ cd MD5
+❯ ls
+MD5-manual.pdf MD5-win.exe    raw_data
+❯ ./batchQC.sh
+zsh: no such file or directory: ./batchQC.sh
+❯ batchQC.sh
+usage: batchQC <data> <report-dir>
+❯ batchQC.sh raw_data/ output
+/Users/michaelfoster/scripts//batchQC.sh: line 10: cd: /Users/michaelfoster/sequencing/data-raw_seq/clover/RNASeq: No such file or directory
+raw_data/
+├── Junk Reads
+│   ├── MD5.txt
+│   ├── Undetermined_Undetermined_HGV5WBBXX_L3_1.fq
+│   ├── Undetermined_Undetermined_HGV5WBBXX_L3_1_fastqc
+│   │   ├── Icons
+│   │   │   ├── error.png
+│   │   │   ├── fastqc_icon.png
+│   │   │   ├── tick.png
+│   │   │   └── warning.png
+│   │   ├── Images
+│   │   │   ├── adapter_content.png
+│   │   │   ├── duplication_levels.png
+│   │   │   ├── per_base_n_content.png
+│   │   │   ├── per_base_quality.png
+│   │   │   ├── per_base_sequence_content.png
+│   │   │   ├── per_sequence_gc_content.png
+│   │   │   ├── per_sequence_quality.png
+│   │   │   ├── per_tile_quality.png
+│   │   │   └── sequence_length_distribution.png
+│   │   ├── fastqc.fo
+│   │   ├── fastqc_data.txt
+│   │   ├── fastqc_report.html
+│   │   └── summary.txt
+│   ├── Undetermined_Undetermined_HGV5WBBXX_L3_1_fastqc.html
+│   ├── Undetermined_Undetermined_HGV5WBBXX_L3_1_fastqc.zip
+│   ├── Undetermined_Undetermined_HGV5WBBXX_L3_2.fq
+│   ├── Undetermined_Undetermined_HGV5WBBXX_L3_2.fq.gz
+│   ├── Undetermined_Undetermined_HGV5WBBXX_L3_2_fastqc
+│   │   ├── Icons
+│   │   │   ├── error.png
+│   │   │   ├── fastqc_icon.png
+│   │   │   ├── tick.png
+│   │   │   └── warning.png
+│   │   ├── Images
+│   │   │   ├── adapter_content.png
+│   │   │   ├── duplication_levels.png
+│   │   │   ├── per_base_n_content.png
+│   │   │   ├── per_base_quality.png
+│   │   │   ├── per_base_sequence_content.png
+│   │   │   ├── per_sequence_gc_content.png
+│   │   │   ├── per_sequence_quality.png
+│   │   │   ├── per_tile_quality.png
+│   │   │   └── sequence_length_distribution.png
+│   │   ├── fastqc.fo
+│   │   ├── fastqc_data.txt
+│   │   ├── fastqc_report.html
+│   │   └── summary.txt
+│   ├── Undetermined_Undetermined_HGV5WBBXX_L3_2_fastqc.html
+│   ├── Undetermined_Undetermined_HGV5WBBXX_L3_2_fastqc.zip
+│   └── indexes_undetermined1_L3_1.txt
+├── Rawdata_Readme.pdf
+├── TR1
+│   ├── MD5.txt
+│   ├── TR1_CKDL210019355-1a-AK5325_HGV5WBBXX_L3_1.fq.gz
+│   ├── TR1_CKDL210019355-1a-AK5325_HGV5WBBXX_L3_1_fastqc.html
+│   ├── TR1_CKDL210019355-1a-AK5325_HGV5WBBXX_L3_1_fastqc.zip
+│   ├── TR1_CKDL210019355-1a-AK5325_HGV5WBBXX_L3_2.fq.gz
+│   ├── TR1_CKDL210019355-1a-AK5325_HGV5WBBXX_L3_2_fastqc.html
+│   └── TR1_CKDL210019355-1a-AK5325_HGV5WBBXX_L3_2_fastqc.zip
+├── TR12
+│   ├── MD5.txt
+│   ├── TR12_CKDL210019355-1a-52_HGV5WBBXX_L3_1.fq.gz
+│   └── TR12_CKDL210019355-1a-52_HGV5WBBXX_L3_2.fq.gz
+├── TR14
+│   ├── MD5.txt
+│   ├── TR14_CKDL210019355-1a-AK2788_HGV5WBBXX_L3_1.fq.gz
+│   └── TR14_CKDL210019355-1a-AK2788_HGV5WBBXX_L3_2.fq.gz
+├── TR15
+│   ├── MD5.txt
+│   ├── TR15_CKDL210019355-1a-AK1061_HGV5WBBXX_L3_1.fq.gz
+│   └── TR15_CKDL210019355-1a-AK1061_HGV5WBBXX_L3_2.fq.gz
+├── TR17
+│   ├── MD5.txt
+│   ├── TR17_CKDL210019355-1a-AK1929_HGV5WBBXX_L3_1.fq.gz
+│   └── TR17_CKDL210019355-1a-AK1929_HGV5WBBXX_L3_2.fq.gz
+├── TR18
+│   ├── MD5.txt
+│   ├── TR18_CKDL210019355-1a-AK1060_HGV5WBBXX_L3_1.fq.gz
+│   └── TR18_CKDL210019355-1a-AK1060_HGV5WBBXX_L3_2.fq.gz
+├── TR19
+│   ├── MD5.txt
+│   ├── TR19_CKDL210019355-1a-AK2185_HGV5WBBXX_L3_1.fq.gz
+│   └── TR19_CKDL210019355-1a-AK2185_HGV5WBBXX_L3_2.fq.gz
+├── TR20
+│   ├── MD5.txt
+│   ├── TR20_CKDL210019355-1a-AK8599_HGV5WBBXX_L3_1.fq.gz
+│   └── TR20_CKDL210019355-1a-AK8599_HGV5WBBXX_L3_2.fq.gz
+├── TR21
+│   ├── MD5.txt
+│   ├── TR21_CKDL210019355-1a-AK2182_HGV5WBBXX_L3_1.fq.gz
+│   └── TR21_CKDL210019355-1a-AK2182_HGV5WBBXX_L3_2.fq.gz
+├── TR23
+│   ├── MD5.txt
+│   ├── TR23_CKDL210019355-1a-AK2177_HGV5WBBXX_L3_1.fq.gz
+│   └── TR23_CKDL210019355-1a-AK2177_HGV5WBBXX_L3_2.fq.gz
+├── TR24
+│   ├── MD5.txt
+│   ├── TR24_CKDL210019355-1a-77_HGV5WBBXX_L3_1.fq.gz
+│   └── TR24_CKDL210019355-1a-77_HGV5WBBXX_L3_2.fq.gz
+├── TR25
+│   ├── MD5.txt
+│   ├── TR25_CKDL210019355-1a-AK2133_HGV5WBBXX_L3_1.fq.gz
+│   └── TR25_CKDL210019355-1a-AK2133_HGV5WBBXX_L3_2.fq.gz
+├── TR25_actual
+│   ├── MD5.txt
+│   ├── Undetermined1_CKDL210019355-1a-AK3590_HGV5WBBXX_L3_1.fq
+│   ├── Undetermined1_CKDL210019355-1a-AK3590_HGV5WBBXX_L3_1.fq.gz
+│   ├── Undetermined1_CKDL210019355-1a-AK3590_HGV5WBBXX_L3_2.fq
+│   ├── Undetermined1_CKDL210019355-1a-AK3590_HGV5WBBXX_L3_2.fq.gz
+│   └── indexID.txt
+├── TR28
+│   ├── MD5.txt
+│   ├── TR28_CKDL210019355-1a-AK5324_HGV5WBBXX_L3_1.fq.gz
+│   └── TR28_CKDL210019355-1a-AK5324_HGV5WBBXX_L3_2.fq.gz
+├── TR29
+│   ├── MD5.txt
+│   ├── TR29_CKDL210019355-1a-AK8597_HGV5WBBXX_L3_1.fq.gz
+│   └── TR29_CKDL210019355-1a-AK8597_HGV5WBBXX_L3_2.fq.gz
+├── TR30
+│   ├── MD5.txt
+│   ├── TR30_CKDL210019355-1a-AK2183_HGV5WBBXX_L3_1.fq.gz
+│   └── TR30_CKDL210019355-1a-AK2183_HGV5WBBXX_L3_2.fq.gz
+├── TR31
+│   ├── MD5.txt
+│   ├── TR31_CKDL210019355-1a-AK2181_HGV5WBBXX_L3_1.fq.gz
+│   └── TR31_CKDL210019355-1a-AK2181_HGV5WBBXX_L3_2.fq.gz
+├── TR32
+│   ├── MD5.txt
+│   ├── TR32_CKDL210019355-1a-AK2179_HGV5WBBXX_L3_1.fq.gz
+│   └── TR32_CKDL210019355-1a-AK2179_HGV5WBBXX_L3_2.fq.gz
+├── TR43
+│   ├── MD5.txt
+│   ├── TR43_CKDL210019355-1a-AK1299_HGV5WBBXX_L3_1.fq.gz
+│   └── TR43_CKDL210019355-1a-AK1299_HGV5WBBXX_L3_2.fq.gz
+├── TR48
+│   ├── MD5.txt
+│   ├── TR48_CKDL210019355-1a-AK5329_HGV5WBBXX_L3_1.fq.gz
+│   └── TR48_CKDL210019355-1a-AK5329_HGV5WBBXX_L3_2.fq.gz
+├── TR5
+│   ├── MD5.txt
+│   ├── TR5_CKDL210019355-1a-AK2748_HGV5WBBXX_L3_1.fq.gz
+│   └── TR5_CKDL210019355-1a-AK2748_HGV5WBBXX_L3_2.fq.gz
+├── TR50
+│   ├── MD5.txt
+│   ├── TR50_CKDL210019355-1a-AK1208_HGV5WBBXX_L3_1.fq.gz
+│   └── TR50_CKDL210019355-1a-AK1208_HGV5WBBXX_L3_2.fq.gz
+├── TR61
+│   ├── MD5.txt
+│   ├── TR61_CKDL210019355-1a-AK5335_HGV5WBBXX_L3_1.fq.gz
+│   └── TR61_CKDL210019355-1a-AK5335_HGV5WBBXX_L3_2.fq.gz
+├── TR62
+│   ├── MD5.txt
+│   ├── TR62_CKDL210019355-1a-AK1958_HGV5WBBXX_L3_1.fq.gz
+│   └── TR62_CKDL210019355-1a-AK1958_HGV5WBBXX_L3_2.fq.gz
+├── TR64
+│   ├── MD5.txt
+│   ├── TR64_CKDL210019355-1a-AK1189_HGV5WBBXX_L3_1.fq.gz
+│   └── TR64_CKDL210019355-1a-AK1189_HGV5WBBXX_L3_2.fq.gz
+├── TR65
+│   ├── MD5.txt
+│   ├── TR65_CKDL210019355-1a-AK2024_HGV5WBBXX_L3_1.fq.gz
+│   └── TR65_CKDL210019355-1a-AK2024_HGV5WBBXX_L3_2.fq.gz
+├── TR67
+│   ├── MD5.txt
+│   ├── TR67_CKDL210019355-1a-AK1171_HGV5WBBXX_L3_1.fq.gz
+│   └── TR67_CKDL210019355-1a-AK1171_HGV5WBBXX_L3_2.fq.gz
+├── TR68
+│   ├── MD5.txt
+│   ├── TR68_CKDL210019355-1a-AK2178_HGV5WBBXX_L3_1.fq.gz
+│   └── TR68_CKDL210019355-1a-AK2178_HGV5WBBXX_L3_2.fq.gz
+├── TR69
+│   ├── MD5.txt
+│   ├── TR69_CKDL210019355-1a-AK2325_HGV5WBBXX_L3_1.fq.gz
+│   └── TR69_CKDL210019355-1a-AK2325_HGV5WBBXX_L3_2.fq.gz
+├── TR70
+│   ├── MD5.txt
+│   ├── TR70_CKDL210019355-1a-AK1523_HGV5WBBXX_L3_1.fq.gz
+│   └── TR70_CKDL210019355-1a-AK1523_HGV5WBBXX_L3_2.fq.gz
+├── TR71
+│   ├── MD5.txt
+│   ├── TR71_CKDL210019355-1a-AK2684_HGV5WBBXX_L3_1.fq.gz
+│   └── TR71_CKDL210019355-1a-AK2684_HGV5WBBXX_L3_2.fq.gz
+├── TR72
+│   ├── MD5.txt
+│   ├── TR72_CKDL210019355-1a-AK1946_HGV5WBBXX_L3_1.fq.gz
+│   └── TR72_CKDL210019355-1a-AK1946_HGV5WBBXX_L3_2.fq.gz
+├── TR73
+│   ├── MD5.txt
+│   ├── TR73_CKDL210019355-1a-AK1525_HGV5WBBXX_L3_1.fq.gz
+│   └── TR73_CKDL210019355-1a-AK1525_HGV5WBBXX_L3_2.fq.gz
+├── TR74
+│   ├── MD5.txt
+│   ├── TR74_CKDL210019355-1a-AK2791_HGV5WBBXX_L3_1.fq.gz
+│   └── TR74_CKDL210019355-1a-AK2791_HGV5WBBXX_L3_2.fq.gz
+├── TR74b
+│   ├── MD5.txt
+│   ├── TR74b_CKDL210019355-1a-AK6548_HGV5WBBXX_L3_1.fq.gz
+│   └── TR74b_CKDL210019355-1a-AK6548_HGV5WBBXX_L3_2.fq.gz
+├── TR78
+│   ├── MD5.txt
+│   ├── TR78_CKDL210019355-1a-AK393_HGV5WBBXX_L3_1.fq.gz
+│   └── TR78_CKDL210019355-1a-AK393_HGV5WBBXX_L3_2.fq.gz
+├── TR79
+│   ├── MD5.txt
+│   ├── TR79_CKDL210019355-1a-AK2327_HGV5WBBXX_L3_1.fq.gz
+│   └── TR79_CKDL210019355-1a-AK2327_HGV5WBBXX_L3_2.fq.gz
+├── TR8
+│   ├── MD5.txt
+│   ├── TR8_CKDL210019355-1a-AK2789_HGV5WBBXX_L3_1.fq.gz
+│   └── TR8_CKDL210019355-1a-AK2789_HGV5WBBXX_L3_2.fq.gz
+├── TR80
+│   ├── MD5.txt
+│   ├── TR80_CKDL210019355-1a-AK870_HGV5WBBXX_L3_1.fq.gz
+│   └── TR80_CKDL210019355-1a-AK870_HGV5WBBXX_L3_2.fq.gz
+├── TR82
+│   ├── MD5.txt
+│   ├── TR82_CKDL210019355-1a-AK1899_HGV5WBBXX_L3_1.fq.gz
+│   └── TR82_CKDL210019355-1a-AK1899_HGV5WBBXX_L3_2.fq.gz
+├── TR83
+│   ├── MD5.txt
+│   ├── TR83_CKDL210019355-1a-AK1177_HGV5WBBXX_L3_1.fq.gz
+│   └── TR83_CKDL210019355-1a-AK1177_HGV5WBBXX_L3_2.fq.gz
+├── TR84
+│   ├── MD5.txt
+│   ├── TR84_CKDL210019355-1a-AK5219_HGV5WBBXX_L3_1.fq.gz
+│   └── TR84_CKDL210019355-1a-AK5219_HGV5WBBXX_L3_2.fq.gz
+├── TR85
+│   ├── MD5.txt
+│   ├── TR85_CKDL210019355-1a-AK2184_HGV5WBBXX_L3_1.fq.gz
+│   └── TR85_CKDL210019355-1a-AK2184_HGV5WBBXX_L3_2.fq.gz
+├── TR86
+│   ├── MD5.txt
+│   ├── TR86_CKDL210019355-1a-AK7030_HGV5WBBXX_L3_1.fq.gz
+│   └── TR86_CKDL210019355-1a-AK7030_HGV5WBBXX_L3_2.fq.gz
+├── TR86_actual
+│   ├── MD5.txt
+│   ├── Undetermined2_CKDL210019355-1a-AK1960_HGV5WBBXX_L3_1.fq
+│   ├── Undetermined2_CKDL210019355-1a-AK1960_HGV5WBBXX_L3_1.fq.gz
+│   ├── Undetermined2_CKDL210019355-1a-AK1960_HGV5WBBXX_L3_2.fq
+│   ├── Undetermined2_CKDL210019355-1a-AK1960_HGV5WBBXX_L3_2.fq.gz
+│   └── indexID.txt
+├── TR87
+│   ├── MD5.txt
+│   ├── TR87_CKDL210019355-1a-AK2180_HGV5WBBXX_L3_1.fq.gz
+│   └── TR87_CKDL210019355-1a-AK2180_HGV5WBBXX_L3_2.fq.gz
+├── TR88
+│   ├── MD5.txt
+│   ├── TR88_CKDL210019355-1a-63_HGV5WBBXX_L3_1.fq.gz
+│   └── TR88_CKDL210019355-1a-63_HGV5WBBXX_L3_2.fq.gz
+├── TR89
+│   ├── MD5.txt
+│   ├── TR89_CKDL210019355-1a-AK2328_HGV5WBBXX_L3_1.fq.gz
+│   └── TR89_CKDL210019355-1a-AK2328_HGV5WBBXX_L3_2.fq.gz
+├── TR9
+│   ├── MD5.txt
+│   ├── TR9_CKDL210019355-1a-AK1774_HGV5WBBXX_L3_1.fq.gz
+│   └── TR9_CKDL210019355-1a-AK1774_HGV5WBBXX_L3_2.fq.gz
+├── TR90
+│   ├── MD5.txt
+│   ├── TR90_CKDL210019355-1a-AK969_HGV5WBBXX_L3_1.fq.gz
+│   └── TR90_CKDL210019355-1a-AK969_HGV5WBBXX_L3_2.fq.gz
+└── TR92
+    ├── MD5.txt
+    ├── TR92_CKDL210019355-1a-AK2326_HGV5WBBXX_L3_1.fq.gz
+    └── TR92_CKDL210019355-1a-AK2326_HGV5WBBXX_L3_2.fq.gz
+
+58 directories, 207 files
+/Users/michaelfoster/scripts//batchQC.sh: line 17: ./treepeat.sh: No such file or directory
+find: *.fq.gz: No such file or directory
+/Users/michaelfoster/scripts//batchQC.sh: line 22: multiqc: command not found
+```
+okay, I'll fix this in a bit.
+
