@@ -54,3 +54,18 @@ tree -dfi --noreport $SOURCEDIR | xargs -I{} mkdir -p "../fastQC_reports/{}"
 ```
 okay lets make that into a script file and try it on a test directory.
 
+***
+okay script for directory copying works. 
+
+conveniently just discovered multiQC
+URL: https://github.com/ewels/MultiQC
+
+installed via conda
+
+```
+conda install -c bioconda multiqc
+```
+okay so it scans every directory and then produces a report detailing everything it finds. 
+Will be interesting to see how this works once I figure out how to get fastQC to spit it all together.
+Maybe nextflow pipeline once I figure it out. 
+
