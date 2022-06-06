@@ -1,0 +1,18 @@
+okay, installed via conda
+
+```
+conda install -c bioconda multiqc
+```
+
+okay, so this can combine all of the reports from fastQC.
+So..
+workflow is now.
+																				
+FastQC on each directory of raw reads -> 	   											  -------> multiqc . -> total-report.html
+																			|-> *1.1.fq -> *1.report1.html||||||/
+																			|-> *1.2.fq -> *1.report2.html|||||/
+																			|-> *2.1.fq -> *2.report1.html||||/
+																			|-> *2.2.fq -> *2.report2.html|||/
+																			|-> *3.1.fq -> *3.report1.html||/
+																			|-> *3.2.fq -> *3.report2.html|/
+																			|->  *.*.fq ->  *.report*.html/
