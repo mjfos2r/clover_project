@@ -18,3 +18,5 @@ echo "copying directory structure of $METADIR into $TARGETDIR"
 tree -dfi --noreport $SOURCEDIR | xargs -I{} mkdir -p "$TARGETDIR/{}"
 echo "treePeat done!"
 tree -df $TARGETDIR
+#then run quickQC
+#then run multiQC
