@@ -6,8 +6,13 @@ then
 fi 
 #set var to current directory so subshell doesn't mess up.
 WORKDIR=$PWD
-#subshell change to workdir
-cd $WORKDIR
+
+#*
+# this broke the script
+# subshell change to workdir
+#cd $WORKDIR
+#*
+
 #lets set some variables
 DATADIR=$1
 REPORTDIR=$2
