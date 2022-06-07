@@ -40,8 +40,11 @@ echo "looking for .fq.gz files in $DATADIR and outputting the fastQC report into
 # 32 threads works nice on my 10 core MBP
 # will attempt again with 60-64 threads
 # 32 threads = 11 minutes for the clover data
-# 64 threads = ??
-find -d -s $DATADIR -name \*.fq.gz -print | xargs fastQC --threads 64 --outdir $REPORTDIR/$DATADIR/ 
+# 64 threads = much slower/doesn't work
+# what about 48 threads?
+# 48 threads = 20 minutes.
+# definitely keep it at 32 threads
+find -d -s $DATADIR -name \*.fq.gz -print | xargs fastQC --threads 32 --outdir $REPORTDIR/$DATADIR/ 
 #okay lets try multiQC now
 echo "running multiQC on reports in $REPORTDIR"
 multiqc $REPORTDIR
