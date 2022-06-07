@@ -1,0 +1,3 @@
+[submodule "multiqc/MultiQC"]
+	path = multiqc/MultiQC
+	url = https://github.com/ewels/MultiQC
