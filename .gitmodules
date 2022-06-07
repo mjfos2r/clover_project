@@ -4,3 +4,18 @@
 [submodule "fastqc/FastQC"]
 	path = fastqc/FastQC
 	url = https://github.com/s-andrews/FastQC
+[submodule "minimap2/minimap2"]
+	path = minimap2/minimap2
+	url = https://github.com/lh3/minimap2
+[submodule "deseq2/DESeq2"]
+	path = deseq2/DESeq2
+	url = https://github.com/mikelove/DESeq2
+[submodule "salmon/salmon"]
+	path = salmon/salmon
+	url = https://github.com/COMBINE-lab/salmon
+[submodule "trimmomatic/trimmomatic"]
+	path = trimmomatic/trimmomatic
+	url = https://github.com/timflutre/trimmomatic
+[submodule "trinity/trinityrnaseq"]
+	path = trinity/trinityrnaseq
+	url = https://github.com/trinityrnaseq/trinityrnaseq
