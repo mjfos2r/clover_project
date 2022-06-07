@@ -43,8 +43,5 @@ echo "looking for .fq.gz files in $DATADIR and outputting the fastQC report into
 # 64 threads = ??
 find -d -s $DATADIR -name \*.fq.gz -print | xargs fastQC --threads 64 --outdir $REPORTDIR/$DATADIR/ 
 #okay lets try multiQC now
-#dont forget to conda up.
-echo "activating conda base environment to use multiqc"
-conda activate base
 echo "running multiQC on reports in $REPORTDIR"
 multiqc $REPORTDIR
