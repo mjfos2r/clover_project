@@ -19,7 +19,7 @@ REPORTDIR=$2
 #list a tree for the data directory
 tree $DATADIR
 #run treepeat.sh
-./treepeat.sh $DATADIR $REPORTDIR
+treepeat.sh $DATADIR $REPORTDIR
 #run fastQC and output reports to the reportdirs.
 #if this works first time I'll buy a lotto ticket
 find *.fq.gz | xargs fastQC --outdir $REPORTDIR 
