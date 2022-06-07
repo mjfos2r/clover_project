@@ -1,3 +1,6 @@
 [submodule "multiqc/MultiQC"]
 	path = multiqc/MultiQC
 	url = https://github.com/ewels/MultiQC
+[submodule "fastqc/FastQC"]
+	path = fastqc/FastQC
+	url = https://github.com/s-andrews/FastQC
