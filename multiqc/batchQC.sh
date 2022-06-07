@@ -37,9 +37,11 @@ echo "looking for .fq.gz files in $DATADIR and outputting the fastQC report into
 # # AWK is probably a better choice
 # # no clue how I'm gonna do that yet though, will be doing the tutorial on the stack exchange site though.
 ############################################################################################
-# 32 threads is perfect for my mbp. it pins all 10 cpu cores at 95+% and has 60-70% memutil.
-# 60-64 threads doesn't work as well
-find -d -s $DATADIR -name \*.fq.gz -print | xargs fastQC --threads 32 --outdir $REPORTDIR/$DATADIR/ 
+# 32 threads works nice on my 10 core MBP
+# will attempt again with 60-64 threads
+# 32 threads = 11 minutes for the clover data
+# 64 threads = ??
+find -d -s $DATADIR -name \*.fq.gz -print | xargs fastQC --threads 64 --outdir $REPORTDIR/$DATADIR/ 
 #okay lets try multiQC now
 #dont forget to conda up.
 echo "activating conda base environment to use multiqc"
