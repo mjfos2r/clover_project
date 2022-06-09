@@ -290,3 +290,8 @@ find: *.fq.gz: No such file or directory
 ```
 okay, I'll fix this in a bit.
 
+update: 6/9/22
+It was due to not specifying a directory to search in for the find command.
+I still can't figure out how to make it stick the reports into the directories copied from treepeat.sh
+oh well. 
+It works now and in ~10-12 minutes. 
