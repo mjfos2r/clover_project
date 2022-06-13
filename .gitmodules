@@ -19,3 +19,6 @@
 [submodule "trinity/trinityrnaseq"]
 	path = trinity/trinityrnaseq
 	url = https://github.com/trinityrnaseq/trinityrnaseq
+[submodule "picard"]
+	path = picard
+	url = https://github.com/broadinstitute/picard
