@@ -56,3 +56,4 @@ trimmomatic/Trimmomatic-0.39/adapters/TruSeq3-PE.fa
 trimmomatic/Trimmomatic-0.39/adapters/TruSeq3-SE.fa
 gffread
 gffread
+gffread
