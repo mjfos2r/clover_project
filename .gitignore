@@ -42,3 +42,17 @@ vignettes/*.pdf
 
 #ignore all of the raw illumina data, please no.
 *.fq.gz
+#ignore these files specifically
+refseq/transcript-ref/TrR.v5.updated.gff
+refseq/transcript-ref/backup_of_TRv5_transcript.gtf.bu
+refseq/transcript-ref/TrR.v5.renamed_reformated-1.gtf
+trimmomatic/Trimmomatic-0.39/LICENSE
+trimmomatic/Trimmomatic-0.39/trimmomatic-0.39.jar
+trimmomatic/Trimmomatic-0.39/adapters/NexteraPE-PE.fa
+trimmomatic/Trimmomatic-0.39/adapters/TruSeq2-PE.fa
+trimmomatic/Trimmomatic-0.39/adapters/TruSeq2-SE.fa
+trimmomatic/Trimmomatic-0.39/adapters/TruSeq3-PE-2.fa
+trimmomatic/Trimmomatic-0.39/adapters/TruSeq3-PE.fa
+trimmomatic/Trimmomatic-0.39/adapters/TruSeq3-SE.fa
+gffread
+gffread
