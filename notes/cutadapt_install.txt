@@ -1,0 +1,184 @@
+using
+https://cutadapt.readthedocs.io/en/stable/installation.html
+as instructions.
+
+okay so it's gotta be run through either pip or conda.
+
+lets try conda.
+
+Okay, no ARM64 package, gotta use the rosetta conda install.
+
+
+```
+❯ rosettaenv
+alright lets activate source to miniconda3 so this script works
+now to activate base x86_64 env
+should be in rosetta!
+
+     active environment : rosetta
+    active env location : /Users/michaelfoster/opt/miniconda3/envs/rosetta
+            shell level : 1
+       user config file : /Users/michaelfoster/.condarc
+ populated config files : /Users/michaelfoster/.condarc
+          conda version : 4.12.0
+    conda-build version : 3.21.8
+         python version : 3.9.7.final.0
+       virtual packages : __osx=10.16=0
+                          __unix=0=0
+                          __archspec=1=x86_64
+       base environment : /Users/michaelfoster/opt/miniconda3  (writable)
+      conda av data dir : /Users/michaelfoster/opt/miniconda3/etc/conda
+  conda av metadata url : None
+           channel URLs : https://conda.anaconda.org/conda-forge/osx-64
+                          https://conda.anaconda.org/conda-forge/noarch
+          package cache : /Users/michaelfoster/opt/miniconda3/pkgs
+                          /Users/michaelfoster/.conda/pkgs
+       envs directories : /Users/michaelfoster/opt/miniconda3/envs
+                          /Users/michaelfoster/.conda/envs
+               platform : osx-64
+             user-agent : conda/4.12.0 requests/2.27.1 CPython/3.9.7 Darwin/21.5.0 OSX/10.16
+                UID:GID : 501:20
+             netrc file : None
+           offline mode : False
+
+make sure it's the correct platform! should be Platform: osx-64 and NOT Platform: osx-arm64.
+```
+
+okay so we're in a rosetta conda env, lets try again.
+
+```
+❯ conda create -n cutadaptenv -c bioconda -c conda-forge cutadapt
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /Users/michaelfoster/opt/miniconda3/envs/cutadaptenv
+
+  added / updated specs:
+    - cutadapt
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    ca-certificates-2022.5.18.1|       h033912b_0         145 KB  conda-forge
+    cutadapt-4.1               |   py39h7222f55_0         198 KB  bioconda
+    dnaio-0.9.0                |   py39h7222f55_0          75 KB  bioconda
+    libzlib-1.2.12             |       h6c3fc93_0          62 KB  conda-forge
+    ncurses-6.3                |       h96cf925_1         915 KB  conda-forge
+    openssl-3.0.3              |       hfe4f2af_0         2.5 MB  conda-forge
+    pip-22.1.2                 |     pyhd8ed1ab_0         1.5 MB  conda-forge
+    python-3.9.13              |hf8d34f4_0_cpython        12.8 MB  conda-forge
+    python-isal-0.11.1         |   py39h89e85a6_1         117 KB  conda-forge
+    python_abi-3.9             |           2_cp39           4 KB  conda-forge
+    readline-8.1.2             |       h3899abd_0         266 KB  conda-forge
+    setuptools-62.3.4          |   py39h6e9494a_0         1.3 MB  conda-forge
+    sqlite-3.38.5              |       hd9f0692_0         1.7 MB  conda-forge
+    tzdata-2022a               |       h191b570_0         121 KB  conda-forge
+    xopen-1.5.0                |   py39h6e9494a_0          25 KB  conda-forge
+    zlib-1.2.12                |       h6c3fc93_0          91 KB  conda-forge
+    ------------------------------------------------------------
+                                           Total:        21.9 MB
+
+The following NEW packages will be INSTALLED:
+
+  bzip2              conda-forge/osx-64::bzip2-1.0.8-h0d85af4_4
+  ca-certificates    conda-forge/osx-64::ca-certificates-2022.5.18.1-h033912b_0
+  cutadapt           bioconda/osx-64::cutadapt-4.1-py39h7222f55_0
+  dnaio              bioconda/osx-64::dnaio-0.9.0-py39h7222f55_0
+  isa-l              conda-forge/osx-64::isa-l-2.30.0-h0d85af4_4
+  libffi             conda-forge/osx-64::libffi-3.4.2-h0d85af4_5
+  libzlib            conda-forge/osx-64::libzlib-1.2.12-h6c3fc93_0
+  ncurses            conda-forge/osx-64::ncurses-6.3-h96cf925_1
+  openssl            conda-forge/osx-64::openssl-3.0.3-hfe4f2af_0
+  pbzip2             conda-forge/osx-64::pbzip2-1.1.13-h9d27c22_1
+  pigz               conda-forge/osx-64::pigz-2.6-h5dbffcc_0
+  pip                conda-forge/noarch::pip-22.1.2-pyhd8ed1ab_0
+  python             conda-forge/osx-64::python-3.9.13-hf8d34f4_0_cpython
+  python-isal        conda-forge/osx-64::python-isal-0.11.1-py39h89e85a6_1
+  python_abi         conda-forge/osx-64::python_abi-3.9-2_cp39
+  readline           conda-forge/osx-64::readline-8.1.2-h3899abd_0
+  setuptools         conda-forge/osx-64::setuptools-62.3.4-py39h6e9494a_0
+  sqlite             conda-forge/osx-64::sqlite-3.38.5-hd9f0692_0
+  tk                 conda-forge/osx-64::tk-8.6.12-h5dbffcc_0
+  tzdata             conda-forge/noarch::tzdata-2022a-h191b570_0
+  wheel              conda-forge/noarch::wheel-0.37.1-pyhd8ed1ab_0
+  xopen              conda-forge/osx-64::xopen-1.5.0-py39h6e9494a_0
+  xz                 conda-forge/osx-64::xz-5.2.5-haf1e3a3_1
+  zlib               conda-forge/osx-64::zlib-1.2.12-h6c3fc93_0
+
+
+Proceed ([y]/n)? y
+
+
+Downloading and Extracting Packages
+python-3.9.13        | 12.8 MB   | ############################################################### | 100%
+python_abi-3.9       | 4 KB      | ############################################################### | 100%
+python-isal-0.11.1   | 117 KB    | ############################################################### | 100%
+libzlib-1.2.12       | 62 KB     | ############################################################### | 100%
+tzdata-2022a         | 121 KB    | ############################################################### | 100%
+readline-8.1.2       | 266 KB    | ############################################################### | 100%
+xopen-1.5.0          | 25 KB     | ############################################################### | 100%
+dnaio-0.9.0          | 75 KB     | ############################################################### | 100%
+pip-22.1.2           | 1.5 MB    | ############################################################### | 100%
+setuptools-62.3.4    | 1.3 MB    | ############################################################### | 100%
+ca-certificates-2022 | 145 KB    | ############################################################### | 100%
+cutadapt-4.1         | 198 KB    | ############################################################### | 100%
+zlib-1.2.12          | 91 KB     | ############################################################### | 100%
+ncurses-6.3          | 915 KB    | ############################################################### | 100%
+sqlite-3.38.5        | 1.7 MB    | ############################################################### | 100%
+openssl-3.0.3        | 2.5 MB    | ############################################################### | 100%
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate cutadaptenv
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+```
+okay that worked. lets check the version after activating the environment.
+
+```
+❯ conda activate cutadaptenv
+❯ cutadapt --version
+4.1
+```
+okay cool, that works now.
+***
+per instructions basic usage is 
+cutadapt -a <adapter> -o <output.fq> <input.fq>
+and output/input can both be gzipped.
+input and output can be fasta or fastq
+
+if no output is specified it dumps the output into STDOUT
+example given:
+cutadapt -a <adapter> input.fastq > output.fastq
+
+okay and apparently it's also sent to standard error stream and not standard output?
+example given:
+cutadapt -a <adapter> input.fq > output.fq 2> report.txt
+
+"wherever cutadapt expects a file name, you acn also write a dash in order to specify that standard input or output should be used. for example:"
+example given:
+tail -n 4 input.fq | cutadapt -a <adapter> - > output.fq
+
+tail prints out the last four lines of input.fq which get piped into cutadapt 
+
+per docs: 
+only use this one for an input file and once for an output file or else itll get mangled and crossed up
+can't use - with gzip. must use -o with gzip
+
+***
+
+Multi core support.
+
+can use -j <cores> or --cores=n
+use -j 0 or --cores=0 to autodetect available cores.
+
+
