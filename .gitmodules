@@ -31,3 +31,6 @@
 [submodule "gclib"]
 	path = gclib
 	url = https://github.com/gpertea/gclib
+[submodule "cutadapt"]
+	path = cutadapt
+	url = https://github.com/marcelm/cutadapt
