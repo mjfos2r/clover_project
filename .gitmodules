@@ -22,3 +22,12 @@
 [submodule "picard"]
 	path = picard
 	url = https://github.com/broadinstitute/picard
+[submodule "gffread"]
+	path = gffread
+	url = https://github.com/gpertea/gffread
+[submodule "BBMap"]
+	path = BBMap
+	url = https://github.com/BioInfoTools/BBMap
+[submodule "gclib"]
+	path = gclib
+	url = https://github.com/gpertea/gclib
