@@ -34,3 +34,9 @@
 [submodule "cutadapt"]
 	path = cutadapt
 	url = https://github.com/marcelm/cutadapt
+[submodule "FastQC"]
+	path = FastQC
+	url = https://github.com/s-andrews/FastQC/tree/c1c238a5c3b9a6defa2326e03d68689e4f561257
+[submodule "DESeq2"]
+	path = DESeq2
+	url = https://github.com/mikelove/DESeq2/tree/f722b14ad9793f88e06be0d56d8adf8f1a6e1b53
