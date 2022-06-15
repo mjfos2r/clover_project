@@ -1,1 +1,0 @@
-../../../../../../README_assembly_structure.txt
