@@ -216,8 +216,86 @@ gffread -E TrR.v5.renamed_reformated-1.gtf -o- | less
 update: it appeared to discard every single mRNA record.
 HMM.
 
-anyways lets index the reference fasta
-
 ```
-
+❯ gffread -E TrR.v5.renamed_reformated-1.gtf -o-
+Command line was:
+gffread -E TrR.v5.renamed_reformated-1.gtf -o-
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg1.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg1.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg4.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg4.t1_cds1)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg4.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg5.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg5.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg6.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg6.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg7.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg7.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg10.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg10.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg11.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg11.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg12.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg12.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg13.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg13.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg14.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg14.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg16.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg16.t1_cds8)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg16.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg17.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg17.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg18.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg18.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg20.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg20.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg21.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg21.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg22.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg22.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg22.t2_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg22.t2_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg23.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg23.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg24.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg24.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg25.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg25.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg26.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg26.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg26.t2_start)
 ```
+and so on and so forth for tens of thousands of lines......
+until it finally says:
+```
+Warning: discarding suspicious 'mRNA' record (ID=CM019116.1.jg6539.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019116.1.jg6539.t1_start)
+   .. loaded 425636 genomic features from TrR.v5.renamed_reformated-1.gtf
+##gff-version 3
+# gffread v0.12.7
+# gffread -E TrR.v5.renamed_reformated-1.gtf -o-
+```
+and then begins spitting out this
+```
+CM019101.1	AUGUSTUS	mRNA	16938	17612	1	+	.	ID=CM019101.1.jg1.t1_cds1
+CM019101.1	AUGUSTUS	CDS	16938	17612	1	+	0	Parent=CM019101.1.jg1.t1_cds1
+CM019101.1	AUGUSTUS	transcript	16938	20890	.	+	.	ID=CM019101.1.jg1.t1
+CM019101.1	AUGUSTUS	exon	16938	20890	.	+	.	Parent=CM019101.1.jg1.t1
+CM019101.1	AUGUSTUS	mRNA	19311	19566	1	+	.	ID=CM019101.1.jg1.t1_cds2
+CM019101.1	AUGUSTUS	CDS	19311	19566	1	+	0	Parent=CM019101.1.jg1.t1_cds2
+CM019101.1	AUGUSTUS	mRNA	20064	20890	1	+	.	ID=CM019101.1.jg1.t1_cds3
+CM019101.1	AUGUSTUS	CDS	20064	20890	1	+	2	Parent=CM019101.1.jg1.t1_cds3
+CM019101.1	AUGUSTUS	transcript	37821	41012	.	+	.	ID=CM019101.1.jg4.t1
+CM019101.1	AUGUSTUS	exon	37821	41012	.	+	.	Parent=CM019101.1.jg4.t1
+CM019101.1	AUGUSTUS	mRNA	37922	38031	1	+	.	ID=CM019101.1.jg4.t1_cds2
+CM019101.1	AUGUSTUS	CDS	37922	38031	1	+	0	Parent=CM019101.1.jg4.t1_cds2
+CM019101.1	AUGUSTUS	mRNA	38973	39030	1	+	.	ID=CM019101.1.jg4.t1_cds3
+CM019101.1	AUGUSTUS	CDS	38973	39030	1	+	1	Parent=CM019101.1.jg4.t1_c
+```
+No clue why ..shrug...
+is it broken?
+is it working properly?
+is it rejecting all of the CDS places in the original gtf file? no clue. the downstream analysis with salmon didn't work, refer to first volley notes. 
+need help.
+
