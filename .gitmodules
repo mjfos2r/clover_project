@@ -40,3 +40,9 @@
 [submodule "DESeq2"]
 	path = DESeq2
 	url = https://github.com/mikelove/DESeq2/tree/f722b14ad9793f88e06be0d56d8adf8f1a6e1b53
+[submodule "bedtools2"]
+	path = bedtools2
+	url = https://github.com/arq5x/bedtools2
+[submodule "samtools"]
+	path = samtools
+	url = https://github.com/samtools/samtools
