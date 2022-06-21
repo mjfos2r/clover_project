@@ -60,13 +60,13 @@ trimmomatic/Trimmomatic-0.39/adapters/TruSeq3-SE.fa
 gffread/gffread
 
 #actually lets ignore all guaranteed big files..
-.fa
-.fasta
-.fq
-.fastq
-.bed
-.bam
-.sam
-.gtf
-.gff
-.fna
+*.fa
+*.fasta
+*.fq
+*.fastq
+*.bed
+*.bam
+*.sam
+*.gtf
+*.gff
+*.fna
