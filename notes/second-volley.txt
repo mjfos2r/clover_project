@@ -1562,4 +1562,42 @@ cmd_info.json          lib_format_counts.json quant.sf
 ❯ cat quant.sf| wc -l
   362708
 ```
+lets visualize it now
+<https://hackmd.io/@NFpEogXySTuWExLvDQQHig/SkwWM4WHv>
+
+okay lets look at percent mapped:
+using the command provided:
+```
+for infile in *_quant/aux_info/meta_info.json
+do
+echo ${infile}
+grep "percent_mapped" ${infile}
+done
+```
+okay that's not much use right now, I can just grep the meta_info.json file.
+
+```
+❯ cd transcripts_quant_raw_TR25
+❯ ls
+aux_info               libParams              logs
+cmd_info.json          lib_format_counts.json quant.sf
+❯ cd aux_info
+❯ ls
+ambig_info.tsv      fld.gz              observed_bias.gz
+expected_bias.gz    meta_info.json      observed_bias_3p.gz
+❯ cat meta_info.json| grep "percent_mapped"
+    "percent_mapped": 28.01703756889414,
+.....
+❯ cd trimmed_TR25
+❯ cd transcripts_quant_TR25
+❯ cd aux_info
+❯ cat meta_info.json| grep "percent_mapped"
+    "percent_mapped": 50.470241873659109,
+```
+okay so trimming increases percentage of mapped transcripts.
+good to know.
+
+
+okay, installing deseq is a pain. I had it in R-Studio but it is not cooperating in VScode...
+installing the intel version for rosetta emulation...
 
