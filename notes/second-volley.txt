@@ -1,0 +1,378 @@
+okay lets use bedtools to extract the transcript file from the gtf file.
+
+using bedtools getfasta:
+as documented at <https://bedtools.readthedocs.io/en/latest/content/tools/getfasta.html?highlight=get%20fasta>
+
+example command:
+```
+$ getFastaFromBed [OPTIONS] -fi <input FASTA> -bed <BED/GFF/VCF> -fo transcripts.fa
+```
+lets try it. 
+
+```
+ bedtools getfasta -fi /Users/michaelfoster/sequencing/data-raw_seq/reference_Genomes/trifolium_repens/ncbi-genomes-2022-06-15/GCA_005869975.1_AgR_To_v5_genomic.fna -bed TrR.v5.renamed_reformated-1.gtf -fo transcript-attempt.fa 
+```
+it completed without any terminal output, did create transcript=attempt.fa
+lets look at it.
+```
+❯ ls
+TrR.v5.gtf2bam.bam              TrR.v5.renamed_reformated-1.gtf transcript-attempt.fa
+❯ head transcript-attempt.fa
+>CM019101.1:16937-20890
+ATGGGTTTGATATGGTGGATTTTAGGCATAATTCACATACTTCCACTATTCATAGATTCAATCTATAGCCTAACCCCACAATCACCAATCCAATGCAACCAAACAATCTGCACCTTAAAAAACTCATATGGAACATGGAACGACCGCAAAAACTGTTATGCAATCAATGTAACATACCCAACAACAGAAGAACAACTTCGTTTAGCAGTTTCCTATGTTGTTCAAAACAACCTTAAAGCCAAAATTGTCACAAAATTCTCACACACAATCCCAACACTTTCATGTCCacagcaaaaaaataaaaataatgcctTTTTTATTAGCACAGAAAAATATGATTCTGAGATTCAAATTGATGCTACCAATTTGGCTGTAACTGTTGATTCAGGTGTGAAACTTCGTCAATTGATTGATGAAGTTGAAAAAAATGGGTTTAGTTTGGTGGCTGCACCTTATTGGGAAGGTGTTACAATTGGGGGTGTAATTAGCACTGGTGCACATGGTAGTTCTTGGTGGGGTAAAGGTGGTGCTTTTCATGATTATGTTTTAGGGATTAATATTGTTGTTCCTGGTTCTAAATCTGAAGGGTATgctaaaattttgaagttggatGCACATCATCCTTTCTTTAATGCTGCCAAAGTTTCTCTTGGAGTTTTGGGTGCCATCTCCAAggtaaagtttgttttttatatcatttcaatttttctcttttaattagtattttaccctatgtactttttttttttcccttccgTAAATCAGATATCCCCTGCGCATAATATTAGAGAATACTCCCGAAACCTTTTGAGATGCAAATACATGACAGATTGACAgactatttctaaattttttaattactatacTTTGAGTATGATTATTGTCGGAATaaggaaataatatatatactattattagaataattaataatgagtatacattgcttaaaaaaatagtgagtATATATTGTTTCCTTATTCTAACGGTTATTAATAGTAGTATGGTAAGTATTTTGATAAGATGACTAAATTgattgttaaaaaagaaaaaaagactaatctatactaatatataaaggggatacaaatttttgggatgaNNNNNNNNNNctatatctaattttttaaattactataCTTTATAGGCACTAATATGTACTATTTGTTacatgaatgaatataaaagaaaatgctaaccAATGTTTTtgaaatactaatattttttaaaacacaattttttgatatactaattaaaaaatttatacattttaaaaaataaactatacattttatacattataaaaaaagattattctttatacattttaaaaaataaactatacaaatttgtatagtttattttttaaaatgtataaagaataatcttttcaatttaaaattattttttattttaattggtttcCTTAATTAGTAGGTCAAGGACATGAGACTAGTTAGGATGACCTAACAATACATGAGATTTGATACAATCATATCATTACAATCACATAGTATTCATTATTAACCCAATATAGGAtccaaaaaataactaaatgtacTACGTACTAGTGtctaagaaaaaataaaaaaaacaatttgagtATGGTTATTCTCGGAATaaggaaataatatatatactattattagAATAATTAATANNNNNNNNNNATTgattgttaaaaaagaaaaaaaactaatatatactaatatataaagaggatgtaaatttttgggatgaattttttattatttctattttaccctttaaaaaaaactacaaaaaaaaactaagcacaacttccacataaaaNttgacttatgtaccatgcataaggattactcttatgcataataacttcaccCGGTGGCGGCTagtgtataaataaatagtactccagatttttttttaaattatatgatttttgttaagTTAAAATGTTTAACATATAAATGGATAtctaaattactttttagtcttagtcaaaagaaaaacaattactGAGTCATTAAGTATATCACTTAACATGgttctatttgtttttcaaaacttCCACTAGTTTCTTGATTTATTTAAGCTAACATATAGCTTATGAgttcaaaatgaaacaaaaaaatcttaaaacatCAAAgcaaaatcttaaaatataattgtgtatttttttagcCGTCTGAATTTTAGGGAAGGAATTATATTATTCATAGTTCTTACGAGAGATAAGTAATAAAATCCTAAATAATATTGTTCTATTCAAACTCATGCTCTCTAATACAATTTCTACTCAATAACTACTTGAGTTCAACTCATGTTCTAAGTAACCATATACTCTATAtatattgtttcaaattttcataaattacattGTTAAACTTACAGGTAAAGTTATCTCTTGAGCATAGGTTCAAAAGAAGCATAACATTCAATTTCACCGATGATACTGATATTGAAAATGTGTACATAGAACATGCAAAGAAGTATGAATTTGCAGATATAACTTGGTATCCATCAAGACATACAGCTGTTTACAGATATGATTTCAGGGTTCCCTTAGATACCTCTGGTGATGGAGTCTATGATTTCATTGGGTTTCAAGCCAATAACATCTTAATCTCTGAGTCAGTTAGAGCAGCAGGtaaataattatcttttactcTTCTTAAATCATTgtcatattgtttttaaaaagaaataaccATATAAAGACGACGTTTTAAATTGCGTTTGTAGTCGCGGTTTCTATCATGGTTTTTGATATCATGGGAAATTTTAGACATGTGGTTGATACAAGTCATACACGACCACAATTATGATTGCATTTATGATTTTAGCTGTAGTTTGCAACCACATCGCAACTGCAATGATGGCCACATTCTCTTCAATGTGGTTTTCGGTCtctttattttgtaacatttacGATTTTGAATTaatcatttctttaaatagaatgctTAAGAGTGTCCTGAGGGCACTATTTAGCAAGACCCTGTTTTAAAAATCGTAAATGCAGCAAAATAGAGGGATCAAAGTTACAATTTAAGCCATGTTTATCTGCGAtgtttataatatcaaatgttGATACCAATtacaattgcaatttaaaacttataatatataaacattgTCATGCAGAGAAATTGCTAGAAAACATAGGAAACACAAATGGAAAATGTTTAACAGCATCTACTACATTGGCATTCAAGAAATTAACAGCCAATGGTTTAAAGAACAATGGCTTAATCTTCACTGGCTACCCTGTAATTGGTTACCAAGGAAAATTACAAACTTCAGGTTCATGCTTATATTCATCAAAAATAGACACATCATGTGCTTGGGATCCAAGAATCAAAGGATTGTTCTTCTATGAATCAACAGCAATTTTCCCTGCTTCAAAATTTGGAAACTTCATTCAAGATGTTAAAAAACTAAGAGATATAAATCCACAAAATTTTTGTGGTATAGATAACTATAATGGAATTATGATACGTTACATTAAAGCCTCAGAAGCATATCTAGGACAATCAGAAGATTCTATAGTGAttgatttcaattattatagAGCAAATGACCAATTTACCCCTAGATTAAATCAAGATGTGTGGGAGGAATTGGAACAAATAGCATTTTTCAAGTATGGTGCAAAGCCACATTGGGCTAAGAATAGGAACTTAGCATttttaaatgtgaaaaataaatatcctaagtttaatgtttttattgatgctaaaaataaaatggatccACAAAATGTGTTTTCTGGTGATTGGTCAGATGAGATTTTGTATGGTAAGGAATTGGTAAAATTTGATGGTTGTGCTTTGGAAGGACAATGTATTTGTTCTGAAGATAGACATTGTAGTCCACAAAAAGGGTATTATTGTAATCATGGTCTTGTCTACAAGGATGCTAGAGTTTGTAGGAATTTGTCAACTTTTCTGAACACTGATTCACTCCAATGA
+>CM019101.1:16937-16940
+ATG
+>CM019101.1:16937-17612
+ATGGGTTTGATATGGTGGATTTTAGGCATAATTCACATACTTCCACTATTCATAGATTCAATCTATAGCCTAACCCCACAATCACCAATCCAATGCAACCAAACAATCTGCACCTTAAAAAACTCATATGGAACATGGAACGACCGCAAAAACTGTTATGCAATCAATGTAACATACCCAACAACAGAAGAACAACTTCGTTTAGCAGTTTCCTATGTTGTTCAAAACAACCTTAAAGCCAAAATTGTCACAAAATTCTCACACACAATCCCAACACTTTCATGTCCacagcaaaaaaataaaaataatgcctTTTTTATTAGCACAGAAAAATATGATTCTGAGATTCAAATTGATGCTACCAATTTGGCTGTAACTGTTGATTCAGGTGTGAAACTTCGTCAATTGATTGATGAAGTTGAAAAAAATGGGTTTAGTTTGGTGGCTGCACCTTATTGGGAAGGTGTTACAATTGGGGGTGTAATTAGCACTGGTGCACATGGTAGTTCTTGGTGGGGTAAAGGTGGTGCTTTTCATGATTATGTTTTAGGGATTAATATTGTTGTTCCTGGTTCTAAATCTGAAGGGTATgctaaaattttgaagttggatGCACATCATCCTTTCTTTAATGCTGCCAAAGTTTCTCTTGGAGTTTTGGGTGCCATCTCCAAg
+>CM019101.1:19310-19566
+GTAAAGTTATCTCTTGAGCATAGGTTCAAAAGAAGCATAACATTCAATTTCACCGATGATACTGATATTGAAAATGTGTACATAGAACATGCAAAGAAGTATGAATTTGCAGATATAACTTGGTATCCATCAAGACATACAGCTGTTTACAGATATGATTTCAGGGTTCCCTTAGATACCTCTGGTGATGGAGTCTATGATTTCATTGGGTTTCAAGCCAATAACATCTTAATCTCTGAGTCAGTTAGAGCAGCAG
+>CM019101.1:20063-20890
+AGAAATTGCTAGAAAACATAGGAAACACAAATGGAAAATGTTTAACAGCATCTACTACATTGGCATTCAAGAAATTAACAGCCAATGGTTTAAAGAACAATGGCTTAATCTTCACTGGCTACCCTGTAATTGGTTACCAAGGAAAATTACAAACTTCAGGTTCATGCTTATATTCATCAAAAATAGACACATCATGTGCTTGGGATCCAAGAATCAAAGGATTGTTCTTCTATGAATCAACAGCAATTTTCCCTGCTTCAAAATTTGGAAACTTCATTCAAGATGTTAAAAAACTAAGAGATATAAATCCACAAAATTTTTGTGGTATAGATAACTATAATGGAATTATGATACGTTACATTAAAGCCTCAGAAGCATATCTAGGACAATCAGAAGATTCTATAGTGAttgatttcaattattatagAGCAAATGACCAATTTACCCCTAGATTAAATCAAGATGTGTGGGAGGAATTGGAACAAATAGCATTTTTCAAGTATGGTGCAAAGCCACATTGGGCTAAGAATAGGAACTTAGCATttttaaatgtgaaaaataaatatcctaagtttaatgtttttattgatgctaaaaataaaatggatccACAAAATGTGTTTTCTGGTGATTGGTCAGATGAGATTTTGTATGGTAAGGAATTGGTAAAATTTGATGGTTGTGCTTTGGAAGGACAATGTATTTGTTCTGAAGATAGACATTGTAGTCCACAAAAAGGGTATTATTGTAATCATGGTCTTGTCTACAAGGATGCTAGAGTTTGTAGGAATTTGTCAACTTTTCTGAACACTGATTCACTCCAATGA
+```
+okay lets hope that works well enough for salmon.
+
+so.
+lets do the next bit now that we have transcripts.fa for the salmon part.
+
+following from https://combine-lab.github.io/alevin-tutorial/2019/selective-alignment/
+
+first lets activate the rosetta x86 version of conda with the salmonx86 environment 
+```
+❯ rosettaenv
+alright lets activate source to miniconda3 so this script works
+now to activate base x86_64 env
+should be in rosetta!
+
+     active environment : rosetta
+    active env location : /Users/michaelfoster/opt/miniconda3/envs/rosetta
+            shell level : 1
+       user config file : /Users/michaelfoster/.condarc
+ populated config files : /Users/michaelfoster/.condarc
+          conda version : 4.12.0
+    conda-build version : 3.21.8
+         python version : 3.9.7.final.0
+       virtual packages : __osx=10.16=0
+                          __unix=0=0
+                          __archspec=1=x86_64
+       base environment : /Users/michaelfoster/opt/miniconda3  (writable)
+      conda av data dir : /Users/michaelfoster/opt/miniconda3/etc/conda
+  conda av metadata url : None
+           channel URLs : https://conda.anaconda.org/conda-forge/osx-64
+                          https://conda.anaconda.org/conda-forge/noarch
+          package cache : /Users/michaelfoster/opt/miniconda3/pkgs
+                          /Users/michaelfoster/.conda/pkgs
+       envs directories : /Users/michaelfoster/opt/miniconda3/envs
+                          /Users/michaelfoster/.conda/envs
+               platform : osx-64
+             user-agent : conda/4.12.0 requests/2.27.1 CPython/3.9.7 Darwin/21.5.0 OSX/10.16
+                UID:GID : 501:20
+             netrc file : None
+           offline mode : False
+
+make sure it's the correct platform! should be Platform: osx-64 and NOT Platform: osx-arm64.
+❯ conda activate salmonx86
+❯ salmon
+salmon v1.8.0
+
+Usage:  salmon -h|--help or 
+        salmon -v|--version or 
+        salmon -c|--cite or 
+        salmon [--no-version-check] <COMMAND> [-h | options]
+
+Commands:
+     index      : create a salmon index
+     quant      : quantify a sample
+     alevin     : single cell analysis
+     swim       : perform super-secret operation
+     quantmerge : merge multiple quantifications into a single file
+❯ grep ">" <(gunzip -c /Users/michaelfoster/sequencing/data-raw_seq/reference_Genomes/trifolium_repens/ncbi-genomes-2022-06-15/GCA_005869975.1_AgR_To_v5_genomic.fna.gz) | cut -d " " -f 1 > decoys.txt
+❯ #cool
+❯ #okay now for the sed command
+❯ sed -i.bak -e 's/>//g' decoys.txt
+❯ cat transcript-attempt.fa /Users/michaelfoster/sequencing/data-raw_seq/reference_Genomes/trifolium_repens/ncbi-genomes-2022-06-15/GCA_005869975.1_AgR_To_v5_genomic.fna.gz >gentrome.fa.gz
+❯ salmon index -t gentrome.fa.gz -d decoys.txt -p 12 -i salmon_index --gencode
+Version Info: This is the most recent version of salmon.
+index ["salmon_index"] did not previously exist  . . . creating it
+[2022-06-20 22:07:02.528] [jLog] [info] building index
+out : salmon_index
+[2022-06-20 22:07:02.529] [puff::index::jointLog] [info] Running fixFasta
+
+[Step 1 of 4] : counting k-mers
+[2022-06-20 22:07:02.542] [puff::index::jointLog] [warning] Entry with header [CM019101.1:16937-16940], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.542] [puff::index::jointLog] [warning] Entry with header [CM019101.1:20887-20890], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.542] [puff::index::jointLog] [warning] Entry with header [CM019101.1:37820-37823], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.542] [puff::index::jointLog] [warning] Entry with header [CM019101.1:37820-37823], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.543] [puff::index::jointLog] [warning] Entry with header [CM019101.1:41009-41012], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.543] [puff::index::jointLog] [warning] Entry with header [CM019101.1:46950-46953], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.543] [puff::index::jointLog] [warning] Entry with header [CM019101.1:49632-49635], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.543] [puff::index::jointLog] [warning] Entry with header [CM019101.1:59893-59896], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.543] [puff::index::jointLog] [warning] Entry with header [CM019101.1:64066-64096], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.543] [puff::index::jointLog] [warning] Entry with header [CM019101.1:64410-64413], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.543] [puff::index::jointLog] [warning] Entry with header [CM019101.1:66836-66839], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.543] [puff::index::jointLog] [warning] Entry with header [CM019101.1:67828-67831], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.543] [puff::index::jointLog] [warning] Entry with header [CM019101.1:99887-99890], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.543] [puff::index::jointLog] [warning] Entry with header [CM019101.1:105491-105494], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.544] [puff::index::jointLog] [warning] Entry with header [CM019101.1:108619-108622], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.544] [puff::index::jointLog] [warning] Entry with header [CM019101.1:116137-116166], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.544] [puff::index::jointLog] [warning] Entry with header [CM019101.1:124032-124050], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.544] [puff::index::jointLog] [warning] Entry with header [CM019101.1:124047-124050], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.544] [puff::index::jointLog] [warning] Entry with header [CM019101.1:128842-128845], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.544] [puff::index::jointLog] [warning] Entry with header [CM019101.1:131609-131612], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.544] [puff::index::jointLog] [warning] Entry with header [CM019101.1:134444-134447], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.544] [puff::index::jointLog] [warning] Entry with header [CM019101.1:135044-135047], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.544] [puff::index::jointLog] [warning] Entry with header [CM019101.1:139394-139397], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.544] [puff::index::jointLog] [warning] Entry with header [CM019101.1:140900-140903], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.544] [puff::index::jointLog] [warning] Entry with header [CM019101.1:148568-148571], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.544] [puff::index::jointLog] [warning] Entry with header [CM019101.1:151629-151632], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.544] [puff::index::jointLog] [warning] Entry with header [CM019101.1:151629-151632], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.545] [puff::index::jointLog] [warning] Entry with header [CM019101.1:156527-156530], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.545] [puff::index::jointLog] [warning] Entry with header [CM019101.1:158411-158433], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.545] [puff::index::jointLog] [warning] Entry with header [CM019101.1:158430-158433], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.545] [puff::index::jointLog] [warning] Entry with header [CM019101.1:159979-159982], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.545] [puff::index::jointLog] [warning] Entry with header [CM019101.1:163355-163358], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.545] [puff::index::jointLog] [warning] Entry with header [CM019101.1:165477-165480], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.545] [puff::index::jointLog] [warning] Entry with header [CM019101.1:170007-170010], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.545] [puff::index::jointLog] [warning] Entry with header [CM019101.1:170083-170086], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.545] [puff::index::jointLog] [warning] Entry with header [CM019101.1:171414-171445], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.545] [puff::index::jointLog] [warning] Entry with header [CM019101.1:172900-172903], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.545] [puff::index::jointLog] [warning] Entry with header [CM019101.1:175484-175487], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.545] [puff::index::jointLog] [warning] Entry with header [CM019101.1:184736-184739], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.546] [puff::index::jointLog] [warning] Entry with header [CM019101.1:175484-175487], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.546] [puff::index::jointLog] [warning] Entry with header [CM019101.1:184736-184739], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.546] [puff::index::jointLog] [warning] Entry with header [CM019101.1:187461-187464], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.546] [puff::index::jointLog] [warning] Entry with header [CM019101.1:191735-191738], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.546] [puff::index::jointLog] [warning] Entry with header [CM019101.1:200319-200322], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.546] [puff::index::jointLog] [warning] Entry with header [CM019101.1:201007-201010], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.546] [puff::index::jointLog] [warning] Entry with header [CM019101.1:219998-220001], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.546] [puff::index::jointLog] [warning] Entry with header [CM019101.1:220496-220499], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.546] [puff::index::jointLog] [warning] Entry with header [CM019101.1:240225-240228], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.546] [puff::index::jointLog] [warning] Entry with header [CM019101.1:242403-242430], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.546] [puff::index::jointLog] [warning] Entry with header [CM019101.1:242427-242430], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.547] [puff::index::jointLog] [warning] Entry with header [CM019101.1:237785-237788], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.547] [puff::index::jointLog] [warning] Entry with header [CM019101.1:242403-242430], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.547] [puff::index::jointLog] [warning] Entry with header [CM019101.1:242427-242430], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.547] [puff::index::jointLog] [warning] Entry with header [CM019101.1:252868-252871], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.547] [puff::index::jointLog] [warning] Entry with header [CM019101.1:253702-253705], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.547] [puff::index::jointLog] [warning] Entry with header [CM019101.1:254426-254429], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.547] [puff::index::jointLog] [warning] Entry with header [CM019101.1:254936-254939], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.547] [puff::index::jointLog] [warning] Entry with header [CM019101.1:297192-297195], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.547] [puff::index::jointLog] [warning] Entry with header [CM019101.1:297192-297200], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.547] [puff::index::jointLog] [warning] Entry with header [CM019101.1:297836-297866], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.547] [puff::index::jointLog] [warning] Entry with header [CM019101.1:304738-304741], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.547] [puff::index::jointLog] [warning] Entry with header [CM019101.1:293218-293221], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.547] [puff::index::jointLog] [warning] Entry with header [CM019101.1:293949-293952], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.547] [puff::index::jointLog] [warning] Entry with header [CM019101.1:341447-341450], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.547] [puff::index::jointLog] [warning] Entry with header [CM019101.1:343331-343334], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.547] [puff::index::jointLog] [warning] Entry with header [CM019101.1:345316-345319], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.547] [puff::index::jointLog] [warning] Entry with header [CM019101.1:347575-347578], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.547] [puff::index::jointLog] [warning] Entry with header [CM019101.1:349267-349270], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.547] [puff::index::jointLog] [warning] Entry with header [CM019101.1:352356-352377], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.547] [puff::index::jointLog] [warning] Entry with header [CM019101.1:352374-352377], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.547] [puff::index::jointLog] [warning] Entry with header [CM019101.1:354559-354562], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.547] [puff::index::jointLog] [warning] Entry with header [CM019101.1:356289-356292], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.548] [puff::index::jointLog] [warning] Entry with header [CM019101.1:357545-357548], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.548] [puff::index::jointLog] [warning] Entry with header [CM019101.1:360924-360938], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.548] [puff::index::jointLog] [warning] Entry with header [CM019101.1:361102-361110], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.548] [puff::index::jointLog] [warning] Entry with header [CM019101.1:361107-361110], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.548] [puff::index::jointLog] [warning] Entry with header [CM019101.1:386032-386035], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.548] [puff::index::jointLog] [warning] Entry with header [CM019101.1:391138-391141], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.548] [puff::index::jointLog] [warning] Entry with header [CM019101.1:396457-396460], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.548] [puff::index::jointLog] [warning] Entry with header [CM019101.1:399272-399275], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.548] [puff::index::jointLog] [warning] Entry with header [CM019101.1:423248-423251], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.548] [puff::index::jointLog] [warning] Entry with header [CM019101.1:423842-423845], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.548] [puff::index::jointLog] [warning] Entry with header [CM019101.1:429114-429117], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.548] [puff::index::jointLog] [warning] Entry with header [CM019101.1:432069-432087], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.548] [puff::index::jointLog] [warning] Entry with header [CM019101.1:434433-434436], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.548] [puff::index::jointLog] [warning] Entry with header [CM019101.1:441860-441863], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.548] [puff::index::jointLog] [warning] Entry with header [CM019101.1:443198-443201], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.548] [puff::index::jointLog] [warning] Entry with header [CM019101.1:453284-453287], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.548] [puff::index::jointLog] [warning] Entry with header [CM019101.1:453721-453751], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.548] [puff::index::jointLog] [warning] Entry with header [CM019101.1:454577-454589], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.548] [puff::index::jointLog] [warning] Entry with header [CM019101.1:454586-454589], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.549] [puff::index::jointLog] [warning] Entry with header [CM019101.1:457540-457543], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.549] [puff::index::jointLog] [warning] Entry with header [CM019101.1:459877-459880], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.549] [puff::index::jointLog] [warning] Entry with header [CM019101.1:462045-462048], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.549] [puff::index::jointLog] [warning] Entry with header [CM019101.1:465629-465632], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.549] [puff::index::jointLog] [warning] Entry with header [CM019101.1:467973-467976], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.549] [puff::index::jointLog] [warning] Entry with header [CM019101.1:468372-468375], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.549] [puff::index::jointLog] [warning] Entry with header [CM019101.1:484280-484283], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.549] [puff::index::jointLog] [warning] Entry with header [CM019101.1:484784-484787], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.549] [puff::index::jointLog] [warning] Entry with header [CM019101.1:484794-484797], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.549] [puff::index::jointLog] [warning] Entry with header [CM019101.1:485968-485995], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.549] [puff::index::jointLog] [warning] Entry with header [CM019101.1:490588-490619], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.549] [puff::index::jointLog] [warning] Entry with header [CM019101.1:490747-490771], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.549] [puff::index::jointLog] [warning] Entry with header [CM019101.1:490768-490771], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.549] [puff::index::jointLog] [warning] Entry with header [CM019101.1:493156-493159], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.549] [puff::index::jointLog] [warning] Entry with header [CM019101.1:499180-499183], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.549] [puff::index::jointLog] [warning] Entry with header [CM019101.1:500696-500699], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.549] [puff::index::jointLog] [warning] Entry with header [CM019101.1:501120-501123], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.550] [puff::index::jointLog] [warning] Entry with header [CM019101.1:502663-502666], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.550] [puff::index::jointLog] [warning] Entry with header [CM019101.1:503829-503854], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.550] [puff::index::jointLog] [warning] Entry with header [CM019101.1:512099-512102], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.550] [puff::index::jointLog] [warning] Entry with header [CM019101.1:512804-512807], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.550] [puff::index::jointLog] [warning] Entry with header [CM019101.1:514283-514286], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.550] [puff::index::jointLog] [warning] Entry with header [CM019101.1:514299-514302], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.550] [puff::index::jointLog] [warning] Entry with header [CM019101.1:515142-515145], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.550] [puff::index::jointLog] [warning] Entry with header [CM019101.1:522360-522363], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.550] [puff::index::jointLog] [warning] Entry with header [CM019101.1:522360-522368], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.550] [puff::index::jointLog] [warning] Entry with header [CM019101.1:524056-524059], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.550] [puff::index::jointLog] [warning] Entry with header [CM019101.1:607862-607865], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.550] [puff::index::jointLog] [warning] Entry with header [CM019101.1:607862-607879], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.550] [puff::index::jointLog] [warning] Entry with header [CM019101.1:609181-609184], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.550] [puff::index::jointLog] [warning] Entry with header [CM019101.1:614451-614454], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.550] [puff::index::jointLog] [warning] Entry with header [CM019101.1:615907-615910], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.550] [puff::index::jointLog] [warning] Entry with header [CM019101.1:622808-622811], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.550] [puff::index::jointLog] [warning] Entry with header [CM019101.1:625052-625055], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.550] [puff::index::jointLog] [warning] Entry with header [CM019101.1:630530-630533], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.550] [puff::index::jointLog] [warning] Entry with header [CM019101.1:632036-632039], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.551] [puff::index::jointLog] [warning] Entry with header [CM019101.1:632468-632471], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.551] [puff::index::jointLog] [warning] Entry with header [CM019101.1:634889-634894], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.551] [puff::index::jointLog] [warning] Entry with header [CM019101.1:638870-638873], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.551] [puff::index::jointLog] [warning] Entry with header [CM019101.1:643083-643086], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.551] [puff::index::jointLog] [warning] Entry with header [CM019101.1:646454-646457], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.551] [puff::index::jointLog] [warning] Entry with header [CM019101.1:646454-646457], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.551] [puff::index::jointLog] [warning] Entry with header [CM019101.1:651774-651777], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.551] [puff::index::jointLog] [warning] Entry with header [CM019101.1:653721-653743], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.551] [puff::index::jointLog] [warning] Entry with header [CM019101.1:653740-653743], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.551] [puff::index::jointLog] [warning] Entry with header [CM019101.1:654835-654838], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.551] [puff::index::jointLog] [warning] Entry with header [CM019101.1:660174-660177], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.551] [puff::index::jointLog] [warning] Entry with header [CM019101.1:673983-673986], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.551] [puff::index::jointLog] [warning] Entry with header [CM019101.1:675315-675346], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.551] [puff::index::jointLog] [warning] Entry with header [CM019101.1:676934-676937], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.551] [puff::index::jointLog] [warning] Entry with header [CM019101.1:695806-695809], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.551] [puff::index::jointLog] [warning] Entry with header [CM019101.1:697477-697480], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.551] [puff::index::jointLog] [warning] Entry with header [CM019101.1:700763-700766], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.551] [puff::index::jointLog] [warning] Entry with header [CM019101.1:700763-700773], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.552] [puff::index::jointLog] [warning] Entry with header [CM019101.1:702359-702362], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.552] [puff::index::jointLog] [warning] Entry with header [CM019101.1:700728-700731], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.552] [puff::index::jointLog] [warning] Entry with header [CM019101.1:702359-702362], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.552] [puff::index::jointLog] [warning] Entry with header [CM019101.1:703066-703069], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.552] [puff::index::jointLog] [warning] Entry with header [CM019101.1:703785-703788], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.552] [puff::index::jointLog] [warning] Entry with header [CM019101.1:703802-703805], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.552] [puff::index::jointLog] [warning] Entry with header [CM019101.1:705828-705856], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.552] [puff::index::jointLog] [warning] Entry with header [CM019101.1:710209-710212], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.552] [puff::index::jointLog] [warning] Entry with header [CM019101.1:703066-703069], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.552] [puff::index::jointLog] [warning] Entry with header [CM019101.1:703659-703688], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.552] [puff::index::jointLog] [warning] Entry with header [CM019101.1:705828-705856], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.552] [puff::index::jointLog] [warning] Entry with header [CM019101.1:709139-709142], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.552] [puff::index::jointLog] [warning] Entry with header [CM019101.1:736102-736105], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.553] [puff::index::jointLog] [warning] Entry with header [CM019101.1:741027-741034], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.553] [puff::index::jointLog] [warning] Entry with header [CM019101.1:741293-741305], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.553] [puff::index::jointLog] [warning] Entry with header [CM019101.1:741302-741305], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.553] [puff::index::jointLog] [warning] Entry with header [CM019101.1:744914-744917], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.553] [puff::index::jointLog] [warning] Entry with header [CM019101.1:746171-746174], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.553] [puff::index::jointLog] [warning] Entry with header [CM019101.1:750286-750289], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.553] [puff::index::jointLog] [warning] Entry with header [CM019101.1:753775-753784], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.553] [puff::index::jointLog] [warning] Entry with header [CM019101.1:754616-754619], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.553] [puff::index::jointLog] [warning] Entry with header [CM019101.1:767383-767386], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.553] [puff::index::jointLog] [warning] Entry with header [CM019101.1:767836-767839], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.553] [puff::index::jointLog] [warning] Entry with header [CM019101.1:784013-784016], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.553] [puff::index::jointLog] [warning] Entry with header [CM019101.1:784466-784469], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.553] [puff::index::jointLog] [warning] Entry with header [CM019101.1:809604-809607], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.553] [puff::index::jointLog] [warning] Entry with header [CM019101.1:816618-816621], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.553] [puff::index::jointLog] [warning] Entry with header [CM019101.1:876151-876154], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.553] [puff::index::jointLog] [warning] Entry with header [CM019101.1:879530-879533], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.554] [puff::index::jointLog] [warning] Entry with header [CM019101.1:895059-895062], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.554] [puff::index::jointLog] [warning] Entry with header [CM019101.1:901474-901477], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.554] [puff::index::jointLog] [warning] Entry with header [CM019101.1:901500-901503], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.554] [puff::index::jointLog] [warning] Entry with header [CM019101.1:907385-907388], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.554] [puff::index::jointLog] [error] In FixFasta, two references with the same name but different sequences: CM019101.1:901500-907388. We require that all input records have a unique name up to the first whitespace (or user-provided separator) character.
+```
+okay same error as before.
+
+is it the gencode bit causing an error?
+hmm..
+
+okay, so lets start from the script included with salmontools.
+```
+❯ generateDecoyTranscriptome.sh -a TrR.v5.renamed_reformated-1.gtf -g /Users/michaelfoster/sequencing/data-raw_seq/reference_Genomes/trifolium_repens/ncbi-genomes-2022-06-15/GCA_005869975.1_AgR_To_v5_genomic.fna -t transcript-attempt.fa -o script-gentro
+****************
+*** getDecoy ***
+****************
+-a <Annotation GTF file> = /Users/michaelfoster/sequencing/summer/clover_project/refseq/transcript-ref/bedtools-attempt/TrR.v5.renamed_reformated-1.gtf
+-g <Genome fasta> = /Users/michaelfoster/sequencing/data-raw_seq/reference_Genomes/trifolium_repens/ncbi-genomes-2022-06-15/GCA_005869975.1_AgR_To_v5_genomic.fna
+-t <Transcriptome fasta> = /Users/michaelfoster/sequencing/summer/clover_project/refseq/transcript-ref/bedtools-attempt/transcript-attempt.fa
+-o <Output files Path> = script-gentrome.fa
+[1/10] Extracting exonic features from the gtf
+[2/10] Masking the genome fasta
+[3/10] Aligning transcriptome to genome
+>>>>>>>>>>>>>>>>>>
+Reference = [reference.masked.genome.fa]
+Query = [/Users/michaelfoster/sequencing/summer/clover_project/refseq/transcript-ref/bedtools-attempt/transcript-attempt.fa]
+Kmer size = 16
+Window size = 5
+Segment length = 500 (read split allowed)
+Alphabet = DNA
+Percentage identity threshold = 80%
+Mapping output file = mashmap.out
+Filter mode = 1 (1 = map, 2 = one-to-one, 3 = none)
+Execution threads  = 1
+>>>>>>>>>>>>>>>>>>
+INFO, skch::Sketch::build, minimizers picked from reference = 252851049
+^C
+***************
+*** ABORTED ***
+***************
+
+An error occurred. Exiting...
+```
+Okay I'm not waiting 200 hours for a single thread to map this transcriptome. Lets go with ole trusty 32 threads.
+
+```
+generateDecoyTranscriptome.sh -j 32 -a TrR.v5.renamed_reformated-1.gtf -g /Users/michaelfoster/sequencing/data-raw_seq/reference_Genomes/trifolium_repens/ncbi-genomes-2022-06-15/GCA_005869975.1_AgR_To_v5_genomic.fna -t transcript-attempt.fa -o script-gentrome.fa
+```
+
+update: every single CPU is redlined at 100% it's pretty neat to see all 10 cores at 100% usage and mem at 80%. 
+
+```
+❯ generateDecoyTranscriptome.sh -j 32 -a TrR.v5.renamed_reformated-1.gtf -g /Users/michaelfoster/sequencing/data-raw_seq/reference_Genomes/trifolium_repens/ncbi-genomes-2022-06-15/GCA_005869975.1_AgR_To_v5_genomic.fna -t transcript-attempt.fa -o script-
+****************
+*** getDecoy ***
+****************
+-j <Concurrency level> = 32
+-a <Annotation GTF file> = /Users/michaelfoster/sequencing/summer/clover_project/refseq/transcript-ref/bedtools-attempt/TrR.v5.renamed_reformated-1.gtf
+-g <Genome fasta> = /Users/michaelfoster/sequencing/data-raw_seq/reference_Genomes/trifolium_repens/ncbi-genomes-2022-06-15/GCA_005869975.1_AgR_To_v5_genomic.fna
+-t <Transcriptome fasta> = /Users/michaelfoster/sequencing/summer/clover_project/refseq/transcript-ref/bedtools-attempt/transcript-attempt.fa
+-o <Output files Path> = script-gentrome.fa-output.fa
+[1/10] Extracting exonic features from the gtf
+[2/10] Masking the genome fasta
+[3/10] Aligning transcriptome to genome
+>>>>>>>>>>>>>>>>>>
+Reference = [reference.masked.genome.fa]
+Query = [/Users/michaelfoster/sequencing/summer/clover_project/refseq/transcript-ref/bedtools-attempt/transcript-attempt.fa]
+Kmer size = 16
+Window size = 5
+Segment length = 500 (read split allowed)
+Alphabet = DNA
+Percentage identity threshold = 80%
+Mapping output file = mashmap.out
+Filter mode = 1 (1 = map, 2 = one-to-one, 3 = none)
+Execution threads  = 32
+>>>>>>>>>>>>>>>>>>
+INFO, skch::Sketch::build, minimizers picked from reference = 252851049
+INFO, skch::Sketch::index, unique minimizers = 93041354
+INFO, skch::Sketch::computeFreqHist, Frequency histogram of minimizers = (1, 49251246) ... (49116, 1)
+INFO, skch::Sketch::computeFreqHist, With threshold 0.001%, ignore minimizers occurring >= 986 times during lookup.
+INFO, skch::main, Time spent computing the reference index: 956.539 sec
+INFO, skch::Map::mapQuery, [count of mapped reads, reads qualified for mapping, total input reads] = [99901, 99903, 566918]
+INFO, skch::main, Time spent mapping the query : 1343.32 sec
+INFO, skch::main, mapping results saved in : mashmap.out
+[4/10] Extracting intervals from mashmap alignments
+[5/10] Merging the intervals
+[6/10] Extracting sequences from the genome
+index file reference.masked.genome.fa.fai not found, generating...
+[7/10] Concatenating to get decoy sequences
+[8/10] Making gentrome
+[9/10] Extracting decoy sequence ids
+[10/10] Removing temporary files
+
+**********************************************
+*** DONE Processing ...
+*** You can use files `$outfolder/gentrome.fa`
+*** and $outfolder/decoys.txt` with
+*** `salmon index`
+**********************************************
+```
+
+YES!!!!!!!
+40minutes 33s to run
