@@ -627,4 +627,549 @@ out : transcripts_index_1
 nope...
 why...
 whhhhhyyyyyyyy....
+something about unique name up to the first whitespace or user provided separator...
+lets head the input gentrome.
+
+```
+❯ head gentrome.fa
+>CM019101.1:16937-20890
+ATGGGTTTGATATGGTGGATTTTAGGCATAATTCACATACTTCCACTATTCATAGATTCAATCTATAGCCTAACCCCACAATCACCAATCCAATGCAACCAAACAATCTGCACCTTAAAAAACTCATATGGAACATGGAACGACCGCAAAAACTGTTATGCAATCAATGTAACATACCCAACAACAGAAGAACAACTTCGTTTAGCAGTTTCCTATGTTGTTCAAAACAACCTTAAAGCCAAAATTGTCACAAAATTCTCACACACAATCCCAACACTTTCATGTCCacagcaaaaaaataaaaataatgcctTTTTTATTAGCACAGAAAAATATGATTCTGAGATTCAAATTGATGCTACCAATTTGGCTGTAACTGTTGATTCAGGTGTGAAACTTCGTCAATTGATTGATGAAGTTGAAAAAAATGGGTTTAGTTTGGTGGCTGCACCTTATTGGGAAGGTGTTACAATTGGGGGTGTAATTAGCACTGGTGCACATGGTAGTTCTTGGTGGGGTAAAGGTGGTGCTTTTCATGATTATGTTTTAGGGATTAATATTGTTGTTCCTGGTTCTAAATCTGAAGGGTATgctaaaattttgaagttggatGCACATCATCCTTTCTTTAATGCTGCCAAAGTTTCTCTTGGAGTTTTGGGTGCCATCTCCAAggtaaagtttgttttttatatcatttcaatttttctcttttaattagtattttaccctatgtactttttttttttcccttccgTAAATCAGATATCCCCTGCGCATAATATTAGAGAATACTCCCGAAACCTTTTGAGATGCAAATACATGACAGATTGACAgactatttctaaattttttaattactatacTTTGAGTATGATTATTGTCGGAATaaggaaataatatatatactattattagaataattaataatgagtatacattgcttaaaaaaatagtgagtATATATTGTTTCCTTATTCTAACGGTTATTAATAGTAGTATGGTAAGTATTTTGATAAGATGACTAAATTgattgttaaaaaagaaaaaaagactaatctatactaatatataaaggggatacaaatttttgggatgaNNNNNNNNNNctatatctaattttttaaattactataCTTTATAGGCACTAATATGTACTATTTGTTacatgaatgaatataaaagaaaatgctaaccAATGTTTTtgaaatactaatattttttaaaacacaattttttgatatactaattaaaaaatttatacattttaaaaaataaactatacattttatacattataaaaaaagattattctttatacattttaaaaaataaactatacaaatttgtatagtttattttttaaaatgtataaagaataatcttttcaatttaaaattattttttattttaattggtttcCTTAATTAGTAGGTCAAGGACATGAGACTAGTTAGGATGACCTAACAATACATGAGATTTGATACAATCATATCATTACAATCACATAGTATTCATTATTAACCCAATATAGGAtccaaaaaataactaaatgtacTACGTACTAGTGtctaagaaaaaataaaaaaaacaatttgagtATGGTTATTCTCGGAATaaggaaataatatatatactattattagAATAATTAATANNNNNNNNNNATTgattgttaaaaaagaaaaaaaactaatatatactaatatataaagaggatgtaaatttttgggatgaattttttattatttctattttaccctttaaaaaaaactacaaaaaaaaactaagcacaacttccacataaaaNttgacttatgtaccatgcataaggattactcttatgcataataacttcaccCGGTGGCGGCTagtgtataaataaatagtactccagatttttttttaaattatatgatttttgttaagTTAAAATGTTTAACATATAAATGGATAtctaaattactttttagtcttagtcaaaagaaaaacaattactGAGTCATTAAGTATATCACTTAACATGgttctatttgtttttcaaaacttCCACTAGTTTCTTGATTTATTTAAGCTAACATATAGCTTATGAgttcaaaatgaaacaaaaaaatcttaaaacatCAAAgcaaaatcttaaaatataattgtgtatttttttagcCGTCTGAATTTTAGGGAAGGAATTATATTATTCATAGTTCTTACGAGAGATAAGTAATAAAATCCTAAATAATATTGTTCTATTCAAACTCATGCTCTCTAATACAATTTCTACTCAATAACTACTTGAGTTCAACTCATGTTCTAAGTAACCATATACTCTATAtatattgtttcaaattttcataaattacattGTTAAACTTACAGGTAAAGTTATCTCTTGAGCATAGGTTCAAAAGAAGCATAACATTCAATTTCACCGATGATACTGATATTGAAAATGTGTACATAGAACATGCAAAGAAGTATGAATTTGCAGATATAACTTGGTATCCATCAAGACATACAGCTGTTTACAGATATGATTTCAGGGTTCCCTTAGATACCTCTGGTGATGGAGTCTATGATTTCATTGGGTTTCAAGCCAATAACATCTTAATCTCTGAGTCAGTTAGAGCAGCAGGtaaataattatcttttactcTTCTTAAATCATTgtcatattgtttttaaaaagaaataaccATATAAAGACGACGTTTTAAATTGCGTTTGTAGTCGCGGTTTCTATCATGGTTTTTGATATCATGGGAAATTTTAGACATGTGGTTGATACAAGTCATACACGACCACAATTATGATTGCATTTATGATTTTAGCTGTAGTTTGCAACCACATCGCAACTGCAATGATGGCCACATTCTCTTCAATGTGGTTTTCGGTCtctttattttgtaacatttacGATTTTGAATTaatcatttctttaaatagaatgctTAAGAGTGTCCTGAGGGCACTATTTAGCAAGACCCTGTTTTAAAAATCGTAAATGCAGCAAAATAGAGGGATCAAAGTTACAATTTAAGCCATGTTTATCTGCGAtgtttataatatcaaatgttGATACCAATtacaattgcaatttaaaacttataatatataaacattgTCATGCAGAGAAATTGCTAGAAAACATAGGAAACACAAATGGAAAATGTTTAACAGCATCTACTACATTGGCATTCAAGAAATTAACAGCCAATGGTTTAAAGAACAATGGCTTAATCTTCACTGGCTACCCTGTAATTGGTTACCAAGGAAAATTACAAACTTCAGGTTCATGCTTATATTCATCAAAAATAGACACATCATGTGCTTGGGATCCAAGAATCAAAGGATTGTTCTTCTATGAATCAACAGCAATTTTCCCTGCTTCAAAATTTGGAAACTTCATTCAAGATGTTAAAAAACTAAGAGATATAAATCCACAAAATTTTTGTGGTATAGATAACTATAATGGAATTATGATACGTTACATTAAAGCCTCAGAAGCATATCTAGGACAATCAGAAGATTCTATAGTGAttgatttcaattattatagAGCAAATGACCAATTTACCCCTAGATTAAATCAAGATGTGTGGGAGGAATTGGAACAAATAGCATTTTTCAAGTATGGTGCAAAGCCACATTGGGCTAAGAATAGGAACTTAGCATttttaaatgtgaaaaataaatatcctaagtttaatgtttttattgatgctaaaaataaaatggatccACAAAATGTGTTTTCTGGTGATTGGTCAGATGAGATTTTGTATGGTAAGGAATTGGTAAAATTTGATGGTTGTGCTTTGGAAGGACAATGTATTTGTTCTGAAGATAGACATTGTAGTCCACAAAAAGGGTATTATTGTAATCATGGTCTTGTCTACAAGGATGCTAGAGTTTGTAGGAATTTGTCAACTTTTCTGAACACTGATTCACTCCAATGA
+>CM019101.1:16937-16940
+ATG
+>CM019101.1:16937-17612
+ATGGGTTTGATATGGTGGATTTTAGGCATAATTCACATACTTCCACTATTCATAGATTCAATCTATAGCCTAACCCCACAATCACCAATCCAATGCAACCAAACAATCTGCACCTTAAAAAACTCATATGGAACATGGAACGACCGCAAAAACTGTTATGCAATCAATGTAACATACCCAACAACAGAAGAACAACTTCGTTTAGCAGTTTCCTATGTTGTTCAAAACAACCTTAAAGCCAAAATTGTCACAAAATTCTCACACACAATCCCAACACTTTCATGTCCacagcaaaaaaataaaaataatgcctTTTTTATTAGCACAGAAAAATATGATTCTGAGATTCAAATTGATGCTACCAATTTGGCTGTAACTGTTGATTCAGGTGTGAAACTTCGTCAATTGATTGATGAAGTTGAAAAAAATGGGTTTAGTTTGGTGGCTGCACCTTATTGGGAAGGTGTTACAATTGGGGGTGTAATTAGCACTGGTGCACATGGTAGTTCTTGGTGGGGTAAAGGTGGTGCTTTTCATGATTATGTTTTAGGGATTAATATTGTTGTTCCTGGTTCTAAATCTGAAGGGTATgctaaaattttgaagttggatGCACATCATCCTTTCTTTAATGCTGCCAAAGTTTCTCTTGGAGTTTTGGGTGCCATCTCCAAg
+>CM019101.1:19310-19566
+GTAAAGTTATCTCTTGAGCATAGGTTCAAAAGAAGCATAACATTCAATTTCACCGATGATACTGATATTGAAAATGTGTACATAGAACATGCAAAGAAGTATGAATTTGCAGATATAACTTGGTATCCATCAAGACATACAGCTGTTTACAGATATGATTTCAGGGTTCCCTTAGATACCTCTGGTGATGGAGTCTATGATTTCATTGGGTTTCAAGCCAATAACATCTTAATCTCTGAGTCAGTTAGAGCAGCAG
+>CM019101.1:20063-20890
+AGAAATTGCTAGAAAACATAGGAAACACAAATGGAAAATGTTTAACAGCATCTACTACATTGGCATTCAAGAAATTAACAGCCAATGGTTTAAAGAACAATGGCTTAATCTTCACTGGCTACCCTGTAATTGGTTACCAAGGAAAATTACAAACTTCAGGTTCATGCTTATATTCATCAAAAATAGACACATCATGTGCTTGGGATCCAAGAATCAAAGGATTGTTCTTCTATGAATCAACAGCAATTTTCCCTGCTTCAAAATTTGGAAACTTCATTCAAGATGTTAAAAAACTAAGAGATATAAATCCACAAAATTTTTGTGGTATAGATAACTATAATGGAATTATGATACGTTACATTAAAGCCTCAGAAGCATATCTAGGACAATCAGAAGATTCTATAGTGAttgatttcaattattatagAGCAAATGACCAATTTACCCCTAGATTAAATCAAGATGTGTGGGAGGAATTGGAACAAATAGCATTTTTCAAGTATGGTGCAAAGCCACATTGGGCTAAGAATAGGAACTTAGCATttttaaatgtgaaaaataaatatcctaagtttaatgtttttattgatgctaaaaataaaatggatccACAAAATGTGTTTTCTGGTGATTGGTCAGATGAGATTTTGTATGGTAAGGAATTGGTAAAATTTGATGGTTGTGCTTTGGAAGGACAATGTATTTGTTCTGAAGATAGACATTGTAGTCCACAAAAAGGGTATTATTGTAATCATGGTCTTGTCTACAAGGATGCTAGAGTTTGTAGGAATTTGTCAACTTTTCTGAACACTGATTCACTCCAATGA
+❯ head decoys.txt
+VCDJ01007635.1
+VCDJ01001617.1
+VCDJ01009810.1
+VCDJ01007385.1
+VCDJ01010206.1
+VCDJ01007673.1
+VCDJ01002050.1
+VCDJ01001881.1
+VCDJ01001414.1
+CM019104.1
+❯ cat gentrome.fa| grep " "
+❯ cat decoys.txt | grep " "
+```
+
+so no whitespace at all in either file, should I tell it to use ">" as the separator?
+maybe I'm not grepping correctly?
+Anyways, let me try to run the index command again but with > as the separator? idk. I thought it would work this time but the same error is still present. It appears to be some formatting issue.
+
+# >:|
+
+wait, the error is specified...
+[2022-06-21 10:53:16.469] [puff::index::jointLog] [error] In FixFasta, two references with the same name but different sequences: CM019101.1:901500-907388
+
+so the issue is with CM019101.1:901500-907388, I wonder what's in the decoys/gentrome.fa files.
+
+```
+❯ cat gentrome.fa| grep "CM019101.1901500-907388"
+#NOTHING OUTPUT WHAT?
+```
+grepping CM019101.1 outputs a lot.
+like
+
+```
+❯ cat gentrome.fa| grep "CM019101.1901500-907388"
+❯ cat gentrome.fa| grep "CM019101.1901500-907388" | wc -l
+       0
+❯ cat gentrome.fa| grep "CM019101.1" | wc -l
+   63873
+```
+like what?
+
+```
+❯ cat decoys.txt| grep "CM019101.1"
+CM019101.1
+❯ cat decoys.txt| grep "CM019101.1" | wc -l
+       1
+```
+maybe it should be deleted from decoys??
+idk...
+
+```
+❯ cat decoys.txt| grep "CM" | wc -l
+      16
+❯ cat gentrome.fa| grep "CM" | wc -l
+  567097
+```
+okay lets check the github issues.
+here's one from 30/March/2021
+<https://github.com/COMBINE-lab/salmon/issues/642>
+apparently their issue was due to --gencode being used, I haven't used that. I tried it and it failed even faster!
+so on review of the script that generated the index, it appears a kmer length of 16 was used. Lets try index again with -k 16...
+
+nope still failed.
+how about 15
+same error.
+okay, so the issue is with fix fasta...
+found another error with fix fasta but the ending error is different.
+<https://github.com/COMBINE-lab/salmon/issues/572>
+reading now...
+okay so their error was caused because of formatting issues, no definitive solution prescribed and issue closed :(
+***
+wait, my error may be with how I'm generating the initial transcriptome file...
+if the issue is with duplicates/duplicate names, there's probably something I'm not doing right in generating the transcriptome from the gtf and reference fasta.. will reattempt from that point.
+
+***
+here's the full decoys.txt 
+```
+❯ cat decoys.txt
+VCDJ01007635.1
+VCDJ01001617.1
+VCDJ01009810.1
+VCDJ01007385.1
+VCDJ01010206.1
+VCDJ01007673.1
+VCDJ01002050.1
+VCDJ01001881.1
+VCDJ01001414.1
+CM019104.1
+VCDJ01001403.1
+VCDJ01007739.1
+VCDJ01005252.1
+VCDJ01003051.1
+CM019110.1
+VCDJ01002688.1
+VCDJ01010504.1
+VCDJ01007730.1
+VCDJ01007489.1
+VCDJ01000555.1
+VCDJ01010286.1
+VCDJ01009984.1
+VCDJ01007798.1
+VCDJ01007557.1
+VCDJ01003454.1
+VCDJ01007563.1
+VCDJ01007322.1
+VCDJ01007610.1
+VCDJ01007354.1
+VCDJ01007128.1
+VCDJ01004461.1
+VCDJ01007405.1
+VCDJ01003814.1
+VCDJ01010437.1
+VCDJ01001645.1
+CM019109.1
+VCDJ01009612.1
+VCDJ01004785.1
+VCDJ01000727.1
+CM019115.1
+VCDJ01000754.1
+VCDJ01000498.1
+VCDJ01007470.1
+VCDJ01003382.1
+VCDJ01002432.1
+VCDJ01000816.1
+VCDJ01010532.1
+VCDJ01009989.1
+VCDJ01007532.1
+VCDJ01005331.1
+VCDJ01007579.1
+VCDJ01007794.1
+VCDJ01007359.1
+VCDJ01001838.1
+VCDJ01000572.1
+VCDJ01000649.1
+VCDJ01000623.1
+VCDJ01000911.1
+VCDJ01007371.1
+VCDJ01002830.1
+VCDJ01001127.1
+VCDJ01010433.1
+VCDJ01007689.1
+CM019105.1
+VCDJ01009909.1
+VCDJ01010680.1
+VCDJ01010228.1
+VCDJ01005027.1
+CM019111.1
+VCDJ01002149.1
+VCDJ01007731.1
+VCDJ01002392.1
+VCDJ01003120.1
+VCDJ01002140.1
+VCDJ01001248.1
+VCDJ01007511.1
+VCDJ01003393.1
+VCDJ01001237.1
+VCDJ01000782.1
+VCDJ01010031.1
+VCDJ01009970.1
+VCDJ01007338.1
+VCDJ01004456.1
+VCDJ01001260.1
+VCDJ01000310.1
+VCDJ01007626.1
+VCDJ01007376.1
+VCDJ01002564.1
+VCDJ01007679.1
+VCDJ01001138.1
+CM019116.1
+CM019101.1
+VCDJ01004837.1
+VCDJ01002621.1
+VCDJ01010239.1
+VCDJ01009666.1
+VCDJ01002382.1
+VCDJ01002156.1
+VCDJ01007527.1
+VCDJ01010501.1
+VCDJ01010245.1
+VCDJ01009749.1
+VCDJ01002736.1
+VCDJ01000761.1
+VCDJ01000309.1
+VCDJ01010010.1
+VCDJ01001773.1
+VCDJ01010057.1
+VCDJ01000541.1
+VCDJ01000603.1
+VCDJ01010078.1
+VCDJ01004467.1
+VCDJ01002266.1
+VCDJ01002810.1
+VCDJ01001589.1
+VCDJ01009782.1
+VCDJ01009618.1
+VCDJ01009603.1
+VCDJ01007402.1
+VCDJ01007372.1
+VCDJ01001625.1
+VCDJ01007434.1
+CM019106.1
+VCDJ01007423.1
+VCDJ01007393.1
+VCDJ01000724.1
+VCDJ01007455.1
+CM019112.1
+VCDJ01000730.1
+VCDJ01007732.1
+VCDJ01007476.1
+VCDJ01007538.1
+VCDJ01009745.1
+VCDJ01007559.1
+VCDJ01001240.1
+VCDJ01004666.1
+VCDJ01001003.1
+VCDJ01006899.1
+VCDJ01002307.1
+VCDJ01000887.1
+VCDJ01002550.1
+VCDJ01001344.1
+VCDJ01009629.1
+VCDJ01002104.1
+VCDJ01001621.1
+VCDJ01001124.1
+VCDJ01000176.1
+CM019102.1
+VCDJ01000509.1
+VCDJ01000468.1
+VCDJ01000024.1
+VCDJ01002229.1
+VCDJ01001789.1
+VCDJ01000301.1
+VCDJ01002549.1
+VCDJ01002190.1
+VCDJ01005695.1
+VCDJ01000642.1
+VCDJ01004807.1
+VCDJ01010390.1
+CM019107.1
+VCDJ01001376.1
+VCDJ01009913.1
+VCDJ01001890.1
+CM019113.1
+VCDJ01007733.1
+VCDJ01009729.1
+VCDJ01007513.1
+VCDJ01007483.1
+VCDJ01003922.1
+VCDJ01007771.1
+VCDJ01007530.1
+VCDJ01004411.1
+VCDJ01003672.1
+VCDJ01007822.1
+VCDJ01007310.1
+VCDJ01001307.1
+VCDJ01008834.1
+VCDJ01003484.1
+VCDJ01002534.1
+VCDJ01010425.1
+VCDJ01003490.1
+VCDJ01010158.1
+VCDJ01007414.1
+VCDJ01007384.1
+VCDJ01007446.1
+VCDJ01007431.1
+CM019103.1
+VCDJ01000433.1
+VCDJ01007420.1
+VCDJ01001705.1
+VCDJ01000213.1
+VCDJ01010529.1
+VCDJ01010514.1
+VCDJ01001692.1
+VCDJ01000245.1
+VCDJ01007744.1
+VCDJ01007518.1
+VCDJ01007503.1
+VCDJ01002661.1
+VCDJ01007806.1
+VCDJ01007490.1
+VCDJ01007812.1
+VCDJ01001764.1
+VCDJ01010618.1
+VCDJ01007588.1
+VCDJ01007573.1
+VCDJ01000323.1
+VCDJ01010594.1
+VCDJ01010082.1
+VCDJ01001109.1
+VCDJ01001582.1
+VCDJ01000135.1
+VCDJ01001915.1
+CM019108.1
+VCDJ01007380.1
+VCDJ01002116.1
+VCDJ01001947.1
+VCDJ01009658.1
+VCDJ01003625.1
+VCDJ01000670.1
+CM019114.1
+VCDJ01002092.1
+VCDJ01009664.1
+VCDJ01007478.1
+VCDJ01001716.1
+VCDJ01007766.1
+VCDJ01007484.1
+VCDJ01007017.1
+VCDJ01010546.1
+VCDJ01007802.1
+VCDJ01000328.1
+VCDJ01000313.1
+VCDJ01007584.1
+VCDJ01004448.1
+VCDJ01001837.1
+VCDJ01010076.1
+VCDJ01007347.1
+```
+Why are the CM's not in order? actually none of the transcripts are in order, do I need to sort and arrange in numerical order?
+I have no idea..
+
+anyways, time to try the same thing from earlier I think..
+I need to organize my notes.
+
+"Please provide a reference FASTA file that includes all targets present in the BAM header If you have access to the genome FASTA and GTF used for alignment consider generating a transcriptome fasta using a command like: gffread -w output.fa -g genome.fa genome.gtf"
+so lets attempt to run that and generate the transcriptome to then feed into the salmon script.
+
+lets try again! 
+
+gonna redownload the transcript gtf file as well since I'm not completely sure I didn't overwrite it early on while I was still learning these tools...
+
+so downloading it from the email nic sent, then renaming it to TrR.v5.transcript.fresh.gtf.gz
+
+okay, it's now in refseq and I also copied the ref genome just to make writing commands less prone to errors having to path it in from way out of the cwd.
+
+so back to the command above..
+
+gffread -w output.fa -g genome.fa genome.gtf
+okay, so that'll be something like
+
+```
+gffread -w transcripts-notbroken.fa -g GCA_005.... actually lets rename the ref-genome so it isn't pure pain.
+```
+renaming it to trifoliumRefGenome.fna.gz or something like that..
+
+okay, take II.
+
+```
+gffread -w transcripts_notbroken.fa -g trifoliumrepens_RefGenome_v5.fna.gz TrR.v5.transcript.fresh.gtf.gz
+```
+and I'll back it up just to be safe. 
+
+so. for gffread, I think since the issue is with potential duplicates: I shall use the 
+-M/--merge flag + -d dupetrans to throw out "redundant transcripts" and then write them to a file.
+then 
+maybe -t as it is listed as  -t    use <trackname> in the 2nd column of each GFF/GTF output line.
+maybe that'll fix the duplicate names issue?
+maybe both?
+definitely run -v,-E to expose duplicate transcript IDs.
+
+so first, 
+gffread -E -g trifoliumrepens_RefGenome_v5.fna.gz  TrR.v5.transcript.fresh.gtf.gz
+which should tell me all of the duplicates, 
+using -d should spit em out into a file i'll call sequence dupes.
+lets try it.
+...
+
+but first, lets just make it spit out all of the "suspicious mRNAs" using -E 
+
+```
+❯ gffread -g trifoliumrepens_RefGenome_v5.fna.gz -E TrR.v5.transcript.fresh.gtf.gz
+Command line was:
+gffread -g trifoliumrepens_RefGenome_v5.fna.gz -E TrR.v5.transcript.fresh.gtf.gz
+Error: sequence lines in a FASTA record must have the same length!
+```
+wonderful, a new error! 
+
+looking at the ref genome:
+grepped the ">" and got a large file with this many chromosome mappings and the rest as scaffolds.
+```
+❯ cat GCA_005869975.1_AgR_To_v5_genomic.fna | grep ">"
+>CM019101.1 Trifolium repens cultivar cv 'Crau'-derivative ecotype S9 chromosome 1O, whole genome shotgun sequence
+>CM019102.1 Trifolium repens cultivar cv 'Crau'-derivative ecotype S9 chromosome 1P, whole genome shotgun sequence
+>CM019103.1 Trifolium repens cultivar cv 'Crau'-derivative ecotype S9 chromosome 2O, whole genome shotgun sequence
+>CM019104.1 Trifolium repens cultivar cv 'Crau'-derivative ecotype S9 chromosome 2P, whole genome shotgun sequence
+>CM019105.1 Trifolium repens cultivar cv 'Crau'-derivative ecotype S9 chromosome 3O, whole genome shotgun sequence
+>CM019106.1 Trifolium repens cultivar cv 'Crau'-derivative ecotype S9 chromosome 3P, whole genome shotgun sequence
+>CM019107.1 Trifolium repens cultivar cv 'Crau'-derivative ecotype S9 chromosome 4O, whole genome shotgun sequence
+>CM019108.1 Trifolium repens cultivar cv 'Crau'-derivative ecotype S9 chromosome 4P, whole genome shotgun sequence
+>CM019109.1 Trifolium repens cultivar cv 'Crau'-derivative ecotype S9 chromosome 5O, whole genome shotgun sequence
+>CM019110.1 Trifolium repens cultivar cv 'Crau'-derivative ecotype S9 chromosome 5P, whole genome shotgun sequence
+>CM019111.1 Trifolium repens cultivar cv 'Crau'-derivative ecotype S9 chromosome 6O, whole genome shotgun sequence
+>CM019112.1 Trifolium repens cultivar cv 'Crau'-derivative ecotype S9 chromosome 6P, whole genome shotgun sequence
+>CM019113.1 Trifolium repens cultivar cv 'Crau'-derivative ecotype S9 chromosome 7O, whole genome shotgun sequence
+>CM019114.1 Trifolium repens cultivar cv 'Crau'-derivative ecotype S9 chromosome 7P, whole genome shotgun sequence
+>CM019115.1 Trifolium repens cultivar cv 'Crau'-derivative ecotype S9 chromosome 8O, whole genome shotgun sequence
+>CM019116.1 Trifolium repens cultivar cv 'Crau'-derivative ecotype S9 chromosome 8P, whole genome shotgun sequence
+>VCDJ01000001.1 Trifolium repens cultivar cv 'Crau'-derivative scaffold_1, whole genome shotgun sequence
+>VCDJ01000010.1 Trifolium repens cultivar cv 'Crau'-derivative scaffold_10, whole genome shotgun sequence
+>VCDJ01000100.1 Trifolium repens cultivar cv 'Crau'-derivative scaffold_100, whole genome shotgun sequence
+>VCDJ01001000.1 Trifolium repens cultivar cv 'Crau'-derivative scaffold_1000, whole genome shotgun sequence
+.......
+```
+
+okay, on review of the genbank file, all chromosomes and the chloroplast plasmid are present plus those 10,000 scaffolds
+<https://www.ncbi.nlm.nih.gov/genome/?term=txid3899[orgn]>
+
+~2.9% of the sequences are unmapped. Would it be correct to just yeet those out?
+
+actually, nah, the issue isn't even with those scaffolds, its with literally the first chromosome. 
+it hasn't even made it to the second chromosome yet, or any of the scaffolds. 
+maybe I should attempt to run it and yeet the duplicates?
+
+lets gunzip it and look at it.
+
+```
+❯ gunzip -9dkvl trifoliumrepens_RefGenome_v5.fna.gz
+method  crc     date  time    compressed uncompressed  ratio uncompressed_name
+defla 948bedd1 Jun 21 11:28    243603716    932487804  73.8% trifoliumrepens_RefGenome_v5.fna
+❯ gunzip -9dkvl TrR.v5.transcript.fresh.gtf.gz
+method  crc     date  time    compressed uncompressed  ratio uncompressed_name
+defla 16bfc15e Jun 21 11:27     10085382    103695849  90.2% TrR.v5.transcript.fresh.gtf
+```
+okay now to actually decompress the files and get a bedtools summary..
+
+```
+❯ bedtools summary -i TrR.v5.transcript.fresh.gtf -g trifoliumrepens_RefGenome_v5.fna
+Error: The genome file trifoliumrepens_RefGenome_v5.fna has no valid entries (are you sure it's a 2-column bedtools genome file). Exiting.
+```
+okay it isn't a bedtools genome file so no surprise there.
+maybe samtools stats?
+
+```
+❯ samtools stats trifoliumrepens_RefGenome_v5.fna
+[1]    15562 bus error  samtools stats trifoliumrepens_RefGenome_v5.fna
+```
+nice.
+
+***
+
+back to gffread, lets try it on the unzipped files.
+
+```
+❯ gffread -g trifoliumrepens_RefGenome_v5.fna -E TrR.v5.transcript.fresh.gtf
+Command line was:
+gffread -g trifoliumrepens_RefGenome_v5.fna -E TrR.v5.transcript.fresh.gtf
+FASTA index file trifoliumrepens_RefGenome_v5.fna.fai created.
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg1.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg1.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg4.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg4.t1_cds1)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg4.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg5.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg5.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg6.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg6.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg7.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg7.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg10.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg10.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg11.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg11.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg12.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg12.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg13.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg13.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg14.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg14.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg16.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg16.t1_cds8)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg16.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg17.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg17.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg18.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg18.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg20.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019101.1.jg20.t1_stop)
+....
+```
+and so on for thousands of lines
+until this: 
+```
+Warning: discarding suspicious 'mRNA' record (ID=CM019116.1.jg6538.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019116.1.jg6538.t1_start)
+Warning: discarding suspicious 'mRNA' record (ID=CM019116.1.jg6539.t1_stop)
+Warning: discarding suspicious 'mRNA' record (ID=CM019116.1.jg6539.t1_start)
+   .. loaded 425636 genomic features from TrR.v5.transcript.fresh.gtf
+##gff-version 3
+# gffread v0.12.7
+# gffread -g trifoliumrepens_RefGenome_v5.fna -E TrR.v5.transcript.fresh.gtf
+CM019101.1	AUGUSTUS	mRNA	16938	17612	1	+	.	ID=CM019101.1.jg1.t1_cds1
+CM019101.1	AUGUSTUS	CDS	16938	17612	1	+	0	Parent=CM019101.1.jg1.t1_cds1
+CM019101.1	AUGUSTUS	transcript	16938	20890	.	+	.	ID=CM019101.1.jg1.t1
+CM019101.1	AUGUSTUS	exon	16938	20890	.	+	.	Parent=CM019101.1.jg1.t1
+CM019101.1	AUGUSTUS	mRNA	19311	19566	1	+	.	ID=CM019101.1.jg1.t1_cds2
+CM019101.1	AUGUSTUS	CDS	19311	19566	1	+	0	Parent=CM019101.1.jg1.t1_cds2
+CM019101.1	AUGUSTUS	mRNA	20064	20890	1	+	.	ID=CM019101.1.jg1.t1_cds3
+CM019101.1	AUGUSTUS	CDS	20064	20890	1	+	2	Parent=CM019101.1.jg1.t1_cds3
+CM019101.1	AUGUSTUS	transcript	37821	41012	.	+	.	ID=CM019101.1.jg4.t1
+CM019101.1	AUGUSTUS	exon	37821	41012	.	+	.	Parent=CM019101.1.jg4.t1
+```
+then it appears to be spitting out the gff file verbose.
+hm
+idk if I want to try this again but hey, lets use the stuff specified above and spit out the different components as well as a transcript file.
+lets also mark dupes and merge them.
+
+maybe related:
+<https://www.biostars.org/p/329747/>
+
+so, anyways back to the gffread issue at hand: 
+```
+gffread -w transcripts-notbroken.fa -g trifoliumrepens_RefGenome_v5.fna TrR.v5.transcript.fresh.gtf -o gffreadout
+```
+```
+❯ ls
+TrR.v5.transcript.fresh.gtf          gffreadout                           trifoliumrepens_RefGenome_v5.fna.fai
+TrR.v5.transcript.fresh.gtf.gz       transcripts-notbroken.fa             trifoliumrepens_RefGenome_v5.fna.gz
+TrR.v5.transcript.fresh.gtf.gz.bak   trifoliumrepens_RefGenome_v5.fna
+❯ head transcripts-notbroken.fa
+>CM019101.1.jg1.t1_cds1 CDS=1-675
+ATGGGTTTGATATGGTGGATTTTAGGCATAATTCACATACTTCCACTATTCATAGATTCAATCTATAGCC
+TAACCCCACAATCACCAATCCAATGCAACCAAACAATCTGCACCTTAAAAAACTCATATGGAACATGGAA
+CGACCGCAAAAACTGTTATGCAATCAATGTAACATACCCAACAACAGAAGAACAACTTCGTTTAGCAGTT
+TCCTATGTTGTTCAAAACAACCTTAAAGCCAAAATTGTCACAAAATTCTCACACACAATCCCAACACTTT
+CATGTCCacagcaaaaaaataaaaataatgcctTTTTTATTAGCACAGAAAAATATGATTCTGAGATTCA
+AATTGATGCTACCAATTTGGCTGTAACTGTTGATTCAGGTGTGAAACTTCGTCAATTGATTGATGAAGTT
+GAAAAAAATGGGTTTAGTTTGGTGGCTGCACCTTATTGGGAAGGTGTTACAATTGGGGGTGTAATTAGCA
+CTGGTGCACATGGTAGTTCTTGGTGGGGTAAAGGTGGTGCTTTTCATGATTATGTTTTAGGGATTAATAT
+TGTTGTTCCTGGTTCTAAATCTGAAGGGTATgctaaaattttgaagttggatGCACATCATCCTTTCTTT
+```
 
