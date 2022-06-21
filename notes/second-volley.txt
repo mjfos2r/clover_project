@@ -376,3 +376,32 @@ index file reference.masked.genome.fa.fai not found, generating...
 
 YES!!!!!!!
 40minutes 33s to run
+
+also... didn't realize it was outputting as a directory so using .fa in -fo was useless. have since renamed it to plain ole gentrome.
+lets look at the mess of a directory and then within the gentrome directory.
+
+...also i moved all the stuff from the failed attempt into their own directory.
+see below.
+
+```
+❯ tree .
+.
+├── TrR.v5.renamed_reformated-1.gtf
+├── failed-attempt
+│   ├── TrR.v5.gtf2bam.bam
+│   ├── decoys.txt
+│   ├── decoys.txt.bak
+│   ├── gentrome.fa.gz
+│   ├── salmon_index
+│   │   ├── pre_indexing.log
+│   │   └── ref_indexing.log
+│   └── transcripts_index
+│       ├── pre_indexing.log
+│       └── ref_indexing.log
+├── gentrome
+│   ├── decoys.txt
+│   └── gentrome.fa
+└── transcript-attempt.fa
+
+4 directories, 12 files
+```
