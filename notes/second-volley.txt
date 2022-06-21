@@ -5,7 +5,7 @@ as documented at <https://bedtools.readthedocs.io/en/latest/content/tools/getfas
 
 example command:
 ```
-$ getFastaFromBed [OPTIONS] -fi <input FASTA> -bed <BED/GFF/VCF> -fo transcripts.fa
+$ getFasta [OPTIONS] -fi <input FASTA> -bed <BED/GFF/VCF> -fo transcripts.fa
 ```
 lets try it. 
 
