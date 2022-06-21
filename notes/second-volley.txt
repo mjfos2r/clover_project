@@ -1172,4 +1172,394 @@ GAAAAAAATGGGTTTAGTTTGGTGGCTGCACCTTATTGGGAAGGTGTTACAATTGGGGGTGTAATTAGCA
 CTGGTGCACATGGTAGTTCTTGGTGGGGTAAAGGTGGTGCTTTTCATGATTATGTTTTAGGGATTAATAT
 TGTTGTTCCTGGTTCTAAATCTGAAGGGTATgctaaaattttgaagttggatGCACATCATCCTTTCTTT
 ```
+okay, using advice from <https://github.com/COMBINE-lab/salmon/issues/740>
+"You do not need a different transcriptome for each readset. Your general workflow should be...
+
+prepare a transcriptome in fasta format
+For each sample, align that sample to the transcriptome to create a bam file using hisat2 and samtools
+For each bam file, run salmon quant using that bam file and the transcriptome as input
+merge output using salmon quantmerge
+...I'm curious why you are using hisat2 though. Every benchmark I've seen suggests that just using salmons psuedo-mapper works just as well."
+
+okay so sample needs to align against transcriptome and output a bam file using hisat2 and samtools,
+then run salmon quant using that bam file and the transcriptome as input.
+merge output via quantmerge?
+I dunno. sounds like it might work.. No clue.. will have to see if I can get salmon index to work since thats the first issue altogether.....
+
+okay, so the error with first-volley is similar to this one 
+<https://github.com/COMBINE-lab/salmon/issues/644>
+
+possibly could be this:
+"Hey,
+
+So I solved the issue over the weekend. My error was caused by my decoy file having my chromosome names with > in front of them meaning it couldn't find them when creating the index.
+`
+Instead of for example
+
+grep "^>" <(zcat GRCm38.primary_assembly.genome.fa.gz) | cut -d " " -f 1 > decoys.txt
+
+sed -i -e 's/>//g' decoys.txt'
+
+I used the following instead.
+
+grep "^>" <(gunzip -c GRCm38.primary_assembly.genome.fa.gz) | cut -d " " -f 1 > decoys.txt
+
+sed -i.bak -e 's/>//g' decoys.txt
+
+`
+I'm guessing this isn't your issue but just in case it helps! I would check your "gentrome" file and look if the decoy and names within your gentrome file match up properly. That's how I realized the > was disrupting my analysis!
+
+Hope this helps.
+
+Best Regards,
+Adrian
+"
+
+#### OKAY, so I went into bedtools attempt and then ran the sed command on both the decoys and gentrome files. once the script in attempt 3 finishes that is... I probably broke the fasta by pulling the fasta header.
+
+***
+
+```
+❯ salmon index -t gentrome.fa -i index_transcripts_3 -d decoys.txt -k 31
+Version Info: This is the most recent version of salmon.
+index ["index_transcripts_3"] did not previously exist  . . . creating it
+[2022-06-21 13:54:54.740] [jLog] [info] building index
+out : index_transcripts_3
+[2022-06-21 13:54:54.742] [puff::index::jointLog] [info] Running fixFasta
+
+[Step 1 of 4] : counting k-mers
+[2022-06-21 13:54:54.750] [puff::index::jointLog] [warning] Entry with header [CM019101.1.jg6.t1_cds14], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-21 13:54:54.751] [puff::index::jointLog] [warning] Entry with header [CM019101.1.jg11.t1_cds20], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-21 13:54:54.751] [puff::index::jointLog] [warning] Entry with header [CM019101.1.jg11.t1_cds31], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-21 13:54:54.752] [puff::index::jointLog] [warning] Entry with header [CM019101.1.jg17.t1_cds5], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-21 13:54:54.753] [puff::index::jointLog] [warning] Entry with header [CM019101.1.jg21.t1_cds5], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-21 13:54:54.755] [puff::index::jointLog] [warning] Entry with header [CM019101.1.jg26.t1_cds3], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-21 13:54:54.755] [puff::index::jointLog] [warning] Entry with header [CM019101.1.jg26.t2_cds3], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+...
+bunch of these warnings
+then this
+...
+[2022-06-21 13:55:02.447] [puff::index::jointLog] [warning] Entry with header [CM019116.1.jg6534.t1_cds1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+
+[2022-06-21 13:55:05.076] [puff::index::jointLog] [warning] Removed 62929 transcripts that were sequence duplicates of indexed transcripts.
+[2022-06-21 13:55:05.076] [puff::index::jointLog] [warning] If you wish to retain duplicate transcripts, please use the `--keepDuplicates` flag
+[2022-06-21 13:55:05.095] [puff::index::jointLog] [info] Replaced 11,060,041 non-ATCG nucleotides
+[2022-06-21 13:55:05.095] [puff::index::jointLog] [info] Clipped poly-A tails from 3 transcripts
+wrote 352864 cleaned references
+[2022-06-21 13:55:06.283] [puff::index::jointLog] [info] Filter size not provided; estimating from number of distinct k-mers
+[2022-06-21 13:55:14.686] [puff::index::jointLog] [info] ntHll estimated 193907443 distinct k-mers, setting filter size to 2^32
+Threads = 2
+Vertex length = 31
+Hash functions = 5
+Filter size = 4294967296
+Capacity = 2
+Files: 
+index_transcripts_3/ref_k31_fixed.fa
+--------------------------------------------------------------------------------
+Round 0, 0:4294967296
+Pass	Filling	Filtering
+1	33	129	
+2	9	1
+True junctions count = 2522669
+False junctions count = 517643
+Hash table size = 3040312
+Candidate marks count = 14149804
+--------------------------------------------------------------------------------
+Reallocating bifurcations time: 0
+True marks count: 12972081
+Edges construction time: 11
+--------------------------------------------------------------------------------
+Distinct junctions = 2522669
+
+TwoPaCo::buildGraphMain:: allocated with scalable_malloc; freeing.
+TwoPaCo::buildGraphMain:: Calling scalable_allocation_command(TBBMALLOC_CLEAN_ALL_BUFFERS, 0);
+allowedIn: 27
+Max Junction ID: 2537729
+seen.size():20301841 kmerInfo.size():2537730
+approximateContigTotalLength: 119260664
+counters for complex kmers:
+(prec>1 & succ>1)=77462 | (succ>1 & isStart)=1751 | (prec>1 & isEnd)=1730 | (isStart & isEnd)=26
+contig count: 3637311 element count: 302576599 complex nodes: 80969
+# of ones in rank vector: 3637310
+[2022-06-21 13:58:50.966] [puff::index::jointLog] [info] Starting the Pufferfish indexing by reading the GFA binary file.
+[2022-06-21 13:58:50.966] [puff::index::jointLog] [info] Setting the index/BinaryGfa directory index_transcripts_3
+size = 302576599
+-----------------------------------------
+| Loading contigs | Time = 34.036 ms
+-----------------------------------------
+size = 302576599
+-----------------------------------------
+| Loading contig boundaries | Time = 17.158 ms
+-----------------------------------------
+Number of ones: 3637310
+Number of ones per inventory item: 512
+Inventory entries filled: 7105
+3637310
+[2022-06-21 13:58:51.440] [puff::index::jointLog] [info] Done wrapping the rank vector with a rank9sel structure.
+[2022-06-21 13:58:51.472] [puff::index::jointLog] [info] contig count for validation: 3,637,310
+[2022-06-21 13:58:51.975] [puff::index::jointLog] [info] Total # of Contigs : 3,637,310
+[2022-06-21 13:58:51.975] [puff::index::jointLog] [info] Total # of numerical Contigs : 3,637,310
+[2022-06-21 13:58:52.036] [puff::index::jointLog] [info] Total # of contig vec entries: 12,995,333
+[2022-06-21 13:58:52.036] [puff::index::jointLog] [info] bits per offset entry 24
+[2022-06-21 13:58:52.207] [puff::index::jointLog] [info] Done constructing the contig vector. 3637311
+[2022-06-21 13:58:52.661] [puff::index::jointLog] [info] # segments = 3,637,310
+[2022-06-21 13:58:52.661] [puff::index::jointLog] [info] total length = 302,576,599
+[2022-06-21 13:58:52.753] [puff::index::jointLog] [info] Reading the reference files ...
+[2022-06-21 13:58:54.329] [puff::index::jointLog] [info] positional integer width = 29
+[2022-06-21 13:58:54.329] [puff::index::jointLog] [info] seqSize = 302,576,599
+[2022-06-21 13:58:54.329] [puff::index::jointLog] [info] rankSize = 302,576,599
+[2022-06-21 13:58:54.329] [puff::index::jointLog] [info] edgeVecSize = 0
+[2022-06-21 13:58:54.329] [puff::index::jointLog] [info] num keys = 193,457,299
+for info, total work write each  : 2.331    total work inram from level 3 : 4.322  total work raw : 25.000 
+[Building BooPHF]  100  %   elapsed:   0 min 12 sec   remaining:   0 min 0  sec
+Bitarray      1013659840  bits (100.00 %)   (array + ranks )
+final hash             0  bits (0.00 %) (nb in final hash 0)
+[2022-06-21 13:59:06.581] [puff::index::jointLog] [info] mphf size = 120.838 MB
+[2022-06-21 13:59:06.741] [puff::index::jointLog] [info] chunk size = 151,288,300
+[2022-06-21 13:59:06.742] [puff::index::jointLog] [info] chunk 0 = [0, 151,288,300)
+[2022-06-21 13:59:06.742] [puff::index::jointLog] [info] chunk 1 = [151,288,300, 302,576,569)
+[2022-06-21 13:59:28.618] [puff::index::jointLog] [info] finished populating pos vector
+[2022-06-21 13:59:28.618] [puff::index::jointLog] [info] writing index components
+[2022-06-21 13:59:29.795] [puff::index::jointLog] [info] finished writing dense pufferfish index
+[2022-06-21 13:59:29.846] [jLog] [info] done building index
+```
+okay. 
+lets try to quantify TR25.
+We have successfully indexed the transcriptome and decoys.
+
+lets go.
+
+```
+salmon quant -i ../refseq/transcript-ref/attempt3/gentrome/index_transcripts_3 -l -r fastq/output_forward_paired_trimmed.fq --validateMappings -o TR25/transcripts_quant_TR25
+```
+
+failed.
+
+```
+❯ salmon quant -i ../refseq/transcript-ref/attempt3/gentrome/index_transcripts_3 -l -r fastq/output_forward_paired_trimmed.fq --validateMappings -o TR25/transcripts_quant_TR25
+Version Info: This is the most recent version of salmon.
+(mapping-based mode) Exception : [the required argument for option '--libType' is missing].
+Please be sure you are passing correct options, and that you are running in the intended mode.
+alignment-based mode is detected and enabled via the '-a' flag. Exiting.
+```
+<https://salmon.readthedocs.io/en/latest/library_type.html>
+
+okay. lets just feed it SF as libtype.
+
+```
+salmon quant -i ../refseq/transcript-ref/attempt3/gentrome/index_transcripts_3 -l SF -r fastq/output_forward_paired_trimmed.fq --validateMappings -o TR25/transcripts_quant_TR25
+```
+
+IT WORKED?
+
+```
+❯ salmon quant -i ../refseq/transcript-ref/attempt3/gentrome/index_transcripts_3 -l -r fastq/output_forward_paired_trimmed.fq --validateMappings -o TR25/transcripts_quant_TR25
+Version Info: This is the most recent version of salmon.
+(mapping-based mode) Exception : [the required argument for option '--libType' is missing].
+Please be sure you are passing correct options, and that you are running in the intended mode.
+alignment-based mode is detected and enabled via the '-a' flag. Exiting.
+❯ salmon quant -i ../refseq/transcript-ref/attempt3/gentrome/index_transcripts_3 -l SF -r fastq/output_forward_paired_trimmed.fq --validateMappings -o TR25/transcripts_quant_TR25
+Version Info: This is the most recent version of salmon.
+### salmon (selective-alignment-based) v1.8.0
+### [ program ] => salmon
+### [ command ] => quant
+### [ index ] => { ../refseq/transcript-ref/attempt3/gentrome/index_transcripts_3 }
+### [ libType ] => { SF }
+### [ unmatedReads ] => { fastq/output_forward_paired_trimmed.fq }
+### [ validateMappings ] => { }
+### [ output ] => { TR25/transcripts_quant_TR25 }
+Logs will be written to TR25/transcripts_quant_TR25/logs
+[2022-06-21 14:44:04.691] [jointLog] [info] setting maxHashResizeThreads to 10
+[2022-06-21 14:44:04.691] [jointLog] [info] Fragment incompatibility prior below threshold.  Incompatible fragments will be ignored.
+[2022-06-21 14:44:04.691] [jointLog] [info] Usage of --validateMappings implies use of minScoreFraction. Since not explicitly specified, it is being set to 0.65
+[2022-06-21 14:44:04.691] [jointLog] [info] Setting consensusSlack to selective-alignment default of 0.35.
+[2022-06-21 14:44:04.691] [jointLog] [info] parsing read library format
+[2022-06-21 14:44:04.692] [jointLog] [info] There is 1 library.
+[2022-06-21 14:44:04.693] [jointLog] [info] Loading pufferfish index
+[2022-06-21 14:44:04.693] [jointLog] [info] Loading dense pufferfish index.
+-----------------------------------------
+| Loading contig table | Time = 318.86 ms
+-----------------------------------------
+size = 3637311
+-----------------------------------------
+| Loading contig offsets | Time = 5.8134 ms
+-----------------------------------------
+-----------------------------------------
+| Loading reference lengths | Time = 722.88 us
+-----------------------------------------
+-----------------------------------------
+| Loading mphf table | Time = 60.477 ms
+-----------------------------------------
+size = 302576599
+Number of ones: 3637310
+Number of ones per inventory item: 512
+Inventory entries filled: 7105
+-----------------------------------------
+| Loading contig boundaries | Time = 433.69 ms
+-----------------------------------------
+size = 302576599
+-----------------------------------------
+| Loading sequence | Time = 34.863 ms
+-----------------------------------------
+size = 193457299
+-----------------------------------------
+| Loading positions | Time = 339.52 ms
+-----------------------------------------
+size = 470684382
+-----------------------------------------
+| Loading reference sequence | Time = 56.249 ms
+-----------------------------------------
+-----------------------------------------
+| Loading reference accumulative lengths | Time = 1.4585 ms
+-----------------------------------------
+[2022-06-21 14:44:05.946] [jointLog] [info] done
+[2022-06-21 14:44:05.990] [jointLog] [info] Index contained 362,979 targets
+[2022-06-21 14:44:06.051] [jointLog] [info] Number of decoys : 272
+processed 500,000 fragmentsjointLog] [info] First decoy index : 352,592
+hits: 496,708; hits per frag:  1.01789
+[2022-06-21 14:44:07.856] [jointLog] [info] Thread saw mini-batch with a maximum of 15.72% zero probability fragments
+[2022-06-21 14:44:07.857] [jointLog] [info] Thread saw mini-batch with a maximum of 14.90% zero probability fragments
+[2022-06-21 14:44:07.883] [jointLog] [info] Thread saw mini-batch with a maximum of 15.72% zero probability fragments
+[2022-06-21 14:44:07.925] [jointLog] [info] Thread saw mini-batch with a maximum of 14.84% zero probability fragments
+[2022-06-21 14:44:07.941] [jointLog] [info] Thread saw mini-batch with a maximum of 15.18% zero probability fragments
+[2022-06-21 14:44:07.944] [jointLog] [info] Thread saw mini-batch with a maximum of 14.78% zero probability fragments
+[2022-06-21 14:44:07.949] [jointLog] [info] Thread saw mini-batch with a maximum of 15.78% zero probability fragments
+[2022-06-21 14:44:07.961] [jointLog] [info] Thread saw mini-batch with a maximum of 14.82% zero probability fragments
+[2022-06-21 14:44:07.964] [jointLog] [info] Thread saw mini-batch with a maximum of 13.98% zero probability fragments
+[2022-06-21 14:44:07.988] [jointLog] [info] Thread saw mini-batch with a maximum of 14.92% zero probability fragments
+[2022-06-21 14:44:08.006] [jointLog] [info] Computed 4,084 rich equivalence classes for further processing
+[2022-06-21 14:44:08.006] [jointLog] [info] Counted 267,945 total reads in the equivalence classes
+[2022-06-21 14:44:08.013] [jointLog] [warning] 0.22057% of fragments were shorter than the k used to build the index.
+If this fraction is too large, consider re-building the index with a smaller k.
+The minimum read size found was 20.
+[2022-06-21 14:44:08.013] [jointLog] [info] Number of mappings discarded because of alignment score : 732,554
+[2022-06-21 14:44:08.013] [jointLog] [info] Number of fragments entirely discarded because of alignment score : 64,290
+[2022-06-21 14:44:08.013] [jointLog] [info] Number of fragments discarded because they are best-mapped to decoys : 13,028
+[2022-06-21 14:44:08.013] [jointLog] [info] Number of fragments discarded because they have only dovetail (discordant) mappings to valid targets : 0
+[2022-06-21 14:44:08.027] [jointLog] [warning] Only 267945 fragments were mapped, but the number of burn-in fragments was set to 5000000.
+The effective lengths have been computed using the observed mappings.
+[2022-06-21 14:44:08.027] [jointLog] [info] Mapping rate = 50.4702%
+[2022-06-21 14:44:08.027] [jointLog] [info] finished quantifyLibrary()
+[2022-06-21 14:44:08.027] [jointLog] [info] Starting optimizer
+[2022-06-21 14:44:08.073] [jointLog] [info] Marked 0 weighted equivalence classes as degenerate
+[2022-06-21 14:44:08.195] [jointLog] [info] iteration = 0 | max rel diff. = 72.4062
+[2022-06-21 14:44:20.378] [jointLog] [info] iteration = 100 | max rel diff. = 0.000248501
+[2022-06-21 14:44:20.388] [jointLog] [info] Finished optimizer
+[2022-06-21 14:44:20.388] [jointLog] [info] writing output
+```
+
+okay lets try it on the TR25 untrimmed just to see :)
+
+```
+salmon quant -i ../refseq/transcript-ref/attempt3/gentrome/index_transcripts_3 -l SF -r fastq/raw_TR25/TR25_CKDL210019355-1a-AK3590_HGV5WBBXX_L3_1.fq  --validateMappings -o raw_TR25/transcripts_quant_raw_TR25
+```
+it worked.
+
+```
+❯ salmon quant -i ../refseq/transcript-ref/attempt3/gentrome/index_transcripts_3 -l SF -r fastq/raw_TR25/TR25_CKDL210019355-1a-AK3590_HGV5WBBXX_L3_1.fq  --validateMappings -o raw_TR25/transcripts_quant_raw_TR25
+Version Info: This is the most recent version of salmon.
+### salmon (selective-alignment-based) v1.8.0
+### [ program ] => salmon
+### [ command ] => quant
+### [ index ] => { ../refseq/transcript-ref/attempt3/gentrome/index_transcripts_3 }
+### [ libType ] => { SF }
+### [ unmatedReads ] => { fastq/raw_TR25/TR25_CKDL210019355-1a-AK3590_HGV5WBBXX_L3_1.fq }
+### [ validateMappings ] => { }
+### [ output ] => { raw_TR25/transcripts_quant_raw_TR25 }
+Logs will be written to raw_TR25/transcripts_quant_raw_TR25/logs
+[2022-06-21 15:09:20.397] [jointLog] [info] setting maxHashResizeThreads to 10
+[2022-06-21 15:09:20.397] [jointLog] [info] Fragment incompatibility prior below threshold.  Incompatible fragments will be ignored.
+[2022-06-21 15:09:20.397] [jointLog] [info] Usage of --validateMappings implies use of minScoreFraction. Since not explicitly specified, it is being set to 0.65
+[2022-06-21 15:09:20.397] [jointLog] [info] Setting consensusSlack to selective-alignment default of 0.35.
+[2022-06-21 15:09:20.397] [jointLog] [info] parsing read library format
+[2022-06-21 15:09:20.397] [jointLog] [info] There is 1 library.
+[2022-06-21 15:09:20.397] [jointLog] [info] Loading pufferfish index
+[2022-06-21 15:09:20.397] [jointLog] [info] Loading dense pufferfish index.
+-----------------------------------------
+| Loading contig table | Time = 312.26 ms
+-----------------------------------------
+size = 3637311
+-----------------------------------------
+| Loading contig offsets | Time = 5.3874 ms
+-----------------------------------------
+-----------------------------------------
+| Loading reference lengths | Time = 771.17 us
+-----------------------------------------
+-----------------------------------------
+| Loading mphf table | Time = 58.304 ms
+-----------------------------------------
+size = 302576599
+Number of ones: 3637310
+Number of ones per inventory item: 512
+Inventory entries filled: 7105
+-----------------------------------------
+| Loading contig boundaries | Time = 434.99 ms
+-----------------------------------------
+size = 302576599
+-----------------------------------------
+| Loading sequence | Time = 38.657 ms
+-----------------------------------------
+size = 193457299
+-----------------------------------------
+| Loading positions | Time = 353.03 ms
+-----------------------------------------
+size = 470684382
+-----------------------------------------
+| Loading reference sequence | Time = 56.225 ms
+-----------------------------------------
+-----------------------------------------
+| Loading reference accumulative lengths | Time = 1.3568 ms
+-----------------------------------------
+[2022-06-21 15:09:21.660] [jointLog] [info] done
+[2022-06-21 15:09:21.702] [jointLog] [info] Index contained 362,979 targets
+[2022-06-21 15:09:21.763] [jointLog] [info] Number of decoys : 272
+processed 7,500,000 fragmentsintLog] [info] First decoy index : 352,592
+hits: 4,791,750; hits per frag:  0.641709
+[2022-06-21 15:09:48.054] [jointLog] [info] Thread saw mini-batch with a maximum of 18.14% zero probability fragments
+[2022-06-21 15:09:48.063] [jointLog] [info] Thread saw mini-batch with a maximum of 18.00% zero probability fragments
+[2022-06-21 15:09:48.064] [jointLog] [info] Thread saw mini-batch with a maximum of 18.30% zero probability fragments
+[2022-06-21 15:09:48.073] [jointLog] [info] Thread saw mini-batch with a maximum of 18.02% zero probability fragments
+[2022-06-21 15:09:48.078] [jointLog] [info] Thread saw mini-batch with a maximum of 18.36% zero probability fragments
+[2022-06-21 15:09:48.081] [jointLog] [info] Thread saw mini-batch with a maximum of 17.98% zero probability fragments
+[2022-06-21 15:09:48.086] [jointLog] [info] Thread saw mini-batch with a maximum of 18.12% zero probability fragments
+[2022-06-21 15:09:48.096] [jointLog] [info] Thread saw mini-batch with a maximum of 17.98% zero probability fragments
+[2022-06-21 15:09:48.135] [jointLog] [info] Thread saw mini-batch with a maximum of 18.30% zero probability fragments
+[2022-06-21 15:09:48.196] [jointLog] [info] Thread saw mini-batch with a maximum of 17.88% zero probability fragments
+[2022-06-21 15:09:48.212] [jointLog] [info] Computed 4,925 rich equivalence classes for further processing
+[2022-06-21 15:09:48.212] [jointLog] [info] Counted 2,194,126 total reads in the equivalence classes
+[2022-06-21 15:09:48.218] [jointLog] [info] Number of mappings discarded because of alignment score : 14,804,488
+[2022-06-21 15:09:48.218] [jointLog] [info] Number of fragments entirely discarded because of alignment score : 2,528,571
+[2022-06-21 15:09:48.218] [jointLog] [info] Number of fragments discarded because they are best-mapped to decoys : 67,064
+[2022-06-21 15:09:48.218] [jointLog] [info] Number of fragments discarded because they have only dovetail (discordant) mappings to valid targets : 0
+[2022-06-21 15:09:48.231] [jointLog] [warning] Only 2194126 fragments were mapped, but the number of burn-in fragments was set to 5000000.
+The effective lengths have been computed using the observed mappings.
+[2022-06-21 15:09:48.231] [jointLog] [info] Mapping rate = 28.017%
+[2022-06-21 15:09:48.231] [jointLog] [info] finished quantifyLibrary()
+[2022-06-21 15:09:48.232] [jointLog] [info] Starting optimizer
+[2022-06-21 15:09:48.277] [jointLog] [info] Marked 0 weighted equivalence classes as degenerate
+[2022-06-21 15:09:48.427] [jointLog] [info] iteration = 0 | max rel diff. = 573.894
+[2022-06-21 15:10:00.704] [jointLog] [info] iteration = 100 | max rel diff. = 0.11009
+[2022-06-21 15:10:09.217] [jointLog] [info] iteration = 169 | max rel diff. = 0.000989814
+[2022-06-21 15:10:09.234] [jointLog] [info] Finished optimizer
+[2022-06-21 15:10:09.234] [jointLog] [info] writing output
+```
+
+FINALLY IT WORKS!!!!!
+
+```
+❯ pwd
+/Users/michaelfoster/sequencing/summer/clover_project/work/raw_TR25/transcripts_quant_raw_TR25
+❯ ls
+aux_info               libParams              logs
+cmd_info.json          lib_format_counts.json quant.sf
+❯ cat quant.sf| wc -l
+  362708
+❯ pwd
+/Users/michaelfoster/sequencing/summer/clover_project/work/trimmed_TR25/transcripts_quant_TR25
+❯ ls
+aux_info               libParams              logs
+cmd_info.json          lib_format_counts.json quant.sf
+❯ cat quant.sf| wc -l
+  362708
+```
 
