@@ -1,3 +1,5 @@
+# https://hackmd.io/@NFpEogXySTuWExLvDQQHig/SkwWM4WHv
+
 install.packages('tidyverse')
 install.packages('BiocManager')
 BiocManager::install('DESeq2')
@@ -13,3 +15,4 @@ dir <- "/Users/michaelfoster/sequencing/summer/clover_project/work/"
 # transcript - gene ID Data Frame
 # read in the genemap file.
 # need to get genemap file
+
