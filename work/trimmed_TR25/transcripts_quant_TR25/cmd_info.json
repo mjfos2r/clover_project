@@ -1,0 +1,9 @@
+{
+    "salmon_version": "1.8.0",
+    "index": "../refseq/transcript-ref/attempt3/gentrome/index_transcripts_3",
+    "libType": "SF",
+    "unmatedReads": "fastq/output_forward_paired_trimmed.fq",
+    "validateMappings": [],
+    "output": "TR25/transcripts_quant_TR25",
+    "auxDir": "aux_info"
+}
