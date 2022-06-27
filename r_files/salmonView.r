@@ -8,6 +8,7 @@ library('tidyverse')
 library('tximport')
 library('DESeq2')
 library('RSQLite')
+library('dplyr')
 ####################################################################################################################################################################
 dir <- "/Users/michaelfoster/sequencing/summer/clover_project/"
 # transcript - gene ID Data Frame
@@ -16,7 +17,7 @@ dir <- "/Users/michaelfoster/sequencing/summer/clover_project/"
 #install.packages('rtracklayer')
 #BiocManager::install('rtracklayer')
 gtf <- rtracklayer::import("/Users/michaelfoster/sequencing/summer/clover_project/refseq/transcript-ref/attempt3/TrR.v5.transcript.fresh.gtf")
-gtf2 <- read.table("/Users/michaelfoster/sequencing/summer/clover_project/refseq/transcript-ref/attempt3/TrR.v5.transcript.fresh.gtf", header = FALSE, sep = '\t')
+gtf2 <- read.table("/Users/michaelfoster/sequencing/summer/clover_project/refseq/transcript-ref/attempt3/TrR.v5.transcript.fresh.gtf", header = TRUE, sep = '\t')
 head(gtf2)
 tail(gtf2)
 gtf2df <- as_tibble(gtf2)
@@ -78,4 +79,19 @@ library('splicejam')
 tx2geneTR <- makeTx2geneFromGtf(GTF = 'refseq/transcript-ref/attempt3/TrR.v5.transcript.fresh.gtf', geneAttrNames = c("function","accession"),txAttrNames = c("ID"), geneFeatureType = c("gene"), txFeatureType = "transcript", nrows = -1L, verbose = TRUE)
 #didn't work, gff file is kinda scuffed and lacks the required info. specifically, in column 3, "gene", as well as various other issues.
 
+#lets view the quant.sf file
+TR25_quant <- read.table("/Users/michaelfoster/sequencing/summer/clover_project/work/trimmed_TR25/transcripts_quant_TR25/quant.sf", header = TRUE, sep = '\t')
+TR25_quant_DF <- as_tibble(TR25_quant)
+print(TR25_quant_DF)
+?sort.DataFrame
+nozeds <- subset(TR25_quant_DF,  TR25_quant_DF$NumReads > 0 & TR25_quant_DF$NumReads != 0)
+print(nozeds)
+#df <- TR25_quant_DF
+#new_df <- subset(df, df$NumReads > 0)
+#print(new_df)
+#okay this finally worked.
 
+#now to take and create a tx2gene file 
+#need to get Name for transcript name and then Gene name from the included assession number in column 9 of the GTF.
+#need to parse that out...
+#will do.
