@@ -1,0 +1,135 @@
+trimming TR09 to include in the test DESeq Run. 
+Trimming then running salmon quant.
+
+```
+❯ java -jar ../../trimmomatic/Trimmomatic-0.39/trimmomatic-0.39.jar SE -threads 32 -trimlog trimlog -summary trimstats ../../../../data-raw_seq/clover/RNAseq_Trifolium_repens_2021/MD5/raw_data/TR9/TR9_CKDL210019355-1a-AK1774_HGV5WBBXX_L3_1.fq.gz trimmed.TR09.fq.gz ILLUMINACLIP:../../trimmomatic/Trimmomatic-0.39/adapters/TruSeq3-SE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:20
+TrimmomaticSE: Started with arguments:
+ -threads 32 -trimlog trimlog -summary trimstats ../../../../data-raw_seq/clover/RNAseq_Trifolium_repens_2021/MD5/raw_data/TR9/TR9_CKDL210019355-1a-AK1774_HGV5WBBXX_L3_1.fq.gz trimmed.TR09.fq.gz ILLUMINACLIP:../../trimmomatic/Trimmomatic-0.39/adapters/TruSeq3-SE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:20
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+ILLUMINACLIP: Using 0 prefix pairs, 2 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 15262355 Surviving: 15254271 (99.95%) Dropped: 8084 (0.05%)
+TrimmomaticSE: Completed successfully
+```
+okay now to quant
+
+```
+❯ salmon quant -i ../../refseq/transcript-ref/attempt3/gentrome/index_transcripts_3 -l SF -r trimmed.TR09.fq.gz --validateMappings -o quant_TR09
+Version Info: ### PLEASE UPGRADE SALMON ###
+### A newer version of salmon with important bug fixes and improvements is available. ####
+###
+The newest version, available at https://github.com/COMBINE-lab/salmon/releases
+contains new features, improvements, and bug fixes; please upgrade at your
+earliest convenience.
+###
+Sign up for the salmon mailing list to hear about new versions, features and updates at:
+https://oceangenomics.com/subscribe
+### salmon (selective-alignment-based) v1.8.0
+### [ program ] => salmon
+### [ command ] => quant
+### [ index ] => { ../../refseq/transcript-ref/attempt3/gentrome/index_transcripts_3 }
+### [ libType ] => { SF }
+### [ unmatedReads ] => { trimmed.TR09.fq.gz }
+### [ validateMappings ] => { }
+### [ output ] => { quant_TR09 }
+Logs will be written to quant_TR09/logs
+[2022-06-28 15:26:51.412] [jointLog] [info] setting maxHashResizeThreads to 10
+[2022-06-28 15:26:51.412] [jointLog] [info] Fragment incompatibility prior below threshold.  Incompatible fragments will be ignored.
+[2022-06-28 15:26:51.412] [jointLog] [info] Usage of --validateMappings implies use of minScoreFraction. Since not explicitly specified, it is being set to 0.65
+[2022-06-28 15:26:51.412] [jointLog] [info] Setting consensusSlack to selective-alignment default of 0.35.
+[2022-06-28 15:26:51.412] [jointLog] [info] parsing read library format
+[2022-06-28 15:26:51.412] [jointLog] [info] There is 1 library.
+[2022-06-28 15:26:51.413] [jointLog] [info] Loading pufferfish index
+[2022-06-28 15:26:51.413] [jointLog] [info] Loading dense pufferfish index.
+-----------------------------------------
+| Loading contig table | Time = 324.67 ms
+-----------------------------------------
+size = 3637311
+-----------------------------------------
+| Loading contig offsets | Time = 5.2275 ms
+-----------------------------------------
+-----------------------------------------
+| Loading reference lengths | Time = 759.92 us
+-----------------------------------------
+-----------------------------------------
+| Loading mphf table | Time = 58.391 ms
+-----------------------------------------
+size = 302576599
+Number of ones: 3637310
+Number of ones per inventory item: 512
+Inventory entries filled: 7105
+-----------------------------------------
+| Loading contig boundaries | Time = 437.81 ms
+-----------------------------------------
+size = 302576599
+-----------------------------------------
+| Loading sequence | Time = 36.438 ms
+-----------------------------------------
+size = 193457299
+-----------------------------------------
+| Loading positions | Time = 325.41 ms
+-----------------------------------------
+size = 470684382
+-----------------------------------------
+| Loading reference sequence | Time = 54.287 ms
+-----------------------------------------
+-----------------------------------------
+| Loading reference accumulative lengths | Time = 1.3854 ms
+-----------------------------------------
+[2022-06-28 15:26:52.658] [jointLog] [info] done
+[2022-06-28 15:26:52.701] [jointLog] [info] Index contained 362,979 targets
+[2022-06-28 15:26:52.776] [jointLog] [info] Number of decoys : 272
+[2022-06-28 15:26:52.776] [jointLog] [info] First decoy index : 352,592
+
+
+
+processed 15,000,000 fragments
+hits: 5,959,881; hits per frag:  0.397769
+
+
+
+
+
+
+
+
+
+[2022-06-28 15:27:50.936] [jointLog] [info] Thread saw mini-batch with a maximum of 3.04% zero probability fragments
+[2022-06-28 15:27:50.973] [jointLog] [info] Thread saw mini-batch with a maximum of 2.82% zero probability fragments
+[2022-06-28 15:27:50.984] [jointLog] [info] Thread saw mini-batch with a maximum of 2.92% zero probability fragments
+[2022-06-28 15:27:50.994] [jointLog] [info] Thread saw mini-batch with a maximum of 3.00% zero probability fragments
+[2022-06-28 15:27:51.024] [jointLog] [info] Thread saw mini-batch with a maximum of 2.88% zero probability fragments
+[2022-06-28 15:27:51.025] [jointLog] [info] Thread saw mini-batch with a maximum of 3.12% zero probability fragments
+[2022-06-28 15:27:51.027] [jointLog] [info] Thread saw mini-batch with a maximum of 2.96% zero probability fragments
+[2022-06-28 15:27:51.045] [jointLog] [info] Thread saw mini-batch with a maximum of 2.76% zero probability fragments
+[2022-06-28 15:27:51.056] [jointLog] [info] Thread saw mini-batch with a maximum of 2.76% zero probability fragments
+[2022-06-28 15:27:51.069] [jointLog] [info] Thread saw mini-batch with a maximum of 2.80% zero probability fragments
+[2022-06-28 15:27:51.099] [jointLog] [info] Computed 65,320 rich equivalence classes for further processing
+[2022-06-28 15:27:51.099] [jointLog] [info] Counted 3,570,970 total reads in the equivalence classes
+[2022-06-28 15:27:51.105] [jointLog] [warning] 0.154252% of fragments were shorter than the k used to build the index.
+If this fraction is too large, consider re-building the index with a smaller k.
+The minimum read size found was 20.
+
+
+[2022-06-28 15:27:51.105] [jointLog] [info] Number of mappings discarded because of alignment score : 26,172,803
+[2022-06-28 15:27:51.105] [jointLog] [info] Number of fragments entirely discarded because of alignment score : 4,365,521
+[2022-06-28 15:27:51.105] [jointLog] [info] Number of fragments discarded because they are best-mapped to decoys : 530,927
+[2022-06-28 15:27:51.105] [jointLog] [info] Number of fragments discarded because they have only dovetail (discordant) mappings to valid targets : 0
+[2022-06-28 15:27:51.118] [jointLog] [warning] Only 3570970 fragments were mapped, but the number of burn-in fragments was set to 5000000.
+The effective lengths have been computed using the observed mappings.
+
+[2022-06-28 15:27:51.118] [jointLog] [info] Mapping rate = 23.4096%
+
+[2022-06-28 15:27:51.118] [jointLog] [info] finished quantifyLibrary()
+[2022-06-28 15:27:51.121] [jointLog] [info] Starting optimizer
+[2022-06-28 15:27:51.173] [jointLog] [info] Marked 0 weighted equivalence classes as degenerate
+[2022-06-28 15:27:51.368] [jointLog] [info] iteration = 0 | max rel diff. = 914.653
+[2022-06-28 15:28:04.087] [jointLog] [info] iteration = 100 | max rel diff. = 4.53299
+[2022-06-28 15:28:16.810] [jointLog] [info] iteration = 200 | max rel diff. = 0.085918
+[2022-06-28 15:28:29.676] [jointLog] [info] iteration = 300 | max rel diff. = 0.277052
+[2022-06-28 15:28:31.328] [jointLog] [info] iteration = 314 | max rel diff. = 0.00875086
+[2022-06-28 15:28:31.343] [jointLog] [info] Finished optimizer
+[2022-06-28 15:28:31.343] [jointLog] [info] writing output
+```
+
