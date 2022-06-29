@@ -33,5 +33,12 @@ echo "moving all trimmed files into trimmed!"
 find $work -name "trimmed.*" -type f -exec mv {} $OUT \;
 find $work \(-name "*.summary" -o -name ".trimlog"\) -type f -exec mv {} $OUT/logs/ \;
 echo "finished!"
+clear
+echo "changing directories into $OUT/logs"
+cd $OUT
+echo "now outputting a summary of all summaries"
+cat *.summary >> jobsummary.txt
+echo "now finished!"
+
 #echo "deleting temp directory"
 #rm -rf $WORK
