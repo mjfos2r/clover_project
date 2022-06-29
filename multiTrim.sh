@@ -27,11 +27,11 @@ echo "starting loop, this may take a while"
 echo "using 32 threads and running as SE trimming against the TruSeq3-SE.fa adapters"
 for i in *1.fq.gz
 do
-  java -jar $TRIMEXEC SE -threads 32 -trimlog ${i}.trimlog -summary ${i}.summary ${i} ${i}.trimmed.fq.gz ILLUMINACLIP:$ADAPTER:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:20
+  java -jar $TRIMEXEC SE -threads 64 -trimlog ${i}.trimlog -summary ${i}.summary ${i} trimmed.${i} ILLUMINACLIP:$ADAPTER:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:20
 done
 echo "moving all trimmed files into trimmed!"
-find $work -type f -name *.trimmed.fq.gz -exec mv {} $OUT \;
-find $work -type f \(-name "*.summary" -o -name ".trimlog"\) -exec mv {} $OUT/logs/ \;
+find $work -name "*.trimmed.fq.gz" -type f -exec mv {} $OUT \;
+find $work \(-name "*.summary" -o -name ".trimlog"\) -type f -exec mv {} $OUT/logs/ \;
 echo "finished!"
 #echo "deleting temp directory"
 #rm -rf $WORK
