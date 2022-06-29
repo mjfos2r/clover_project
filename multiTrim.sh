@@ -30,7 +30,7 @@ do
   java -jar $TRIMEXEC SE -threads 64 -trimlog ${i}.trimlog -summary ${i}.summary ${i} trimmed.${i} ILLUMINACLIP:$ADAPTER:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:20
 done
 echo "moving all trimmed files into trimmed!"
-find $work -name "*.trimmed.fq.gz" -type f -exec mv {} $OUT \;
+find $work -name "trimmed.*" -type f -exec mv {} $OUT \;
 find $work \(-name "*.summary" -o -name ".trimlog"\) -type f -exec mv {} $OUT/logs/ \;
 echo "finished!"
 #echo "deleting temp directory"
