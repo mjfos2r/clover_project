@@ -25,7 +25,7 @@ echo "changing directories to $WORK to begin the trimming"
 cd $WORK 
 echo "starting loop, this may take a while"
 echo "using 32 threads and running as SE trimming against the TruSeq3-SE.fa adapters"
-for i in *.fq.gz
+for i in *1.fq.gz
 do
   java -jar $TRIMEXEC SE -threads 32 -trimlog ${i}.trimlog -summary ${i}.summary ${i} ${i}.trimmed.fq.gz ILLUMINACLIP:$ADAPTER:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:20
 done
