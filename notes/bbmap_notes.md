@@ -1,10 +1,12 @@
+# BBMAP notes
+
 okay lets install this from the github.
 <https://github.com/BioInfoTools/BBMap/blob/master/README.md>
 
 It wants java installed via brew, already done.
 so lets clone the repo and then follow the compiling instructions.
 
-```
+```bash
 ❯ ghclone BioInfoTools BBMap
 running script to clone BioInfoTools/BBMap into local BBMap
 Cloning into 'BBMap'...
@@ -16,8 +18,10 @@ Receiving objects: 100% (3570/3570), 9.08 MiB | 4.25 MiB/s, done.
 Resolving deltas: 100% (1972/1972), done.
 newly cloned BBMap is now present
 ```
+
 okay now lets attempt compilation.
-```
+
+```bash
 ❯ cd BBMap
 ❯ ls
 BB_User-Meeting-2014-poster-FINAL.pdf config                                pipelines
@@ -37,9 +41,11 @@ IceCreamAlignerJNI.o              jgi_BBMergeOverlapper.h
 ❯ JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-17.0.2.jdk/Contents/Home make -f makefile.osx
 make: `libbbtoolsjni.dylib' is up to date.
 ```
+
 okay so that works.
 now lets make sure open-mpi is installed.
-```
+
+```bash
 ❯ brew install --with-java open-mpi
 Usage: brew install [options] formula|cask [...]
 
@@ -172,8 +178,9 @@ upgrade formula if it is already installed but outdated.
   -h, --help                       Show this message.
 Error: invalid option: --with-java
 ```
+
 "">:(
-update: https://github.com/Homebrew/homebrew-core/issues/26009
+update: <https://github.com/Homebrew/homebrew-core/issues/26009>
 okay so whatever, lets procede as if it isn't going to be broken (:
 
 <https://sourceforge.net/projects/bbmap/>
@@ -185,7 +192,7 @@ anyways.
 
 now to BBDuk.
 
-```
+```bash
 ❯ cat README.md
 # BBTools bioinformatics tools, including BBMap.
 # Author: Brian Bushnell, Jon Rood, Shijie Yao, Jasper Toscani Field
@@ -194,8 +201,10 @@ now to BBDuk.
 
 # Version 38.96
 ```
+
 okay fine.
-```
+
+```bash
 ❯ cat readme.txt
 BBMap/BBTools readme
 Written by Brian Bushnell
@@ -248,9 +257,10 @@ Alex Copeland (JGI), Douglas Jacobsen (JGI/NERSC), Bill Andreopoulos (JGI), sdri
 
 Special thanks for helping to support BBTools goes to Genomax (SeqAnswers).
 ```
+
 okay fine, now lets look at the bbduk guide.
 
-```
+```bash
 ❯ cat BBDukGuide.txt
 BBDuk Guide
 Written by Brian Bushnell
@@ -449,35 +459,36 @@ bbduk.sh in=reads.fq out=clean.fq qtrim=r trimq=10 minlen=100
 
 This will discard reads shorter than 100bp after trimming to Q10.  Alternatively, using "mlf=50" (minlengthfraction=50) would discard reads under 50% of their original length after trimming.  Either of these flags apply to any trim operation, whether force-trim (ftr, ftl, ftm), quality-trimming (qtrim), or kmer-trimming (ktrim).  "mlf" compares the final length after all trim operations to the initial length before any trim operations.
 ```
-using info from https://www.biostars.org/p/364004/
+
+using info from <https://www.biostars.org/p/364004/>
 
 >
 >Use BBMap suite (reproduced from here) :
-
 >If you have paired reads, and enough of the reads have inserts shorter than read length, you can identify adapter sequences with BBMerge, like this (they will be printed to adapters.fa):
-
 >bbmerge.sh in1=r1.fq in2=r2.fq outa=adapters.fa
 >You can find the adapter sequence used in the adapters.fa file included with BBMap. In that case, you can do this:
-
 >bbduk.sh in1=r1.fq in2=r2.fq k=23 ref=adapters.fa stats=stats.txt
 >stats.txt will then list the names of adapter sequences found, and their frequency.
 
 okay, so lets look at guides/bbmerge
 
-```
+```bash
 Discovering adapter sequences:
 bbmerge.sh in=reads.fq outa=adapters.fa
 .......
 Recommended command for optimal accuracy:
 bbmerge-auto.sh in=reads.fq out=merged.fq adapter1=<something> adapter2=<something> rem k=62 extend2=50 ecct
 ```
+
 ezpz. lets go.
 
-```
+```bash
 bbmerge-auto.sh in=reads.fq outa=adapters.fa
 ```
+
 now to try on actual data.
-```
+
+```bash
 ❯ /Users/michaelfoster/bioinformatics/bbmap/bbmerge.sh in=TR25_CKDL210019355-1a-AK3590_HGV5WBBXX_L3_1.fq outa=../adapters.fa
 /Users/michaelfoster/bioinformatics/bbmap//calcmem.sh: line 75: [: -v: unary operator expected
 java -ea -Xmx1000m -Xms1000m -Djava.library.path=/Users/michaelfoster/bioinformatics/bbmap/jni/ -cp /Users/michaelfoster/bioinformatics/bbmap/current/ jgi.BBMerge in=TR25_CKDL210019355-1a-AK3590_HGV5WBBXX_L3_1.fq outa=../adapters.fa
@@ -487,34 +498,38 @@ Version 38.96
 Adapters counted: 0
 Total time: 5.208 seconds.
 
-Pairs:               	3915699
-Joined:              	5       	0.000%
-Ambiguous:           	3915694   	100.000%
-No Solution:         	0       	0.000%
-Too Short:           	0       	0.000%
+Pairs:                3915699
+Joined:               5        0.000%
+Ambiguous:            3915694    100.000%
+No Solution:          0        0.000%
+Too Short:            0        0.000%
 
-Avg Insert:          	288.8
-Standard Deviation:  	1.0
-Mode:                	288
+Avg Insert:           288.8
+Standard Deviation:   1.0
+Mode:                 288
 
-Insert range:        	288 - 290
-90th percentile:     	290
-75th percentile:     	288
-50th percentile:     	288
-25th percentile:     	288
-10th percentile:     	0
+Insert range:         288 - 290
+90th percentile:      290
+75th percentile:      288
+50th percentile:      288
+25th percentile:      288
+10th percentile:      0
 ```
+
 okay lets see if that worked.
-```
+
+```bash
 ❯ cat ../adapters.fa
 >Read1_adapter
 N
 >Read2_adapter
 N
 ```
+
 it didn't :)
 maybe I need to run both reads to fully get the right adapter...?
-```
+
+```bash
 ❯ /Users/michaelfoster/bioinformatics/bbmap/bbmerge.sh in1=TR25_CKDL210019355-1a-AK3590_HGV5WBBXX_L3_1.fq in2=TR25_CKDL210019355-1a-AK3590_HGV5WBBXX_L3_2.fq outa=../adapters.fa
 /Users/michaelfoster/bioinformatics/bbmap//calcmem.sh: line 75: [: -v: unary operator expected
 java -ea -Xmx1000m -Xms1000m -Djava.library.path=/Users/michaelfoster/bioinformatics/bbmap/jni/ -cp /Users/michaelfoster/bioinformatics/bbmap/current/ jgi.BBMerge in1=TR25_CKDL210019355-1a-AK3590_HGV5WBBXX_L3_1.fq in2=TR25_CKDL210019355-1a-AK3590_HGV5WBBXX_L3_2.fq outa=../adapters.fa
@@ -524,37 +539,41 @@ Version 38.96
 Adapters counted: 1453244
 Total time: 21.103 seconds.
 
-Pairs:               	7831399
-Joined:              	2495940   	31.871%
-Ambiguous:           	4609096   	58.854%
-No Solution:         	726363   	9.275%
-Too Short:           	0       	0.000%
+Pairs:                7831399
+Joined:               2495940    31.871%
+Ambiguous:            4609096    58.854%
+No Solution:          726363    9.275%
+Too Short:            0        0.000%
 
-Avg Insert:          	139.0
-Standard Deviation:  	55.0
-Mode:                	167
+Avg Insert:           139.0
+Standard Deviation:   55.0
+Mode:                 167
 
-Insert range:        	35 - 291
-90th percentile:     	213
-75th percentile:     	170
-50th percentile:     	129
-25th percentile:     	96
-10th percentile:     	74
+Insert range:         35 - 291
+90th percentile:      213
+75th percentile:      170
+50th percentile:      129
+25th percentile:      96
+10th percentile:      74
 ```
+
 take 2:
-```
+
+```bash
 ❯ cat ../adapters.fa
 >Read1_adapter
 AGATCGGAAGAGCACACGTCTGAACTCCAGTCACTCGTTCATCTCGTATGCCGTCTTCTGCTTG
 >Read2_adapter
 AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT
 ```
+
 that looked to have worked. now lets check it.
-```
+
+```bash
 ❯ cat TR25_CKDL210019355-1a-AK3590_HGV5WBBXX_L3_1.fq | grep "@" | wc
  7831399 15662798 419837838
 ❯ cat TR25_CKDL210019355-1a-AK3590_HGV5WBBXX_L3_1.fq | grep "AGATCGGAAGAGCACACGTCTGAACTCCAGTCACTCGTTCATCTCGTATGCCGTCTTCTGCTTG" | wc
   503868  503868 76084068
 ```
-HMMMM....
 
+HMMMM....
