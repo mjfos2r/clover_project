@@ -26,8 +26,10 @@
              netrc file : None
            offline mode : False
 ```
-### Okay cool, conda is working and it's the arm64 installation.
-### Let's try to set up an env to use the RNA workflow in.
+
+### Okay cool, conda is working and it's the arm64 installation
+
+### Let's try to set up an env to use the RNA workflow in
 
 ```
 ❯ conda create --name cloverRNAseq
@@ -56,7 +58,8 @@ Proceed ([y]/n)? n
 
 CondaSystemExit: Exiting.
 ```
-### okay, lets update conda then...
+
+### okay, lets update conda then
 
 ```
 ❯ conda update -n base conda
@@ -172,7 +175,8 @@ Executing transaction: done
 
 ❯ conda activate CloverRNASeq
 ```
-### Okay, now to install the required packages.
+
+### Okay, now to install the required packages
 
 Need to install :::
 FastQC
@@ -258,6 +262,7 @@ Preparing transaction: done
 Verifying transaction: done
 Executing transaction: done
 ```
+
 ### Okay, now to install trimmomatic
 
 ```
@@ -316,7 +321,8 @@ Preparing transaction: done
 Verifying transaction: done
 Executing transaction: done
 ```
-### Cool, now lets install minimap and trinity.
+
+### Cool, now lets install minimap and trinity
 
 ```
 ❯ conda install -c bioconda minimap2
@@ -366,11 +372,15 @@ looking for, navigate to
 
 and use the search bar at the top of the page.
 ```
-### Okay, nevermind, I think I'll have to install minimap outside of conda. 
-### I think it has to be compiled from source. Already have it installed I think, but anyways for
-### posterity here is the steps to install it.
 
-using https://github.com/lh3/minimap2 for the following code
+### Okay, nevermind, I think I'll have to install minimap outside of conda
+
+### I think it has to be compiled from source. Already have it installed I think, but anyways for
+
+### posterity here is the steps to install it
+
+using <https://github.com/lh3/minimap2> for the following code
+
 ```
 git clone https://github.com/lh3/minimap2
 cd minimap2 && make
@@ -395,14 +405,18 @@ cd minimap2 && make
 # man page for detailed command line options
 man ./minimap2.1
 ```
-# Okay so do that if you don't have minimap installed and on $PATH. I already do, here's where my binaries are.
+
+# Okay so do that if you don't have minimap installed and on $PATH. I already do, here's where my binaries are
+
 ```
 ❯ which minimap2
 /usr/local/bin/minimap2
 ❯ minimap2 --version
 2.24-r1122
 ```
+
 okay now for trinity.
+
 ```
 ❯ conda install -c bioconda trinity
 Collecting package metadata (current_repodata.json): done
@@ -451,14 +465,20 @@ looking for, navigate to
 
 and use the search bar at the top of the page.
 ```
-### Okay, time to install that from source as well....
-### Maybe I'll write a dockerfile for future use ~~~HAH lets not~~~
-using https://github.com/trinityrnaseq/trinityrnaseq as reference:
 
-update: ACTUALLY using https://github.com/trinityrnaseq/trinityrnaseq/wiki
-downloading from https://github.com/trinityrnaseq/trinityrnaseq/releases:
-#### Downloaded for trinity installation.
-URL TO DOWNLOAD: https://github.com/trinityrnaseq/trinityrnaseq/releases/download/Trinity-v2.14.0/trinityrnaseq-v2.14.0.FULL_with_extendedTestData.tar.gz
+### Okay, time to install that from source as well
+
+### Maybe I'll write a dockerfile for future use ~~~HAH lets not~~~
+
+using <https://github.com/trinityrnaseq/trinityrnaseq> as reference:
+
+update: ACTUALLY using <https://github.com/trinityrnaseq/trinityrnaseq/wiki>
+downloading from <https://github.com/trinityrnaseq/trinityrnaseq/releases>:
+
+#### Downloaded for trinity installation
+
+URL TO DOWNLOAD: <https://github.com/trinityrnaseq/trinityrnaseq/releases/download/Trinity-v2.14.0/trinityrnaseq-v2.14.0.FULL_with_extendedTestData.tar.gz>
+
 ```
 ❯ wget https://github.com/trinityrnaseq/trinityrnaseq/releases/download/Trinity-v2.14.0/trinityrnaseq-v2.14.0.FULL_with_extendedTestData.tar.gz
 --2022-06-03 10:30:52--  https://github.com/trinityrnaseq/trinityrnaseq/releases/download/Trinity-v2.14.0/trinityrnaseq-v2.14.0.FULL_with_extendedTestData.tar.gz
@@ -477,6 +497,7 @@ trinityrnaseq-v2.14.0.FULL 100%[======================================>] 295.98M
 
 2022-06-03 10:33:07 (2.21 MB/s) - ‘trinityrnaseq-v2.14.0.FULL_with_extendedTestData.tar.gz’ saved [310361867/310361867]
 ```
+
 okay now lets unzip and decompress that package.
 
 ```
@@ -488,19 +509,25 @@ trinityrnaseq-v2.14.0.FULL_with_extendedTestData.tar.gz
 trinityrnaseq-v2.14.0
 trinityrnaseq-v2.14.0.FULL_with_extendedTestData.tar.gz
 ```
-### Cool now lets explore the directory unzipped.
+
+### Cool now lets explore the directory unzipped
 
 ### from README.md apparently I can install via bioconda but probably not with ARM64 ..... \n
-### oh the joys of apple silicon.
+
+### oh the joys of apple silicon
+
 ```
 [![install with bioconda](https://img.shields.io/badge/install%20with-bioconda-brightgreen.svg?style=flat-square)](https://bioconda.github.io/recipes/trinity/README.html)
 ```
+
 maybe again with bioconda...?
-UPDATE: Nope. 
+UPDATE: Nope.
 okay from source it is. The following should work on x86 machines.
+
 ```
 conda install trinity
 ```
+
 back to source...
 
 from the github for trinity:
@@ -535,8 +562,11 @@ make[2]: *** [all] Error 2
 make[1]: *** [all] Error 2
 make: *** [inchworm_target] Error 2
 ```
-### WONDERFUL. OF COURSE.
-### But there is a script titled "make.macOSX.sh" so lets cat that out.
+
+### WONDERFUL. OF COURSE
+
+### But there is a script titled "make.macOSX.sh" so lets cat that out
+
 ```
 ❯ cat make.macOSX.sh
 #!/bin/bash
@@ -544,6 +574,7 @@ make: *** [inchworm_target] Error 2
 make CXX=g++ CC=gcc
 make plugins CXX=g++ CC=gcc
 ```
+
 okay lets run that one.
 
 ```
@@ -567,8 +598,8 @@ make: *** [inchworm_target] Error 2
 cd trinity-plugins && /Applications/Xcode.app/Contents/Developer/usr/bin/make plugins
 cd slclust && /Applications/Xcode.app/Contents/Developer/usr/bin/make CXX=g++ CC=gcc install
 X=`pwd`; \
-	for i in src; \
-	do echo '<<<' $i '>>>'; cd $X/$i; /Applications/Xcode.app/Contents/Developer/usr/bin/make install; done
+ for i in src; \
+ do echo '<<<' $i '>>>'; cd $X/$i; /Applications/Xcode.app/Contents/Developer/usr/bin/make install; done
 <<< src >>>
 g++ -I../include -Wall    -c -o slcluster.o slcluster.cpp
 In file included from slcluster.cpp:4:
@@ -702,6 +733,7 @@ sh ./util/support_scripts/plugin_install_tests.sh
 slclust:                 has been Installed Properly
 collectl:                has been Installed Properly
 ```
+
 ### F OPENMP INDEED
 
 lets see if it worked.
@@ -820,8 +852,11 @@ lets see if it worked.
 #
 ###############################################################################
 ```
-# WOO Looks like it worked!! 
+
+# WOO Looks like it worked
+
 lets try some test data.
+
 ```
 ❯ cd sample_data
 ❯ ls
@@ -862,7 +897,9 @@ if [ $* ]; then
 
 fi
 ```
+
 Okay lets run the "Run me" script.
+
 ```
 ❯ ./runMe.sh
 #!/bin/bash -ve
@@ -877,16 +914,20 @@ if [ -z ${TRINITY_HOME} ]; then
 fi
 Must set env var TRINITY_HOME
 ```
+
 ugh.
 I don't want to have to use docker.....
 Just let me install it from source ffs.
 Okay, lets see if the var is set properly.
+
 ```
 ❯ echo $TRINITY_HOME
 /Users/michaelfoster/sequencing/summer/clover_project/trinity/trinityrnaseq-v2.14.0
 ```
+
 looks to be in order.
 lets not run the shell script and insted run the piece of the script to keep from falling into subshell hell...
+
 ```
 ${TRINITY_HOME}/Trinity --seqType fq --max_memory 2G \
 --left reads.left.fq.gz \
@@ -894,7 +935,9 @@ ${TRINITY_HOME}/Trinity --seqType fq --max_memory 2G \
 --SS_lib_type RF \
 --CPU 1
 ```
+
 okay ran the above and got this output:
+
 ```
 ❯ ${TRINITY_HOME}/Trinity --seqType fq --max_memory 2G \
 --left reads.left.fq.gz \
@@ -903,16 +946,19 @@ okay ran the above and got this output:
 --CPU 1
 
 
-	Error, cannot locate Trinity-specific tool: ParaFly in the PATH setting: /Users/michaelfoster/sequencing/summer/clover_project/trinity/trinityrnaseq-v2.14.0/trinity-plugins/BIN:/opt/homebrew/Caskroom/miniforge/base/envs/CloverRNASeq/bin:/opt/homebrew/opt/openjdk/bin:/Users/michaelfoster/scripts:/opt/homebrew/Caskroom/miniconda/base/condabin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/michaelfoster/bin:/Users/michaelfoster/bin:/usr/local/include:/usr/local/lib,  be sure to install Trinity by running 'make' in the base installation directory
+ Error, cannot locate Trinity-specific tool: ParaFly in the PATH setting: /Users/michaelfoster/sequencing/summer/clover_project/trinity/trinityrnaseq-v2.14.0/trinity-plugins/BIN:/opt/homebrew/Caskroom/miniforge/base/envs/CloverRNASeq/bin:/opt/homebrew/opt/openjdk/bin:/Users/michaelfoster/scripts:/opt/homebrew/Caskroom/miniconda/base/condabin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/michaelfoster/bin:/Users/michaelfoster/bin:/usr/local/include:/usr/local/lib,  be sure to install Trinity by running 'make' in the base installation directory
 ```
+
 ---I GUESS ITS TIME FOR ROSETTA TERM!!!--- no. will make this sand bend to my will.
-https://mac.r-project.org/openmp/
+<https://mac.r-project.org/openmp/>
 I need openMP anyways.
 time to break my cmake.
+
 ### from the above link
+
 OpenMP run-time downloads
 The follwing are links to libomp OpenMP run-time built from official LLVM release sources using Xcode compilers. They are signed and support macOS 10.13 (High Sierra) and higher. All tar-balls contain the system tree usr/local/lib and usr/local/include so the recommended installation is:
-    curl -O https://mac.r-project.org/openmp/openmp-12.0.1-darwin20-Release.tar.gz
+    curl -O <https://mac.r-project.org/openmp/openmp-12.0.1-darwin20-Release.tar.gz>
     sudo tar fvxz openmp-12.0.1-darwin20-Release.tar.gz -C /
 The contained set of files is the same in all tar balls:
     usr/local/lib/libomp.dylib
@@ -930,7 +976,9 @@ okay neat.
                                  Dload  Upload   Total   Spent    Left  Speed
 100  514k  100  514k    0     0   499k      0  0:00:01  0:00:01 --:--:--  501k
 ```
+
 now for line two:
+
 ```
 #sudo tar fvxz openmp-12.0.1-darwin20-Release.tar.gz -C /
 ❯ sudo tar fvxz openmp-12.0.1-darwin20-Release.tar.gz -C /
@@ -940,7 +988,9 @@ x usr/local/include/omp.h
 x usr/local/include/ompt.h
 x usr/local/lib/libomp.dylib
 ```
+
 okay lets verify it now
+
 ```
 ❯ codesign -d -vv /usr/local/lib/libomp.dylib
 Executable=/usr/local/lib/libomp.dylib
@@ -957,16 +1007,22 @@ TeamIdentifier=VZLD955F6P
 Sealed Resources=none
 Internal requirements count=1 size=168
 ```
+
 fantastic. lets try making trinity now.
+
 ### Still failed. why for the love of all things good and holy did apple stop shipping openMP in their compiler???????
+
 okay lets try adding it to CPPFlags.
 okay so i added the following to the cmakelists.txt in inchworm and got the following error. ITS MOVING FORWARD. JUST NEED TO REF THE RIGHT LIBS
-what I added. 
+what I added.
+
 ```
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pipe -W -Wall -Wpedantic -Xclang -fopenmp -m64")
 ```
+
 -Xclang was added to the above.
 still isn't making.
+
 ```
 ❯ make
 Using gnu compiler for Inchworm and Chrysalis
@@ -990,6 +1046,7 @@ make[2]: *** [all] Error 2
 make[1]: *** [all] Error 2
 make: *** [inchworm_target] Error 2
 ```
+
 okay lets try to use the mac os script.
 
 ```
@@ -1017,8 +1074,8 @@ make: *** [inchworm_target] Error 2
 cd trinity-plugins && /Applications/Xcode.app/Contents/Developer/usr/bin/make plugins
 cd slclust && /Applications/Xcode.app/Contents/Developer/usr/bin/make CXX=g++ CC=gcc install
 X=`pwd`; \
-	for i in src; \
-	do echo '<<<' $i '>>>'; cd $X/$i; /Applications/Xcode.app/Contents/Developer/usr/bin/make install; done
+ for i in src; \
+ do echo '<<<' $i '>>>'; cd $X/$i; /Applications/Xcode.app/Contents/Developer/usr/bin/make install; done
 <<< src >>>
 g++ -I../include -Wall    -c -o slcluster.o slcluster.cpp
 In file included from slcluster.cpp:4:
@@ -1152,11 +1209,14 @@ sh ./util/support_scripts/plugin_install_tests.sh
 slclust:                 has been Installed Properly
 collectl:                has been Installed Properly
 ```
+
 I DON'T TRUST IT BECAUSE SEE:
+
 ```
 /Users/michaelfoster/sequencing/summer/clover_project/trinity/trinityrnaseq-v2.14.0/Inchworm/src/IRKE_run.cpp:9:10: fatal error: 'omp.h' file not found
 #include <omp.h>
          ^~~~~~~
 1 error generated.
 ```
+
 I NEED A BREAK. DAMN YOU APPLE.
