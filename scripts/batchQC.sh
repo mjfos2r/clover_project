@@ -26,10 +26,13 @@ tree $DATADIR
 # //get the fastqc reports to be output into their corresponding directory depending on the input file.
 # // dunno how I'm gonna do that yet, may not be able to use find.
 # very useful https://unix.stackexchange.com/questions/533005/moving-a-file-based-on-specific-filename-to-specific-folder-based-on-filename
+#
+#
+# NOT RUNNING TREEPEAT ANYMORE, DIDN'T WORK ANYWAYS
 ############################################################################################
-echo "running treepeat.sh to copy the structure of $DATADIR into new directory $REPORTDIR"
+#echo "running treepeat.sh to copy the structure of $DATADIR into new directory $REPORTDIR"
 #run treepeat.sh
-treepeat.sh $DATADIR $REPORTDIR
+#treepeat.sh $DATADIR $REPORTDIR
 ############################################################################################
 # this is pointless I don't know Why I added it.
 #echo "creating $REPORTDIR in $WORKDIR"
