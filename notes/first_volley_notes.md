@@ -1,19 +1,22 @@
+# First Volley, pick up from trimToSalmon/other Notes
+
 okay, today we will be indexing the reference genome via samtools, then using that in gffread to generate the transcript.fa file needed for salmon.
 
-so let's start. 
+so let's start.
 
 reference genome downloaded (again) after it broke due to git LFS.
 link to download: <https://www.ncbi.nlm.nih.gov/assembly/GCA_005869975.1/>
 
-okay, so step 1 is to generate an index using samtools faidx 
+okay, so step 1 is to generate an index using samtools faidx
 
-```
+```bash
 samtools faidx genome.fa
 ```
-so first i had to un-gzip the ref fasta as samtools doesn't like gnuzip. 
+
+so first i had to un-gzip the ref fasta as samtools doesn't like gnuzip.
 that out of the way, now time to run samtools on the file.
 
-```
+```bash
 ❯ samtools faidx --help
 Usage: samtools faidx <file.fa|file.fa.gz> [<reg> [...]]
 Option:
@@ -32,9 +35,10 @@ Option:
  -f, --fastq              File and index in FASTQ format.
  -h, --help               This message.
 ```
-#### Samtools Index of Reference Genome
 
-```
+## Samtools Index of Reference Genome
+
+```bash
 ❯ samtools faidx GCA_005869975.1_AgR_To_v5_genomic.fna
 ❯ ls
 GCA_005869975.1_AgR_To_v5_genomic.fna     README.txt
@@ -44,63 +48,73 @@ GCA_005869975.1_AgR_To_v5_genomic.fna.gz
 
 okay cool.
 
-#### GFFread to generate transcripts.fa
+## GFFread to generate transcripts.fa
 
 now to actually generate the transcript fasta for salmon input.
 
-okay so the path to the reference genome that's needed for gffread is 
-```
+okay so the path to the reference genome that's needed for gffread is
+
+```bash
 /Users/michaelfoster/sequencing/data-raw_seq/reference_Genomes/trifolium_repens/ncbi-genomes-2022-06-15/GCA_005869975.1_AgR_To_v5_genomic.fna
 ```
-so 
+
+so
 the command should be something like
 gffread -w transcript.fa -g/path/to/genome.fa transcripts.gff
 
-```
+```bash
 gffread -w TR_Transcripts.fa -g /Users/michaelfoster/sequencing/data-raw_seq/reference_Genomes/trifolium_repens/ncbi-genomes-2022-06-15/GCA_005869975.1_AgR_To_v5_genomic.fna /Users/michaelfoster/sequencing/summer/clover_project/refseq/transcript-ref/TrR.v5.updated.gff 
 ```
+
 moment of truth
-```
+
+```bash
 ❯ gffread -w TR_Transcripts.fa -g /Users/michaelfoster/sequencing/data-raw_seq/reference_Genomes/trifolium_repens/ncbi-genomes-2022-06-15/GCA_005869975.1_AgR_To_v5_genomic.fna /Users/michaelfoster/sequencing/summer/clover_project/refseq/transcript-ref/TrR.v5.updated.gff
 ❯ ls
 TR_Transcripts.fa                TrR.v5.updated.gff
 TrR.v5.renamed_reformated-1.gtf  backup_of_TRv5_transcript.gtf.bu
 ```
+
 well that was quick....
 took less than 5 seconds. guess generating the fai really does speed it up, now for salmon.
 
-#### Salmon
+## Salmon
 
-apparently I need to prepare the transcriptome indices via mapping mode as I do not have an alignment .bam/sam file for the reads yet.. okay. 
+apparently I need to prepare the transcriptome indices via mapping mode as I do not have an alignment .bam/sam file for the reads yet.. okay.
 
 so first I need to build a salmon index for the transcriptome.
 assuming that transcripts.fa contains the set of transcripts we wish to quantify, salmon devs recommend building a decoy-aware transcriptome file.
 
 two options for that:
-1. compute a set of decoy sequences by mapping the annotated transcripts that are desired to index against a hard masked version of the organism's genome. this can be done using MeshMap2 and there are scripts included with salmon for this apparently. specifically, generateDecoyTranscriptome.sh, refer to https://github.com/COMBINE-lab/SalmonTools/blob/master/README.md
 
-2. use the entire genome of the organism as the decoy sequence. this can be done by concatenating the genome to the end of thr transcriptome that is being indexed and populate decoys.txt with the chromosome names. they give instructions at <https://combine-lab.github.io/alevin-tutorial/2019/selective-alignment/ > this is apparently more comprehensive but requires considerably more memory to build the index.
+1. compute a set of decoy sequences by mapping the annotated transcripts that are desired to index against a hard masked version of the organism's genome. this can be done using MeshMap2 and there are scripts included with salmon for this apparently. specifically, generateDecoyTranscriptome.sh, refer to <https://github.com/COMBINE-lab/SalmonTools/blob/master/README.md>
+
+2. use the entire genome of the organism as the decoy sequence. this can be done by concatenating the genome to the end of thr transcriptome that is being indexed and populate decoys.txt with the chromosome names. they give instructions at <<https://combine-lab.github.io/alevin-tutorial/2019/selective-alignment/> > this is apparently more comprehensive but requires considerably more memory to build the index.
 
 there are no pre-build reference decoys for Trifolium repens. looks like we get to do that from scrizzatch.
 
 lets do #2 because I don't feel like installing mashmap2 yet.
 
-so 
-##### option 2 for salmon.
+so
+
+### option 2 for salmon
 
 from the above linked tutorial:
 "Preparing metadata
 Salmon indexing requires the names of the genome targets, which is extractable by using the grep command:"
-```
+
+```bash
 grep "^>" <(gunzip -c whateverorganism.primary_assembly.genome.fa.gz) | cut -d " " -f 1 > decoys.txt
 sed -i.bak -e 's/>//g' decoys.txt
 
 ```
+
 then the transcripts and genome are concatenated into a single file.
 
-```
+```bash
 cat transcripts.ref.fa.gz whateverOrganism.primary_assembly.genome.fa.gz > gentrome.fa.gz
 ```
+
 okay and apparently then it's ready for salmon indexing and the rest of the pipeline.
 
 so lets do that now.
@@ -108,24 +122,28 @@ we generated the transcripts.fa file using gffread so thats gonna get catted as 
 lets run the grep command above to get it ready.
 
 typing it out to keep from breaking something:
-```
+
+```bash
 grep "^>" <(gunzip -c /Users/michaelfoster/sequencing/data-raw_seq/reference_Genomes/trifolium_repens/ncbi-genomes-2022-06-15/GCA_005869975.1_AgR_To_v5_genomic.fna.gz) | cut -d " " -f 1 > tr_decoys.txt
 ```
-```
+
+```bash
 ❯ grep "^>" <(gunzip -c /Users/michaelfoster/sequencing/data-raw_seq/reference_Genomes/trifolium_repens/ncbi-genomes-2022-06-15/GCA_005869975.1_AgR_To_v5_genomic.fna.gz) | cut -d " " -f 1 > tr_decoys.txt
 ╭─░▒▓    ~/se/summer/clover_project/refseq/transcript-ref    main ?2 ▓▒░······░▒▓ ✔  11:11:09  ▓▒░
 ```
+
 okay so that worked, and quickly. now lets cat it and the refgenome into the new TR-gentrome.fa.gz file.
 
 again, typing out the command before running it.
 
-```
+```bash
 cat TR_Transcripts.fa /Users/michaelfoster/sequencing/data-raw_seq/reference_Genomes/trifolium_repens/ncbi-genomes-2022-06-15/GCA_005869975.1_AgR_To_v5_genomic.fna.gz > tr-gentrome.fa.gz
 ```
+
 okay so that worked apparently.
 time to attempt a salmon now.
 
-```
+```bash
 salmon index -t tr-gentrome.fa.gz -d tr-decoys.txt -i salmon_index
 ```
 
@@ -133,7 +151,8 @@ okay lets run it now.
 
 update: since apple silicon is the bane of compatibility, need to activate a rosetta conda environment and install it that way.
 so...
-```
+
+```bash
 ❯ rosettaenv
 alright lets activate source to miniconda3 so this script works
 now to activate base x86_64 env
@@ -247,9 +266,10 @@ Preparing transaction: done
 Verifying transaction: done
 Executing transaction: done
 ```
+
 okay NOW lets try salmon again.
 
-```
+```bash
 ❯ conda activate salmonx86
 ❯ salmon
 salmon v1.8.0
@@ -267,9 +287,10 @@ Commands:
      quantmerge : merge multiple quantifications into a single file
 
 ```
+
 oh and I think I'll use the -k 31 flag as specified in the salmon docs.
 
-```
+```bash
 ❯ salmon index -t tr-gentrome.fa.gz -d tr-decoys.txt -i salmon_index -k 31
 Version Info: This is the most recent version of salmon.
 index ["salmon_index"] did not previously exist  . . . creating it
@@ -304,14 +325,16 @@ salmon index was invoked improperly.
 For usage information, try salmon index --help
 Exiting.
 ```
+
 okay take two, lets NOT use the -k 31 flag and see what we get...
 
 okay literally the same, just as broken..
 okay lets use the script included with salmon........
 
-okay to use the script I need samtools, mashmap, bedtools, in the conda environment. 
+okay to use the script I need samtools, mashmap, bedtools, in the conda environment.
 so here's that installation.
-```
+
+```bash
 ❯ conda install -c bioconda samtools
 Collecting package metadata (current_repodata.json): done
 Solving environment: done
@@ -465,8 +488,10 @@ Preparing transaction: done
 Verifying transaction: done
 Executing transaction: done
 ```
+
 okay, now lets run that script...
-```
+
+```bash
 ❯ where bedtools
 /Users/michaelfoster/opt/miniconda3/envs/salmonx86/bin/bedtools
 ❯ where mashmap
@@ -491,16 +516,19 @@ Usage: /Users/michaelfoster/scripts/generateDecoyTranscriptome.sh [-j <N> =1 def
 An error occurred. Exiting...
 #HOORAY.
 ```
+
 okay now to type the script command with paths to the conda installed binaries for bedtools and mashmap
 maybe when it says transcriptome file, it isn't actually asking for the one generated by gffread that I did earlier.
-Maybe it's asking for the raw transcript reads. 
+Maybe it's asking for the raw transcript reads.
 ignore the above sentence. we're feeding it transcripts.fa
-```
+
+```bash
 generateDecoyTranscriptome.sh -j 32 -b /Users/michaelfoster/opt/miniconda3/envs/salmonx86/bin/bedtools -m /Users/michaelfoster/opt/miniconda3/envs/salmonx86/bin/mashmap -a TrR.v5.renamed_reformated-1.gtf -g /Users/michaelfoster/sequencing/data-raw_seq/reference_Genomes/trifolium_repens/ncbi-genomes-2022-06-15/GCA_005869975.1_AgR_To_v5_genomic.fna.gz -t TR_Transcripts.fa -o .
 ```
+
 lets try it now
 
-```
+```bash
 ❯ generateDecoyTranscriptome.sh -j <threads> -b /Users/michaelfoster/opt/miniconda3/envs/salmonx86/bin/bedtools -m /Users/michaelfoster/opt/miniconda3/envs/salmonx86/bin/mashmap -a TrR.v5.renamed_reformated-1.gtf -g /Users/michaelfoster/sequencing/data-raw_seq/reference_Genomes/trifolium_repens/ncbi-genomes-2022-06-15/GCA_005869975.1_AgR_To_v5_genomic.fna.gz -t TR_Transcripts.fa -o .
 zsh: no such file or directory: threads
 ❯ generateDecoyTranscriptome.sh -j 32 -b /Users/michaelfoster/opt/miniconda3/envs/salmonx86/bin/bedtools -m /Users/michaelfoster/opt/miniconda3/envs/salmonx86/bin/mashmap -a TrR.v5.renamed_reformated-1.gtf -g /Users/michaelfoster/sequencing/data-raw_seq/reference_Genomes/trifolium_repens/ncbi-genomes-2022-06-15/GCA_005869975.1_AgR_To_v5_genomic.fna.gz -t TR_Transcripts.fa -o .
@@ -516,9 +544,10 @@ zsh: no such file or directory: threads
 
 An error occurred. Exiting...
 ```
+
 somehow made it this far without coreutils
 
-```
+```bash
 ❯ realpath
 zsh: command not found: realpath
 ❯ brew install realpath
@@ -554,9 +583,10 @@ If you need to use these commands with their normal names, you can add a "gnubin
 Disable this behaviour by setting HOMEBREW_NO_INSTALL_CLEANUP.
 Hide these hints with HOMEBREW_NO_ENV_HINTS (see `man brew`).
 ```
+
 okay take II:
 
-```
+```bash
 ❯ generateDecoyTranscriptome.sh -j 32 -b /Users/michaelfoster/opt/miniconda3/envs/salmonx86/bin/bedtools -m /Users/michaelfoster/opt/miniconda3/envs/salmonx86/bin/mashmap -a TrR.v5.renamed_reformated-1.gtf -g /Users/michaelfoster/sequencing/data-raw_seq/reference_Genomes/trifolium_repens/ncbi-genomes-2022-06-15/GCA_005869975.1_AgR_To_v5_genomic.fna.gz -t TR_Transcripts.fa -o .
 ****************
 *** getDecoy ***
@@ -579,11 +609,12 @@ libc++abi: terminating with uncaught exception of type std::out_of_range: vector
 
 An error occurred. Exiting...
 ```
+
 my c++ powerlevel is too low this morning to really get to the bottom of whatever it isn't liking...
 
-first google: https://stackoverflow.com/questions/44429406/c-terminating-with-uncaught-exception-of-type-stdout-of-range-vector-erro
-second google: https://groups.google.com/g/bedtools-discuss/c/9IwvO_5LaJY?pli=1
+first google: <https://stackoverflow.com/questions/44429406/c-terminating-with-uncaught-exception-of-type-stdout-of-range-vector-erro>
+second google: <https://groups.google.com/g/bedtools-discuss/c/9IwvO_5LaJY?pli=1>
 we have a winner!
 
-ok so the issue is in masking. somehow. 
+ok so the issue is in masking. somehow.
 Will ask nic after I grab lunch.

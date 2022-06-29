@@ -9,7 +9,7 @@ Also check to see if low RNA results in low reads or if there is a relationship 
 basically check to see if duplication is a result of low recover vs high recovery.
 check for multiple factors.
 
-## Review of RNA Seq Sample prep excel sheet.
+## Review of RNA Seq Sample prep excel sheet
 
 RNASeq sample preparation data.xls
 mass in mg = amt plant material
@@ -28,8 +28,8 @@ then ran through bioanalyzer for length data
 
 recap:
 library amplification was determined by random selection using primers to determine how many cycles
-it takes to get to half max cycles. 
-this then determines how many cycles to amplify to assemble the library. 
+it takes to get to half max cycles.
+this then determines how many cycles to amplify to assemble the library.
 
 some lower concentration libraries were run, some were reamplified via specific kit.
 
@@ -42,7 +42,7 @@ also a plate map of qubit and bioanalyzer.
 
 there is an overlay of the same platemap with reamplification overlaid.
 
-only 4 samples were reamplified. 
+only 4 samples were reamplified.
 >TR72,
 >TR68,
 >TR80,
@@ -51,7 +51,7 @@ first three, 72, 68, 80 reamp for 4 cycles
 TR18 was reamp for 7 cycles.
 
 TR18 is largest duplicate sample 98% duplicates and 23.8m reads.
-next highest dupe is 
+next highest dupe is
 TR86, amp for 21 cycles 93.8% duplicates.
 TR73, amp for 21 cycles, 92.8% dupes
 TR25, amp for 18 cycles, 92.7% dupes.

@@ -1,3 +1,5 @@
+# Fast QC notes
+
 okay, so fastQC can be used in scripts.
 
 per documentation at:
@@ -12,7 +14,7 @@ installation specific documentation at:
 downloaded zip folder and moved to bioinformatics directory.
 decompressed it and then made the fastqc binary executable.
 
-```
+```bash
 chmod 755 fastqc
 ```
 
@@ -32,7 +34,7 @@ so:
 
 okay lets add it to path now so the script won't be wonky.
 
-```
+```bash
 ❯ readlink -f fastqc
 /Users/michaelfoster/bioinformatics/FastQC/fastqc
 ❯ sudo ln -s /Users/michaelfoster/bioinformatics/FastQC/fastqc /usr/local/bin/fastqc
@@ -45,7 +47,7 @@ okay, so the script is gonna be something like
 1. get paths of source
 2. take paths as input, create paths in target
 
-```
+```bash
 treePeat $1
 #!/bin/sh
 WORKDIR="$PWD"
