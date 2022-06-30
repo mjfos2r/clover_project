@@ -1,9 +1,0 @@
-{
-    "salmon_version": "1.8.0",
-    "index": "../refseq/transcript-ref/attempt3/gentrome/index_transcripts_3",
-    "libType": "SF",
-    "unmatedReads": "fastq/raw_TR25/TR25_CKDL210019355-1a-AK3590_HGV5WBBXX_L3_1.fq",
-    "validateMappings": [],
-    "output": "raw_TR25/transcripts_quant_raw_TR25",
-    "auxDir": "aux_info"
-}

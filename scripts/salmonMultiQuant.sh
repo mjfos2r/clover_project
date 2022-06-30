@@ -9,18 +9,19 @@ then
   echo "try again with the required arguments please"
   exit 1
 fi
-
+ACTIVE=$CWD
 INDEX=$1
 INPUT=$2
 OUT=$3
 
 echo "using index specified at $INDEX, reads specified at $INPUT, and outputting quant data to $OUT"
 echo "changing directories into $INPUT to look for trimmed fastq files"
-for i in trimmed*
+cd $INPUT
+for i in trimmed.*.fq.gz
 do
-  salmon quant -i $INDEX -l SF -r ${i} --validateMappings -o ${i}_quant
+  salmon quant -i $INDEX -l SF -r ${i} --validateMappings -o $ACTIVE/$OUT/${i}.quant
 done
-echo "moving all of the quant files into $OUT"
-find . -name "*_quant" -type d -exec cp -r {} $OUT \;
+#echo "moving all of the quant files into $OUT"
+#find . -name "*.quant" -type d -exec cp -r {} $OUT \;
 echo "done!"
-tree .
+#tree .
