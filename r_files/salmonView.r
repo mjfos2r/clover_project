@@ -91,10 +91,10 @@ print(gtf2df)
 # make for loop to run through and pull in quant.sf files for all samples.
 
 #lets view the quant.sf file
-TR25_quant <- read.table("/Users/michaelfoster/sequencing/summer/clover_project/work/oldquant/trimmed_TR25/transcripts_quant_TR25/quant.sf", header = TRUE, sep = '\t')
-TR25_quant_DF <- as_tibble(TR25_quant)
-print(TR25_quant_DF)
-?sort.DataFrame
+#TR25_quant <- read.table("/Users/michaelfoster/sequencing/summer/clover_project/work/oldquant/trimmed_TR25/transcripts_quant_TR25/quant.sf", header = TRUE, sep = '\t')
+#TR25_quant_DF <- as_tibble(TR25_quant)
+#print(TR25_quant_DF)
+#?sort.DataFrame
 nozeds <- subset(TR25_quant_DF,  TR25_quant_DF$NumReads > 0 & TR25_quant_DF$NumReads != 0)
 print(nozeds)
 
@@ -160,4 +160,5 @@ library("DESeq2")
 #so lets try it out.
 #set files to the quants.sf locations.
 #then set two different objects for decoy-indexed and nonDecoy.
-tximport(files,type = "salmon",txIn = TRUE,txOut = FALSE,countsFromAbundance = "scaledTPM",tx2gene = tx2gene)
+tximport(files,type = "salmon",txIn = TRUE,txOut = FALSE,
+    countsFromAbundance = "scaledTPM",tx2gene = tx2gene)
