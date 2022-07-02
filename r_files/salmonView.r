@@ -63,7 +63,7 @@ print(gtf2df)
 #      })
 #    messy <- messy %>% add_column("{att}" := colatt)
 #  }
-#  #remove original attribute column
+#  #remove original attribute column    
 #  messy %>% select(-c(attribute))
 #}
 ####################################################################################################################################################################
@@ -79,11 +79,11 @@ library('splicejam')
 ?makeTx2geneFromGtf()
 #using the following function
 ?makeTx2geneFromGtf
-#tx2geneTR <- makeTx2geneFromGtf(GTF = 'refseq/transcript-ref/attempt3/TrR.v5.transcript.fresh.gtf', geneAttrNames = c("gene_id", "gene_name", "gene_type"), txAttrNames = c("transcript_id", "transcript_type"), geneFeatureType = "gene", txFeatureType = c("transcript", "mRNA", "CDS"), nrows = -1L, verbose = TRUE)
+tx2geneTR <- makeTx2geneFromGtf(GTF = 'refseq/transcript-ref/attempt3/TrR.v5.transcript.fresh.gtf', geneAttrNames = c("gene_id", "gene_name", "gene_type"), txAttrNames = c("transcript_id", "transcript_type"), geneFeatureType = "gene", txFeatureType = c("transcript", "mRNA", "CDS"), nrows = -1L, verbose = TRUE)
 #didn't work, gff file is kinda scuffed and lacks the required info. specifically, in column 3, "gene", as well as various other issues.
 
 #lets view the quant.sf file
-TR25_quant <- read.table("/Users/michaelfoster/sequencing/summer/clover_project/work/trimmed_TR25/transcripts_quant_TR25/quant.sf", header = TRUE, sep = '\t')
+TR25_quant <- read.table("/Users/michaelfoster/sequencing/summer/clover_project/work/oldquant/trimmed_TR25/transcripts_quant_TR25/quant.sf", header = TRUE, sep = '\t')
 TR25_quant_DF <- as_tibble(TR25_quant)
 print(TR25_quant_DF)
 ?sort.DataFrame

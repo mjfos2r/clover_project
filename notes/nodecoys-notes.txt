@@ -1,0 +1,117 @@
+okay, so mapping percent is quite low.
+
+nic recommended running index without decoys.
+
+so that I shall do.
+
+salmon index -t transcript.fa -i index_nodecoy -k 31
+
+```
+❯ salmon index -t gentrome.fa.gz -d decoys.txt -p 12 -i salmon_index --gencode
+index ["salmon_index"] did not previously exist  . . . creating it
+[2022-06-20 22:07:02.528] [jLog] [info] building index
+out : salmon_index
+[2022-06-20 22:07:02.529] [puff::index::jointLog] [info] Running fixFasta
+[2022-06-20 22:07:02.542] [puff::index::jointLog] [warning] Entry with header [CM019101.1:16937-16940], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.542] [puff::index::jointLog] [warning] Entry with header [CM019101.1:20887-20890], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.542] [puff::index::jointLog] [warning] Entry with header [CM019101.1:37820-37823], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-06-20 22:07:02.542] [puff::index::jointLog] [warning] Entry with header [CM019101.1:37820-37823], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+.......
+[2022-07-01 12:32:11.615] [puff::index::jointLog] [warning] Entry with header [CM019116.1.jg6516.t1_cds1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2022-07-01 12:32:11.615] [puff::index::jointLog] [warning] Entry with header [CM019116.1.jg6534.t1_cds1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+
+[2022-07-01 12:32:11.616] [puff::index::jointLog] [warning] Removed 62929 transcripts that were sequence duplicates of indexed transcripts.
+[2022-07-01 12:32:11.616] [puff::index::jointLog] [warning] If you wish to retain duplicate transcripts, please use the `--keepDuplicates` flag
+[2022-07-01 12:32:11.638] [puff::index::jointLog] [info] Replaced 9,014,530 non-ATCG nucleotides
+[2022-07-01 12:32:11.639] [puff::index::jointLog] [info] Clipped poly-A tails from 2 transcripts
+wrote 352592 cleaned references
+[2022-07-01 12:32:12.512] [puff::index::jointLog] [info] Filter size not provided; estimating from number of distinct k-mers
+[2022-07-01 12:32:17.520] [puff::index::jointLog] [info] ntHll estimated 175828528 distinct k-mers, setting filter size to 2^32
+Threads = 2
+Vertex length = 31
+Hash functions = 5
+Filter size = 4294967296
+Capacity = 2
+Files:
+index_nodecoy/ref_k31_fixed.fa
+--------------------------------------------------------------------------------
+Round 0, 0:4294967296
+Pass	Filling	Filtering
+1	21	71
+2	6	0
+True junctions count = 2225730
+False junctions count = 273758
+Hash table size = 2499488
+Candidate marks count = 7817385
+--------------------------------------------------------------------------------
+Reallocating bifurcations time: 0
+True marks count: 7429461
+Edges construction time: 7
+--------------------------------------------------------------------------------
+Distinct junctions = 2225730
+
+TwoPaCo::buildGraphMain:: allocated with scalable_malloc; freeing.
+TwoPaCo::buildGraphMain:: Calling scalable_allocation_command(TBBMALLOC_CLEAN_ALL_BUFFERS, 0);
+allowedIn: 27
+Max Junction ID: 2249346
+seen.size():17994777 kmerInfo.size():2249347
+approximateContigTotalLength: 97680697
+counters for complex kmers:
+(prec>1 & succ>1)=63433 | (succ>1 & isStart)=1686 | (prec>1 & isEnd)=1532 | (isStart & isEnd)=27
+contig count: 3157448 element count: 270527774 complex nodes: 66678
+# of ones in rank vector: 3157447
+[2022-07-01 12:34:25.932] [puff::index::jointLog] [info] Starting the Pufferfish indexing by reading the GFA binary file.
+[2022-07-01 12:34:25.933] [puff::index::jointLog] [info] Setting the index/BinaryGfa directory index_nodecoy
+size = 270527774
+-----------------------------------------
+| Loading contigs | Time = 31.311 ms
+-----------------------------------------
+size = 270527774
+-----------------------------------------
+| Loading contig boundaries | Time = 16.816 ms
+-----------------------------------------
+Number of ones: 3157447
+Number of ones per inventory item: 512
+Inventory entries filled: 6167
+3157447
+[2022-07-01 12:34:26.355] [puff::index::jointLog] [info] Done wrapping the rank vector with a rank9sel structure.
+[2022-07-01 12:34:26.383] [puff::index::jointLog] [info] contig count for validation: 3,157,447
+[2022-07-01 12:34:26.752] [puff::index::jointLog] [info] Total # of Contigs : 3,157,447
+[2022-07-01 12:34:26.752] [puff::index::jointLog] [info] Total # of numerical Contigs : 3,157,447
+[2022-07-01 12:34:26.801] [puff::index::jointLog] [info] Total # of contig vec entries: 7,273,860
+[2022-07-01 12:34:26.801] [puff::index::jointLog] [info] bits per offset entry 23
+[2022-07-01 12:34:26.912] [puff::index::jointLog] [info] Done constructing the contig vector. 3157448
+[2022-07-01 12:34:27.187] [puff::index::jointLog] [info] # segments = 3,157,447
+[2022-07-01 12:34:27.187] [puff::index::jointLog] [info] total length = 270,527,774
+[2022-07-01 12:34:27.274] [puff::index::jointLog] [info] Reading the reference files ...
+[2022-07-01 12:34:28.176] [puff::index::jointLog] [info] positional integer width = 29
+[2022-07-01 12:34:28.176] [puff::index::jointLog] [info] seqSize = 270,527,774
+[2022-07-01 12:34:28.176] [puff::index::jointLog] [info] rankSize = 270,527,774
+[2022-07-01 12:34:28.176] [puff::index::jointLog] [info] edgeVecSize = 0
+[2022-07-01 12:34:28.176] [puff::index::jointLog] [info] num keys = 175,804,364
+for info, total work write each  : 2.331    total work inram from level 3 : 4.322  total work raw : 25.000
+[Building BooPHF]  100  %   elapsed:   0 min 11 sec   remaining:   0 min 0  sec
+Bitarray       921164160  bits (100.00 %)   (array + ranks )
+final hash             0  bits (0.00 %) (nb in final hash 0)
+[2022-07-01 12:34:39.011] [puff::index::jointLog] [info] mphf size = 109.811 MB
+[2022-07-01 12:34:39.163] [puff::index::jointLog] [info] chunk size = 135,263,887
+[2022-07-01 12:34:39.163] [puff::index::jointLog] [info] chunk 0 = [0, 135,263,887)
+[2022-07-01 12:34:39.163] [puff::index::jointLog] [info] chunk 1 = [135,263,887, 270,527,744)
+[2022-07-01 12:34:58.580] [puff::index::jointLog] [info] finished populating pos vector
+[2022-07-01 12:34:58.580] [puff::index::jointLog] [info] writing index components
+[2022-07-01 12:34:59.819] [puff::index::jointLog] [info] finished writing dense pufferfish index
+[2022-07-01 12:34:59.859] [jLog] [info] done building index
+```
+
+cool lets run quant now.
+
+```
+salmonMultiQuant.sh /Users/michaelfoster/sequencing/summer/clover_project/refseq/transcript-ref/attempt4noDecoys/index_nodecoy \
+/Users/michaelfoster/sequencing/data-raw_seq/clover/RNAseq_Trifolium_repens_2021/MD5/trimmed/fastq \
+/Users/michaelfoster/sequencing/summer/clover_project/work/quants-nodecoy
+```
+just as dismal, maybe 1-2% increase.
+
+maybe I need to remake the transcripts.fa file using gffread?
+
+that didn't work.
