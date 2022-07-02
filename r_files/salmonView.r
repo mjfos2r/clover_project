@@ -139,26 +139,12 @@ library("DESeq2")
 #  txIn = TRUE,
 #  txOut = FALSE,
 #  countsFromAbundance = c("no", "scaledTPM", "lengthScaledTPM", "dtuScaledTPM"),
-#  tx2gene = NULL,
-#  varReduce = FALSE,
-#  dropInfReps = FALSE,
-#  infRepStat = NULL,
-#  ignoreTxVersion = FALSE,
-#  ignoreAfterBar = FALSE,
-#  geneIdCol,
-#  txIdCol,
-#  abundanceCol,
-#  countsCol,
-#  lengthCol,
-#  importer = NULL,
-#  existenceOptional = FALSE,
-#  sparse = FALSE,
-#  sparseThreshold = 1,
-#  readLength = 75,
-#  alevinArgs = NULL
+# ... much more
 #)
 #so lets try it out.
 #set files to the quants.sf locations.
 #then set two different objects for decoy-indexed and nonDecoy.
-tximport(files,type = "salmon",txIn = TRUE,txOut = FALSE,
+txReads <- tximport(files,type = "salmon",txIn = TRUE,txOut = FALSE,
     countsFromAbundance = "scaledTPM",tx2gene = tx2gene)
+?DESeq()
+DESeq(txReads, parallel = TRUE)
