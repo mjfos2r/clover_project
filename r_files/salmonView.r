@@ -16,12 +16,13 @@ dir <- "/Users/michaelfoster/sequencing/summer/clover_project/"
 # need to get genemap file
 #install.packages('rtracklayer')
 #BiocManager::install('rtracklayer')
-library('rtracklayer')
+#library('rtracklayer')
 #too many tabs for rtracklayer :(
 #gtf <- rtracklayer::import("/Users/michaelfoster/sequencing/summer/clover_project/refseq/transcript-ref/attempt3/TrR.v5.transcript.fresh.gtf")
-gtf2 <- read.table("/Users/michaelfoster/sequencing/summer/clover_project/refseq/transcript-ref/attempt3/TrR.v5.transcript.fresh.gtf", header = TRUE, sep = '\t')
+gtf2 <- read.table("/Users/michaelfoster/sequencing/summer/clover_project/refseq/transcript-ref/attempt3/TrR.v5.transcript.fresh.gtf", header = F, sep = '\t')
 head(gtf2)
 tail(gtf2)
+#make sure header = F in read.table otherwise it won't tibble...
 gtf2df <- as_tibble(gtf2)
 head(gtf2df)
 length(gtf2df)
@@ -68,19 +69,26 @@ print(gtf2df)
 #}
 ####################################################################################################################################################################
 # lets try it on the gtf for trifolium repens
-setwd("/Users/michaelfoster/sequencing/summer/clover_project/")
 #tr_gtf <- read_gtf("refseq/transcript-ref/attempt3/TrR.v5.transcript.fresh.gtf")
-#doesn't work whatever.
+#DIDN'T WORK OH WELL.
+
+#redundant, already set above.
+#setwd("/Users/michaelfoster/sequencing/summer/clover_project/")
 ######### old ignore above^ ]]
+
 #now using splicejam
+## Not anymore.
 #install.packages('devtools')
 #devtools::install_github("jmw86069/splicejam")
-library('splicejam')
-?makeTx2geneFromGtf()
+#library('splicejam')
+#?makeTx2geneFromGtf()
 #using the following function
-?makeTx2geneFromGtf
-tx2geneTR <- makeTx2geneFromGtf(GTF = 'refseq/transcript-ref/attempt3/TrR.v5.transcript.fresh.gtf', geneAttrNames = c("gene_id", "gene_name", "gene_type"), txAttrNames = c("transcript_id", "transcript_type"), geneFeatureType = "gene", txFeatureType = c("transcript", "mRNA", "CDS"), nrows = -1L, verbose = TRUE)
+#?makeTx2geneFromGtf
+#tx2geneTR <- makeTx2geneFromGtf(GTF = 'refseq/transcript-ref/attempt3/TrR.v5.transcript.fresh.gtf', geneAttrNames = c("gene_id", "gene_name", "gene_type"), txAttrNames = c("transcript_id", "transcript_type"), geneFeatureType = "gene", txFeatureType = c("transcript", "mRNA", "CDS"), nrows = -1L, verbose = TRUE)
 #didn't work, gff file is kinda scuffed and lacks the required info. specifically, in column 3, "gene", as well as various other issues.
+
+#todo// 
+# make for loop to run through and pull in quant.sf files for all samples.
 
 #lets view the quant.sf file
 TR25_quant <- read.table("/Users/michaelfoster/sequencing/summer/clover_project/work/oldquant/trimmed_TR25/transcripts_quant_TR25/quant.sf", header = TRUE, sep = '\t')
@@ -91,9 +99,8 @@ nozeds <- subset(TR25_quant_DF,  TR25_quant_DF$NumReads > 0 & TR25_quant_DF$NumR
 print(nozeds)
 
 #now to take and create a tx2gene file 
-#need to get Name for transcript name and then Gene name from the included assession number in column 9 of the GTF.
-#need to parse that out...
-#will do.
+# done as of 7/1/22, thanks nic!
+
 
 #something like
 # feed in dataframe with NumReads != 0, 
@@ -102,36 +109,55 @@ print(nozeds)
 #lets actually review the basis of the gtf/gff file format http://www.sequenceontology.org/browser/obob.cgi 
 
 #tx2geneTR <- makeTx2geneFromGtf(GTF = 'refseq/transcript-ref/attempt3/dummy_gtf.gtf', geneAttrNames = c("gene_id", "gene_name", "gene_type"), txAttrNames = c("transcript_id", "transcript_type"), geneFeatureType = "gene", txFeatureType = c("transcript", "mRNA", "CDS"), nrows = -1L, verbose = TRUE)
-dummy <- read.table("/Users/michaelfoster/sequencing/summer/clover_project/refseq/transcript-ref/attempt3/dummy_gtf.gtf", header = FALSE, sep = '\t')
-dummy <- as_tibble(dummy)
-print(dummy)
+#dummy <- read.table("/Users/michaelfoster/sequencing/summer/clover_project/refseq/transcript-ref/attempt3/dummy_gtf.gtf", header = FALSE, sep = '\t')
+#dummy <- as_tibble(dummy)
+#print(dummy)
 
-tx2gene <- read.table(file='refseq/transcript-ref/attempt3/tx2gene_dummy.tsv', header = TRUE, sep = '\t')
+tx2gene <- read.table(file='trepens_tx2gene.csv', header = TRUE, sep = ',')
 print(tx2gene)
 tx2gene<-as_tibble(tx2gene)
-
+head(tx2gene)
 ### using DESeq2 
-library("tximport")
-library("readr")
-#BiocManager::install("tximportData")
-library("tximportData")
-library("tximport")
-library("readr")
-library("tximportData")
-#dir <- system.file("extdata", package="tximportData")
-samples <- read_csv(file.path('refseq/transcript-ref/attempt3/samples.csv'))
+samples <- read.table(file='samples.txt', header = TRUE, sep = ';')
+samples.df <-as_tibble(samples)
+head(samples.df)
 #samples$condition <- factor(rep(c("A","B"),each=3))
 #rownames(samples) <- samples$run
 #samples[,c("pop","center","run","condition")]
-files <- file.path(dir = 'cwd',"salmon", samples$run, "work/trimmed_TR25/transcripts_quant_TR25/quant.sf")
-names(files) <- samples$run
-tx2gene <- read_tsv(file.path("refseq/transcript-ref/attempt3/tx2gene_dummy.tsv"))
-print(tx2gene)
-?tximport
-txi <- tximport('work/trimmed_TR25/transcripts_quant_TR25/quant.sf', type="salmon", tx2gene=tx2gene)
+#files <- file.path(dir = 'cwd',"salmon", samples$run, "work/trimmed_TR25/transcripts_quant_TR25/quant.sf")
+#names(files) <- samples$run
+#tx2gene <- read_tsv(file.path("refseq/transcript-ref/attempt3/tx2gene_dummy.tsv"))
+#print(tx2gene)
+#?tximport
+#txi <- tximport('work/trimmed_TR25/transcripts_quant_TR25/quant.sf', type="salmon", tx2gene=tx2gene)
 library("DESeq2")
 ?DESeqDataSetFromTximport
-ddsTxi <- DESeqDataSetFromTximport(txi,
-                                   colData = samples,
-                                   design = ~ 1)
-DESeq(ddsTxi)
+?tximport()
+#tximport(
+#  files,
+#  type = c("none", "salmon", "sailfish", "alevin", "kallisto", "rsem", "stringtie"),
+#  txIn = TRUE,
+#  txOut = FALSE,
+#  countsFromAbundance = c("no", "scaledTPM", "lengthScaledTPM", "dtuScaledTPM"),
+#  tx2gene = NULL,
+#  varReduce = FALSE,
+#  dropInfReps = FALSE,
+#  infRepStat = NULL,
+#  ignoreTxVersion = FALSE,
+#  ignoreAfterBar = FALSE,
+#  geneIdCol,
+#  txIdCol,
+#  abundanceCol,
+#  countsCol,
+#  lengthCol,
+#  importer = NULL,
+#  existenceOptional = FALSE,
+#  sparse = FALSE,
+#  sparseThreshold = 1,
+#  readLength = 75,
+#  alevinArgs = NULL
+#)
+#so lets try it out.
+#set files to the quants.sf locations.
+#then set two different objects for decoy-indexed and nonDecoy.
+tximport(files,type = "salmon",txIn = TRUE,txOut = FALSE,countsFromAbundance = "scaledTPM",tx2gene = tx2gene)
