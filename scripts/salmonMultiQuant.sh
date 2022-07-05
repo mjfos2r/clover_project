@@ -19,7 +19,7 @@ echo "changing directories into $INPUT to look for trimmed fastq files"
 cd $INPUT
 for i in trimmed.*.fq.gz
 do
-  salmon quant -i $INDEX -l SF -r ${i} --validateMappings -o $ACTIVE/$OUT/${i}.quant
+  salmon quant -i $INDEX -l SF -r ${i} --writeUnmappedNames --validateMappings -o $ACTIVE/$OUT/${i}.quant
 done
 #echo "moving all of the quant files into $OUT"
 #find . -name "*.quant" -type d -exec cp -r {} $OUT \;
