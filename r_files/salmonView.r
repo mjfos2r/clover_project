@@ -73,7 +73,7 @@ print(gtf2df)
 #DIDN'T WORK OH WELL.
 
 #redundant, already set above.
-#setwd("/Users/michaelfoster/sequencing/summer/clover_project/")
+setwd("/Users/michaelfoster/sequencing/summer/clover_project/")
 ######### old ignore above^ ]]
 
 #now using splicejam
@@ -113,23 +113,6 @@ print(nozeds)
 #dummy <- as_tibble(dummy)
 #print(dummy)
 
-tx2gene <- read.table(file='trepens_tx2gene.csv', header = TRUE, sep = ',')
-print(tx2gene)
-tx2gene<-as_tibble(tx2gene)
-head(tx2gene)
-### using DESeq2 
-samples <- read.table(file='samples.txt', header = TRUE, sep = ';')
-samples.df <-as_tibble(samples)
-head(samples.df)
-#samples$condition <- factor(rep(c("A","B"),each=3))
-#rownames(samples) <- samples$run
-#samples[,c("pop","center","run","condition")]
-#files <- file.path(dir = 'cwd',"salmon", samples$run, "work/trimmed_TR25/transcripts_quant_TR25/quant.sf")
-#names(files) <- samples$run
-#tx2gene <- read_tsv(file.path("refseq/transcript-ref/attempt3/tx2gene_dummy.tsv"))
-#print(tx2gene)
-#?tximport
-#txi <- tximport('work/trimmed_TR25/transcripts_quant_TR25/quant.sf', type="salmon", tx2gene=tx2gene)
 library("DESeq2")
 ?DESeqDataSetFromTximport
 ?tximport()
@@ -143,8 +126,66 @@ library("DESeq2")
 #)
 #so lets try it out.
 #set files to the quants.sf locations.
-#then set two different objects for decoy-indexed and nonDecoy.
-txReads <- tximport(files,type = "salmon",txIn = TRUE,txOut = FALSE,
-    countsFromAbundance = "scaledTPM",tx2gene = tx2gene)
-?DESeq()
-DESeq(txReads, parallel = TRUE)
+?file.path
+tx2gene <- read.table(file='trepens_tx2gene.csv', header = TRUE, sep = ',')
+print(tx2gene)
+tx2gene.df<-as_tibble(tx2gene)
+head(tx2gene)
+### using DESeq2 
+samples <- read.table(file='samples.txt', header = TRUE, sep = ';')
+#samples.df <-as_tibble(samples)
+rownames(samples) = samples$Sample
+samples$condition = as.factor(samples$condition)
+head(samples)
+#?as.factor
+
+dir <- file.path('work/quants_wunmap')
+files <- file.path(dir, samples$quant, "quant.sf")
+files
+names(files) <- paste0(samples$Sample)
+?tximport
+
+txi <- tximport(files, type = "salmon", txIn = TRUE, txOut = FALSE, tx2gene = tx2gene)
+head(txi)
+
+?DESeqDataSetFromTximport()
+#treatment <- c("drought, control")
+class(txi)
+names(txi)
+dds <- DESeqDataSetFromTximport(txi, colData = samples, ~ condition) 
+dds <- DESeq(dds, parallel = TRUE)
+cbind(resultsNames(dds))
+res.dds<-results(dds)
+summary(res.dds)
+
+res <- results(dds, name = "condition_Drought_vs_Control", alpha = 0.05)
+summary(res)
+mcols(res)$description
+head(res)
+#BiocManager::install('apeglm')
+library(apeglm)
+library(ggplot2)
+library(ggrepel)
+#BiocManager::install('EnhancedVolcano')
+library(EnhancedVolcano)
+
+resLFC = lfcShrink(dds, coef = "condition_Drought._vs_Control", type="apeglm")
+png("dgema-plot.salmon.png", width=7, height=5, units = "in", res = 300)
+plotMA(resLFC, alpha = 0.05, ylim=c(-6,6),
+       main = "MA-Plot for the shrunken log2 fold changes")
+dev.off()
+
+rld = rlog(dds)
+vsd = vst(dds)
+vsd
+pcaData = plotPCA(vsd, intgroup=c("Sample", "condition"),returnData=TRUE)
+head(pcaData)
+percentVar = round(100 * attr(pcaData, "percentVar"))
+png("TRR_PCA-rlog.salmon.png", width=7, height = 7, units = "in", res = 300)
+plot <- ggplot(pcaData, aes(PC1, PC2, colour = condition)) +
+  geom_point(size=2) + theme_bw() + scale_color_manual(values=c("blue", "red", "pink", "purple")) +
+  geom_text_repel(aes(label = Sample), nudge_x = -1, nudge_y = 0.2, size = 3) +
+  ggtitle("principal component analysis (PCA)", subtitle = "rlog transformation") +
+  xlab(paste0("PC1: ", percentVar[1], "% variance")) +
+  ylab(paste0("PC2: ", percentVar[2], "% variance"))
+print(plot)
