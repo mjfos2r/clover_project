@@ -136,9 +136,21 @@ samples <- read.table(file='samples.txt', header = TRUE, sep = ';')
 #samples.df <-as_tibble(samples)
 rownames(samples) = samples$Sample
 samples$condition = as.factor(samples$condition)
-head(samples)
-#?as.factor
+condition <- as.factor(x = samples$condition)
 
+sampleInfo<- read.table(file='Summary_Info_Paul.csv', header = TRUE, sep = ',')
+sampleInfo.df <- as.data.frame(sampleInfo)
+print(sampleInfo.df$PotN)
+
+samples.mutate.test <- as.data.frame(samples)
+head(samples.mutate.test)
+sampleInfo.df$PotN <- paste0("TR", sampleInfo.df$PotN)
+print(sampleInfo.df)
+
+print(sampleNameInfoSheet)
+
+samples.mutate.test<-mutate(sampleInfo.df$Location, .keep = "all",  )
+?mutate
 dir <- file.path('work/quants_wunmap')
 files <- file.path(dir, samples$quant, "quant.sf")
 files
@@ -169,11 +181,10 @@ library(ggrepel)
 #BiocManager::install('EnhancedVolcano')
 library(EnhancedVolcano)
 
-resLFC = lfcShrink(dds, coef = "condition_Drought._vs_Control", type="apeglm")
+resLFC = lfcShrink(dds, coef = "condition_Drought_vs_Control", type="apeglm")
 png("dgema-plot.salmon.png", width=7, height=5, units = "in", res = 300)
 plotMA(resLFC, alpha = 0.05, ylim=c(-6,6),
        main = "MA-Plot for the shrunken log2 fold changes")
-dev.off()
 
 rld = rlog(dds)
 vsd = vst(dds)
@@ -182,10 +193,10 @@ pcaData = plotPCA(vsd, intgroup=c("Sample", "condition"),returnData=TRUE)
 head(pcaData)
 percentVar = round(100 * attr(pcaData, "percentVar"))
 png("TRR_PCA-rlog.salmon.png", width=7, height = 7, units = "in", res = 300)
-plot <- ggplot(pcaData, aes(PC1, PC2, colour = condition)) +
-  geom_point(size=2) + theme_bw() + scale_color_manual(values=c("blue", "red", "pink", "purple")) +
-  geom_text_repel(aes(label = Sample), nudge_x = -1, nudge_y = 0.2, size = 3) +
+ggp <- ggplot(pcaData, aes(PC1, PC2, colour = condition)) +
+  geom_point(size=2) + theme_bw() + scale_color_manual(values=c("blue", "red")) +
+  geom_text_repel(aes(label = name), nudge_x = -1, nudge_y = 0.2, size = 3) +
   ggtitle("principal component analysis (PCA)", subtitle = "rlog transformation") +
   xlab(paste0("PC1: ", percentVar[1], "% variance")) +
   ylab(paste0("PC2: ", percentVar[2], "% variance"))
-print(plot)
+print(ggp)
