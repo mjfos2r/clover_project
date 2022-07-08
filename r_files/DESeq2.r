@@ -49,7 +49,7 @@ print(files)
 names(files) <- paste0(samples$sample)
 #import transcript quant files
 txi <- tximport(files, type = "salmon", txIn = TRUE, txOut = FALSE, tx2gene = tx2gene)
-#head(txi)
+head(txi)
 ?DESeqDataSetFromTximport()
 #treatment <- c("drought, control")
 class(txi)
