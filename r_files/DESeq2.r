@@ -72,7 +72,7 @@ plotMA(resLFC, alpha = 0.05, ylim=c(-6,6),
 rld = rlog(dds)
 vsd = vst(dds)
 vsd
-pcaData = plotPCA(vsd, intgroup=c("Sample", "condition"),returnData=TRUE)
+pcaData = plotPCA(vsd, intgroup=c("sample", "condition"),returnData=TRUE)
 head(pcaData)
 percentVar = round(100 * attr(pcaData, "percentVar"))
 png("TRR_PCA-rlog.salmon.png", width=7, height = 7, units = "in", res = 300)
