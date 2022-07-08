@@ -1,4 +1,4 @@
-Sample,quant,condition,population,Location,latitude
+sample,quant,condition,population,location,latitude
 TR01,trimmed.TR1_CKDL210019355-1a-AK5325_HGV5WBBXX_L3_1.fq.gz.quant,Drought,157,High,Europe
 TR05,trimmed.TR5_CKDL210019355-1a-AK2748_HGV5WBBXX_L3_1.fq.gz.quant,Drought,157,High,Europe
 TR08,trimmed.TR8_CKDL210019355-1a-AK2789_HGV5WBBXX_L3_1.fq.gz.quant,Drought,155,Low,Europe
