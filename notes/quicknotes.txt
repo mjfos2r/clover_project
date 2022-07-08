@@ -1,0 +1,5 @@
+/Users/michaelfoster/sequencing/summer/clover_project/refseq/transcript-ref/attempt3/gentrome/index_transcripts_3
+
+/Users/michaelfoster/sequencing/data-raw_seq/clover/RNAseq_Trifolium_repens_2021/MD5/trimmed/fastq
+
+/Users/michaelfoster/sequencing/summer/clover_project/work/quants_wunmap
