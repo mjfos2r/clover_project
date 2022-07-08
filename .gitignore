@@ -70,3 +70,7 @@ gffread/gffread
 *.gtf
 *.gff
 *.fna
+
+#ignore work dir
+work/*
+clover_project.code-workspace
