@@ -1,4 +1,5 @@
 library('tidyverse')
+#BiocManager::install('tximport')
 library('tximport')
 library("DESeq2")
 #BiocManager::install('apeglm')
@@ -23,33 +24,36 @@ tx2gene <- read.table(file='trepens_tx2gene.csv', header = TRUE, sep = ',')
 tx2gene.df<-as_tibble(tx2gene)
 head(tx2gene)
 ### using DESeq2
-samples <- read.table(file='samples.txt', header = TRUE, sep = ';')
-rownames(samples) = samples$Sample
+#read in samples.csv
+samples <- read.table(file='samples.csv', header = TRUE, sep = ',')
+#lable rownames as each TRXX sample name
+rownames(samples) = samples$sample
+#set factors for each factor
 samples$condition = as.factor(samples$condition)
-condition <- as.factor(x = samples$condition)
-
-sampleInfo<- read.table(file='Summary_Info_Paul.csv', header = TRUE, sep = ',')
-sampleInfo <- as.data.frame(sampleInfo)
-head(sampleInfo$PotN)
-sampleInfo$PotN <- paste0("TR", sampleInfo$PotN)
-print(sampleInfo)
-
-
+samples$population = as.factor(samples$population)
+samples$location = as.factor(samples$location)
+samples$latitude = as.factor(samples$latitude)
+###########################################
+#sampleInfo<- read.table(file='Summary_Info_Paul.csv', header = TRUE, sep = ',')
+#sampleInfo <- as.data.frame(sampleInfo)
+#head(sampleInfo$PotN)
+#sampleInfo$PotN <- paste0("TR", sampleInfo$PotN)
+#print(sampleInfo)
+###########################################
+#set filepath to the location of the quants
 dir <- file.path('work/quants_wunmap')
 files <- file.path(dir, samples$quant, "quant.sf")
-files
-names(files) <- paste0(samples$Sample)
-?tximport
-
+print(files)
+#set names to the sample IDs "TRXX"
+names(files) <- paste0(samples$sample)
+#import transcript quant files
 txi <- tximport(files, type = "salmon", txIn = TRUE, txOut = FALSE, tx2gene = tx2gene)
 head(txi)
-
 ?DESeqDataSetFromTximport()
 #treatment <- c("drought, control")
 class(txi)
 names(txi)
-?DESeqDataSetFromTximport
-dds <- DESeqDataSetFromTximport(txi, colData = samples, ~ condition) 
+dds <- DESeqDataSetFromTximport(txi, colData = samples, population + location + latitude ~ condition) 
 dds <- DESeq(dds, parallel = TRUE)
 cbind(resultsNames(dds))
 res.dds<-results(dds)
