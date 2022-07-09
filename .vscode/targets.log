@@ -6,17 +6,13 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
- 
-make: *** No rule to make target `all'.  Stop.
 
-
-# Make data base, printed on Thu Jun 30 11:48:51 2022
+# Make data base, printed on Fri Jul  8 11:25:16 2022
 
 # Variables
 
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
- 
 # automatic
 ?F = $(notdir $?)
 # environment
@@ -50,7 +46,7 @@ INFOPATH = /opt/homebrew/share/info:
 # environment
 P9K_SSH = 0
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/l4/mxwnz5ws61sbt3n8ccmy1mvw0000gn/T/vscode-ipc-0cfc1aee-8e8c-4092-978a-fab2cce0eb72.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/l4/mxwnz5ws61sbt3n8ccmy1mvw0000gn/T/vscode-ipc-cc6ed8e6-c487-40bf-9ed7-e0baef3559b9.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -64,7 +60,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.CcinZLUevL/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.xszgLd9xMR/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -145,7 +141,6 @@ HOMEBREW_PREFIX = /opt/homebrew
 HOMEBREW_REPOSITORY = /opt/homebrew
 # environment
 __CF_USER_TEXT_ENCODING = 0x1F5:0x0:0x0
- 
 # environment
 COMMAND_MODE = unix2003
 # default
@@ -173,7 +168,7 @@ HIGHLIGHT = /Users/michaelfoster/.local/share/source-highlight
 # environment
 LANG = C
 # environment
-VSCODE_PID = 14815
+VSCODE_PID = 5715
 # environment
 _CE_CONDA = 
 # variable set hash-table stats:
@@ -185,9 +180,9 @@ _CE_CONDA =
 
 # Directories
 
-# . (device 16777233, inode 13552195): 33 files, no impossibilities.
+# . (device 16777233, inode 13552195): 50 files, no impossibilities.
 
-# 33 files, no impossibilities in 1 directories.
+# 50 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -259,6 +254,8 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Thu Jun 30 11:48:51 2022
+# Finished Make data base on Fri Jul  8 11:25:16 2022
 
  
+make: *** No rule to make target `all'.  Stop.
+
