@@ -1,0 +1,1567 @@
+#########################################
+Sat Jul  9 21:43:21 CDT 2022
+#########################################
+##            starting job!            ##
+#########################################
+ 
+Currently in: /home/mjfos2r/unmapped_extraction_job
+ 
+moving to /work/mjfos2r/fastq
+ 
+currently in: /work/mjfos2r/fastq
+ 
+copying script for symlink into /work/mjfos2r/fastq
+extract_unmapped_transcripts.sh
+link_fastq.sh
+multiSymlink.sh
+trimmed.TR12_CKDL210019355-1a-52_HGV5WBBXX_L3_1.fq
+trimmed.TR14_CKDL210019355-1a-AK2788_HGV5WBBXX_L3_1.fq
+trimmed.TR15_CKDL210019355-1a-AK1061_HGV5WBBXX_L3_1.fq
+trimmed.TR17_CKDL210019355-1a-AK1929_HGV5WBBXX_L3_1.fq
+trimmed.TR18_CKDL210019355-1a-AK1060_HGV5WBBXX_L3_1.fq
+trimmed.TR18_CKDL210019355-1a-AK1060_HGV5WBBXX_L3_1.fq.gz
+trimmed.TR19_CKDL210019355-1a-AK2185_HGV5WBBXX_L3_1.fq
+trimmed.TR1_CKDL210019355-1a-AK5325_HGV5WBBXX_L3_1.fq
+trimmed.TR20_CKDL210019355-1a-AK8599_HGV5WBBXX_L3_1.fq
+trimmed.TR21_CKDL210019355-1a-AK2182_HGV5WBBXX_L3_1.fq
+trimmed.TR23_CKDL210019355-1a-AK2177_HGV5WBBXX_L3_1.fq
+trimmed.TR24_CKDL210019355-1a-77_HGV5WBBXX_L3_1.fq
+trimmed.TR25_CKDL210019355-1a-AK3590_HGV5WBBXX_L3_1.fq
+trimmed.TR25_CKDL210019355-1a-AK3590_HGV5WBBXX_L3_1.fq.gz
+trimmed.TR28_CKDL210019355-1a-AK5324_HGV5WBBXX_L3_1.fq
+trimmed.TR28_CKDL210019355-1a-AK5324_HGV5WBBXX_L3_1.fq.gz
+trimmed.TR29_CKDL210019355-1a-AK8597_HGV5WBBXX_L3_1.fq
+trimmed.TR30_CKDL210019355-1a-AK2183_HGV5WBBXX_L3_1.fq
+trimmed.TR31_CKDL210019355-1a-AK2181_HGV5WBBXX_L3_1.fq
+trimmed.TR32_CKDL210019355-1a-AK2179_HGV5WBBXX_L3_1.fq
+trimmed.TR43_CKDL210019355-1a-AK1299_HGV5WBBXX_L3_1.fq
+trimmed.TR48_CKDL210019355-1a-AK5329_HGV5WBBXX_L3_1.fq
+trimmed.TR50_CKDL210019355-1a-AK1208_HGV5WBBXX_L3_1.fq
+trimmed.TR5_CKDL210019355-1a-AK2748_HGV5WBBXX_L3_1.fq
+trimmed.TR61_CKDL210019355-1a-AK5335_HGV5WBBXX_L3_1.fq
+trimmed.TR62_CKDL210019355-1a-AK1958_HGV5WBBXX_L3_1.fq
+trimmed.TR64_CKDL210019355-1a-AK1189_HGV5WBBXX_L3_1.fq
+trimmed.TR65_CKDL210019355-1a-AK2024_HGV5WBBXX_L3_1.fq
+trimmed.TR67_CKDL210019355-1a-AK1171_HGV5WBBXX_L3_1.fq
+trimmed.TR68_CKDL210019355-1a-AK2178_HGV5WBBXX_L3_1.fq
+trimmed.TR69_CKDL210019355-1a-AK2325_HGV5WBBXX_L3_1.fq
+trimmed.TR70_CKDL210019355-1a-AK1523_HGV5WBBXX_L3_1.fq
+trimmed.TR71_CKDL210019355-1a-AK2684_HGV5WBBXX_L3_1.fq
+trimmed.TR72_CKDL210019355-1a-AK1946_HGV5WBBXX_L3_1.fq
+trimmed.TR73_CKDL210019355-1a-AK1525_HGV5WBBXX_L3_1.fq
+trimmed.TR74b_CKDL210019355-1a-AK6548_HGV5WBBXX_L3_1.fq
+trimmed.TR74_CKDL210019355-1a-AK2791_HGV5WBBXX_L3_1.fq
+trimmed.TR78_CKDL210019355-1a-AK393_HGV5WBBXX_L3_1.fq
+trimmed.TR79_CKDL210019355-1a-AK2327_HGV5WBBXX_L3_1.fq
+trimmed.TR80_CKDL210019355-1a-AK870_HGV5WBBXX_L3_1.fq
+trimmed.TR82_CKDL210019355-1a-AK1899_HGV5WBBXX_L3_1.fq
+trimmed.TR83_CKDL210019355-1a-AK1177_HGV5WBBXX_L3_1.fq
+trimmed.TR84_CKDL210019355-1a-AK5219_HGV5WBBXX_L3_1.fq
+trimmed.TR85_CKDL210019355-1a-AK2184_HGV5WBBXX_L3_1.fq
+trimmed.TR86_CKDL210019355-1a-AK1960_HGV5WBBXX_L3_1.fq
+trimmed.TR87_CKDL210019355-1a-AK2180_HGV5WBBXX_L3_1.fq
+trimmed.TR88_CKDL210019355-1a-63_HGV5WBBXX_L3_1.fq
+trimmed.TR89_CKDL210019355-1a-AK2328_HGV5WBBXX_L3_1.fq
+trimmed.TR8_CKDL210019355-1a-AK2789_HGV5WBBXX_L3_1.fq
+trimmed.TR90_CKDL210019355-1a-AK969_HGV5WBBXX_L3_1.fq
+trimmed.TR92_CKDL210019355-1a-AK2326_HGV5WBBXX_L3_1.fq
+trimmed.TR9_CKDL210019355-1a-AK1774_HGV5WBBXX_L3_1.fq
+ 
+#####################################################
+ creating symlinks in unmapped_job/quants_wunmapped/ 
+#####################################################
+ 
+executing script: multiSymlink.sh
+#########################################
+Sat Jul  9 21:43:21 CDT 2022
+#########################################
+starting script
+#########################################
+ 
+Currently in: /work/mjfos2r/fastq
+ 
+moving to /work/mjfos2r/fastq
+ 
+currently in: /work/mjfos2r/fastq
+ 
+extract_unmapped_transcripts.sh
+link_fastq.sh
+multiSymlink.sh
+trimmed.TR12_CKDL210019355-1a-52_HGV5WBBXX_L3_1.fq
+trimmed.TR14_CKDL210019355-1a-AK2788_HGV5WBBXX_L3_1.fq
+trimmed.TR15_CKDL210019355-1a-AK1061_HGV5WBBXX_L3_1.fq
+trimmed.TR17_CKDL210019355-1a-AK1929_HGV5WBBXX_L3_1.fq
+trimmed.TR18_CKDL210019355-1a-AK1060_HGV5WBBXX_L3_1.fq
+trimmed.TR18_CKDL210019355-1a-AK1060_HGV5WBBXX_L3_1.fq.gz
+trimmed.TR19_CKDL210019355-1a-AK2185_HGV5WBBXX_L3_1.fq
+trimmed.TR1_CKDL210019355-1a-AK5325_HGV5WBBXX_L3_1.fq
+trimmed.TR20_CKDL210019355-1a-AK8599_HGV5WBBXX_L3_1.fq
+trimmed.TR21_CKDL210019355-1a-AK2182_HGV5WBBXX_L3_1.fq
+trimmed.TR23_CKDL210019355-1a-AK2177_HGV5WBBXX_L3_1.fq
+trimmed.TR24_CKDL210019355-1a-77_HGV5WBBXX_L3_1.fq
+trimmed.TR25_CKDL210019355-1a-AK3590_HGV5WBBXX_L3_1.fq
+trimmed.TR25_CKDL210019355-1a-AK3590_HGV5WBBXX_L3_1.fq.gz
+trimmed.TR28_CKDL210019355-1a-AK5324_HGV5WBBXX_L3_1.fq
+trimmed.TR28_CKDL210019355-1a-AK5324_HGV5WBBXX_L3_1.fq.gz
+trimmed.TR29_CKDL210019355-1a-AK8597_HGV5WBBXX_L3_1.fq
+trimmed.TR30_CKDL210019355-1a-AK2183_HGV5WBBXX_L3_1.fq
+trimmed.TR31_CKDL210019355-1a-AK2181_HGV5WBBXX_L3_1.fq
+trimmed.TR32_CKDL210019355-1a-AK2179_HGV5WBBXX_L3_1.fq
+trimmed.TR43_CKDL210019355-1a-AK1299_HGV5WBBXX_L3_1.fq
+trimmed.TR48_CKDL210019355-1a-AK5329_HGV5WBBXX_L3_1.fq
+trimmed.TR50_CKDL210019355-1a-AK1208_HGV5WBBXX_L3_1.fq
+trimmed.TR5_CKDL210019355-1a-AK2748_HGV5WBBXX_L3_1.fq
+trimmed.TR61_CKDL210019355-1a-AK5335_HGV5WBBXX_L3_1.fq
+trimmed.TR62_CKDL210019355-1a-AK1958_HGV5WBBXX_L3_1.fq
+trimmed.TR64_CKDL210019355-1a-AK1189_HGV5WBBXX_L3_1.fq
+trimmed.TR65_CKDL210019355-1a-AK2024_HGV5WBBXX_L3_1.fq
+trimmed.TR67_CKDL210019355-1a-AK1171_HGV5WBBXX_L3_1.fq
+trimmed.TR68_CKDL210019355-1a-AK2178_HGV5WBBXX_L3_1.fq
+trimmed.TR69_CKDL210019355-1a-AK2325_HGV5WBBXX_L3_1.fq
+trimmed.TR70_CKDL210019355-1a-AK1523_HGV5WBBXX_L3_1.fq
+trimmed.TR71_CKDL210019355-1a-AK2684_HGV5WBBXX_L3_1.fq
+trimmed.TR72_CKDL210019355-1a-AK1946_HGV5WBBXX_L3_1.fq
+trimmed.TR73_CKDL210019355-1a-AK1525_HGV5WBBXX_L3_1.fq
+trimmed.TR74b_CKDL210019355-1a-AK6548_HGV5WBBXX_L3_1.fq
+trimmed.TR74_CKDL210019355-1a-AK2791_HGV5WBBXX_L3_1.fq
+trimmed.TR78_CKDL210019355-1a-AK393_HGV5WBBXX_L3_1.fq
+trimmed.TR79_CKDL210019355-1a-AK2327_HGV5WBBXX_L3_1.fq
+trimmed.TR80_CKDL210019355-1a-AK870_HGV5WBBXX_L3_1.fq
+trimmed.TR82_CKDL210019355-1a-AK1899_HGV5WBBXX_L3_1.fq
+trimmed.TR83_CKDL210019355-1a-AK1177_HGV5WBBXX_L3_1.fq
+trimmed.TR84_CKDL210019355-1a-AK5219_HGV5WBBXX_L3_1.fq
+trimmed.TR85_CKDL210019355-1a-AK2184_HGV5WBBXX_L3_1.fq
+trimmed.TR86_CKDL210019355-1a-AK1960_HGV5WBBXX_L3_1.fq
+trimmed.TR87_CKDL210019355-1a-AK2180_HGV5WBBXX_L3_1.fq
+trimmed.TR88_CKDL210019355-1a-63_HGV5WBBXX_L3_1.fq
+trimmed.TR89_CKDL210019355-1a-AK2328_HGV5WBBXX_L3_1.fq
+trimmed.TR8_CKDL210019355-1a-AK2789_HGV5WBBXX_L3_1.fq
+trimmed.TR90_CKDL210019355-1a-AK969_HGV5WBBXX_L3_1.fq
+trimmed.TR92_CKDL210019355-1a-AK2326_HGV5WBBXX_L3_1.fq
+trimmed.TR9_CKDL210019355-1a-AK1774_HGV5WBBXX_L3_1.fq
+ 
+#########################################
+ creating symlinks in unmapped_job/quants_wunmapped/ 
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR12_CKDL210019355-1a-52_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR12_CKDL210019355-1a-52_HGV5WBBXX_L3_1.fq/trimmed.TR12_CKDL210019355-1a-52_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR12_CKDL210019355-1a-52_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR12_CKDL210019355-1a-52_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR14_CKDL210019355-1a-AK2788_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR14_CKDL210019355-1a-AK2788_HGV5WBBXX_L3_1.fq/trimmed.TR14_CKDL210019355-1a-AK2788_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR14_CKDL210019355-1a-AK2788_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR14_CKDL210019355-1a-AK2788_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR15_CKDL210019355-1a-AK1061_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR15_CKDL210019355-1a-AK1061_HGV5WBBXX_L3_1.fq/trimmed.TR15_CKDL210019355-1a-AK1061_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR15_CKDL210019355-1a-AK1061_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR15_CKDL210019355-1a-AK1061_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR17_CKDL210019355-1a-AK1929_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR17_CKDL210019355-1a-AK1929_HGV5WBBXX_L3_1.fq/trimmed.TR17_CKDL210019355-1a-AK1929_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR17_CKDL210019355-1a-AK1929_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR17_CKDL210019355-1a-AK1929_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR18_CKDL210019355-1a-AK1060_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR18_CKDL210019355-1a-AK1060_HGV5WBBXX_L3_1.fq/trimmed.TR18_CKDL210019355-1a-AK1060_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR18_CKDL210019355-1a-AK1060_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR18_CKDL210019355-1a-AK1060_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR19_CKDL210019355-1a-AK2185_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR19_CKDL210019355-1a-AK2185_HGV5WBBXX_L3_1.fq/trimmed.TR19_CKDL210019355-1a-AK2185_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR19_CKDL210019355-1a-AK2185_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR19_CKDL210019355-1a-AK2185_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR1_CKDL210019355-1a-AK5325_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR1_CKDL210019355-1a-AK5325_HGV5WBBXX_L3_1.fq/trimmed.TR1_CKDL210019355-1a-AK5325_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR1_CKDL210019355-1a-AK5325_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR1_CKDL210019355-1a-AK5325_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR20_CKDL210019355-1a-AK8599_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR20_CKDL210019355-1a-AK8599_HGV5WBBXX_L3_1.fq/trimmed.TR20_CKDL210019355-1a-AK8599_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR20_CKDL210019355-1a-AK8599_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR20_CKDL210019355-1a-AK8599_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR21_CKDL210019355-1a-AK2182_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR21_CKDL210019355-1a-AK2182_HGV5WBBXX_L3_1.fq/trimmed.TR21_CKDL210019355-1a-AK2182_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR21_CKDL210019355-1a-AK2182_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR21_CKDL210019355-1a-AK2182_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR23_CKDL210019355-1a-AK2177_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR23_CKDL210019355-1a-AK2177_HGV5WBBXX_L3_1.fq/trimmed.TR23_CKDL210019355-1a-AK2177_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR23_CKDL210019355-1a-AK2177_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR23_CKDL210019355-1a-AK2177_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR24_CKDL210019355-1a-77_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR24_CKDL210019355-1a-77_HGV5WBBXX_L3_1.fq/trimmed.TR24_CKDL210019355-1a-77_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR24_CKDL210019355-1a-77_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR24_CKDL210019355-1a-77_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR25_CKDL210019355-1a-AK3590_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR25_CKDL210019355-1a-AK3590_HGV5WBBXX_L3_1.fq/trimmed.TR25_CKDL210019355-1a-AK3590_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR25_CKDL210019355-1a-AK3590_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR25_CKDL210019355-1a-AK3590_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR28_CKDL210019355-1a-AK5324_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR28_CKDL210019355-1a-AK5324_HGV5WBBXX_L3_1.fq/trimmed.TR28_CKDL210019355-1a-AK5324_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR28_CKDL210019355-1a-AK5324_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR28_CKDL210019355-1a-AK5324_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR29_CKDL210019355-1a-AK8597_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR29_CKDL210019355-1a-AK8597_HGV5WBBXX_L3_1.fq/trimmed.TR29_CKDL210019355-1a-AK8597_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR29_CKDL210019355-1a-AK8597_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR29_CKDL210019355-1a-AK8597_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR30_CKDL210019355-1a-AK2183_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR30_CKDL210019355-1a-AK2183_HGV5WBBXX_L3_1.fq/trimmed.TR30_CKDL210019355-1a-AK2183_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR30_CKDL210019355-1a-AK2183_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR30_CKDL210019355-1a-AK2183_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR31_CKDL210019355-1a-AK2181_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR31_CKDL210019355-1a-AK2181_HGV5WBBXX_L3_1.fq/trimmed.TR31_CKDL210019355-1a-AK2181_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR31_CKDL210019355-1a-AK2181_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR31_CKDL210019355-1a-AK2181_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR32_CKDL210019355-1a-AK2179_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR32_CKDL210019355-1a-AK2179_HGV5WBBXX_L3_1.fq/trimmed.TR32_CKDL210019355-1a-AK2179_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR32_CKDL210019355-1a-AK2179_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR32_CKDL210019355-1a-AK2179_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR43_CKDL210019355-1a-AK1299_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR43_CKDL210019355-1a-AK1299_HGV5WBBXX_L3_1.fq/trimmed.TR43_CKDL210019355-1a-AK1299_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR43_CKDL210019355-1a-AK1299_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR43_CKDL210019355-1a-AK1299_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR48_CKDL210019355-1a-AK5329_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR48_CKDL210019355-1a-AK5329_HGV5WBBXX_L3_1.fq/trimmed.TR48_CKDL210019355-1a-AK5329_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR48_CKDL210019355-1a-AK5329_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR48_CKDL210019355-1a-AK5329_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR50_CKDL210019355-1a-AK1208_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR50_CKDL210019355-1a-AK1208_HGV5WBBXX_L3_1.fq/trimmed.TR50_CKDL210019355-1a-AK1208_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR50_CKDL210019355-1a-AK1208_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR50_CKDL210019355-1a-AK1208_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR5_CKDL210019355-1a-AK2748_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR5_CKDL210019355-1a-AK2748_HGV5WBBXX_L3_1.fq/trimmed.TR5_CKDL210019355-1a-AK2748_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR5_CKDL210019355-1a-AK2748_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR5_CKDL210019355-1a-AK2748_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR61_CKDL210019355-1a-AK5335_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR61_CKDL210019355-1a-AK5335_HGV5WBBXX_L3_1.fq/trimmed.TR61_CKDL210019355-1a-AK5335_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR61_CKDL210019355-1a-AK5335_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR61_CKDL210019355-1a-AK5335_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR62_CKDL210019355-1a-AK1958_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR62_CKDL210019355-1a-AK1958_HGV5WBBXX_L3_1.fq/trimmed.TR62_CKDL210019355-1a-AK1958_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR62_CKDL210019355-1a-AK1958_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR62_CKDL210019355-1a-AK1958_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR64_CKDL210019355-1a-AK1189_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR64_CKDL210019355-1a-AK1189_HGV5WBBXX_L3_1.fq/trimmed.TR64_CKDL210019355-1a-AK1189_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR64_CKDL210019355-1a-AK1189_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR64_CKDL210019355-1a-AK1189_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR65_CKDL210019355-1a-AK2024_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR65_CKDL210019355-1a-AK2024_HGV5WBBXX_L3_1.fq/trimmed.TR65_CKDL210019355-1a-AK2024_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR65_CKDL210019355-1a-AK2024_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR65_CKDL210019355-1a-AK2024_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR67_CKDL210019355-1a-AK1171_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR67_CKDL210019355-1a-AK1171_HGV5WBBXX_L3_1.fq/trimmed.TR67_CKDL210019355-1a-AK1171_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR67_CKDL210019355-1a-AK1171_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR67_CKDL210019355-1a-AK1171_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR68_CKDL210019355-1a-AK2178_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR68_CKDL210019355-1a-AK2178_HGV5WBBXX_L3_1.fq/trimmed.TR68_CKDL210019355-1a-AK2178_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR68_CKDL210019355-1a-AK2178_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR68_CKDL210019355-1a-AK2178_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR69_CKDL210019355-1a-AK2325_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR69_CKDL210019355-1a-AK2325_HGV5WBBXX_L3_1.fq/trimmed.TR69_CKDL210019355-1a-AK2325_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR69_CKDL210019355-1a-AK2325_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR69_CKDL210019355-1a-AK2325_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR70_CKDL210019355-1a-AK1523_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR70_CKDL210019355-1a-AK1523_HGV5WBBXX_L3_1.fq/trimmed.TR70_CKDL210019355-1a-AK1523_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR70_CKDL210019355-1a-AK1523_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR70_CKDL210019355-1a-AK1523_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR71_CKDL210019355-1a-AK2684_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR71_CKDL210019355-1a-AK2684_HGV5WBBXX_L3_1.fq/trimmed.TR71_CKDL210019355-1a-AK2684_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR71_CKDL210019355-1a-AK2684_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR71_CKDL210019355-1a-AK2684_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR72_CKDL210019355-1a-AK1946_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR72_CKDL210019355-1a-AK1946_HGV5WBBXX_L3_1.fq/trimmed.TR72_CKDL210019355-1a-AK1946_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR72_CKDL210019355-1a-AK1946_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR72_CKDL210019355-1a-AK1946_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR73_CKDL210019355-1a-AK1525_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR73_CKDL210019355-1a-AK1525_HGV5WBBXX_L3_1.fq/trimmed.TR73_CKDL210019355-1a-AK1525_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR73_CKDL210019355-1a-AK1525_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR73_CKDL210019355-1a-AK1525_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR74b_CKDL210019355-1a-AK6548_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR74b_CKDL210019355-1a-AK6548_HGV5WBBXX_L3_1.fq/trimmed.TR74b_CKDL210019355-1a-AK6548_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR74b_CKDL210019355-1a-AK6548_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR74b_CKDL210019355-1a-AK6548_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR74_CKDL210019355-1a-AK2791_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR74_CKDL210019355-1a-AK2791_HGV5WBBXX_L3_1.fq/trimmed.TR74_CKDL210019355-1a-AK2791_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR74_CKDL210019355-1a-AK2791_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR74_CKDL210019355-1a-AK2791_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR78_CKDL210019355-1a-AK393_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR78_CKDL210019355-1a-AK393_HGV5WBBXX_L3_1.fq/trimmed.TR78_CKDL210019355-1a-AK393_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR78_CKDL210019355-1a-AK393_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR78_CKDL210019355-1a-AK393_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR79_CKDL210019355-1a-AK2327_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR79_CKDL210019355-1a-AK2327_HGV5WBBXX_L3_1.fq/trimmed.TR79_CKDL210019355-1a-AK2327_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR79_CKDL210019355-1a-AK2327_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR79_CKDL210019355-1a-AK2327_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR80_CKDL210019355-1a-AK870_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR80_CKDL210019355-1a-AK870_HGV5WBBXX_L3_1.fq/trimmed.TR80_CKDL210019355-1a-AK870_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR80_CKDL210019355-1a-AK870_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR80_CKDL210019355-1a-AK870_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR82_CKDL210019355-1a-AK1899_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR82_CKDL210019355-1a-AK1899_HGV5WBBXX_L3_1.fq/trimmed.TR82_CKDL210019355-1a-AK1899_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR82_CKDL210019355-1a-AK1899_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR82_CKDL210019355-1a-AK1899_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR83_CKDL210019355-1a-AK1177_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR83_CKDL210019355-1a-AK1177_HGV5WBBXX_L3_1.fq/trimmed.TR83_CKDL210019355-1a-AK1177_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR83_CKDL210019355-1a-AK1177_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR83_CKDL210019355-1a-AK1177_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR84_CKDL210019355-1a-AK5219_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR84_CKDL210019355-1a-AK5219_HGV5WBBXX_L3_1.fq/trimmed.TR84_CKDL210019355-1a-AK5219_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR84_CKDL210019355-1a-AK5219_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR84_CKDL210019355-1a-AK5219_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR85_CKDL210019355-1a-AK2184_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR85_CKDL210019355-1a-AK2184_HGV5WBBXX_L3_1.fq/trimmed.TR85_CKDL210019355-1a-AK2184_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR85_CKDL210019355-1a-AK2184_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR85_CKDL210019355-1a-AK2184_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR86_CKDL210019355-1a-AK1960_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR86_CKDL210019355-1a-AK1960_HGV5WBBXX_L3_1.fq/trimmed.TR86_CKDL210019355-1a-AK1960_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR86_CKDL210019355-1a-AK1960_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR86_CKDL210019355-1a-AK1960_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR87_CKDL210019355-1a-AK2180_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR87_CKDL210019355-1a-AK2180_HGV5WBBXX_L3_1.fq/trimmed.TR87_CKDL210019355-1a-AK2180_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR87_CKDL210019355-1a-AK2180_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR87_CKDL210019355-1a-AK2180_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR88_CKDL210019355-1a-63_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR88_CKDL210019355-1a-63_HGV5WBBXX_L3_1.fq/trimmed.TR88_CKDL210019355-1a-63_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR88_CKDL210019355-1a-63_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR88_CKDL210019355-1a-63_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR89_CKDL210019355-1a-AK2328_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR89_CKDL210019355-1a-AK2328_HGV5WBBXX_L3_1.fq/trimmed.TR89_CKDL210019355-1a-AK2328_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR89_CKDL210019355-1a-AK2328_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR89_CKDL210019355-1a-AK2328_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR8_CKDL210019355-1a-AK2789_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR8_CKDL210019355-1a-AK2789_HGV5WBBXX_L3_1.fq/trimmed.TR8_CKDL210019355-1a-AK2789_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR8_CKDL210019355-1a-AK2789_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR8_CKDL210019355-1a-AK2789_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR90_CKDL210019355-1a-AK969_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR90_CKDL210019355-1a-AK969_HGV5WBBXX_L3_1.fq/trimmed.TR90_CKDL210019355-1a-AK969_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR90_CKDL210019355-1a-AK969_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR90_CKDL210019355-1a-AK969_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR92_CKDL210019355-1a-AK2326_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR92_CKDL210019355-1a-AK2326_HGV5WBBXX_L3_1.fq/trimmed.TR92_CKDL210019355-1a-AK2326_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR92_CKDL210019355-1a-AK2326_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR92_CKDL210019355-1a-AK2326_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+creating symbolic link for reads trimmed.TR9_CKDL210019355-1a-AK1774_HGV5WBBXX_L3_1.fq at ../unmapped_job/trimmed.TR9_CKDL210019355-1a-AK1774_HGV5WBBXX_L3_1.fq/trimmed.TR9_CKDL210019355-1a-AK1774_HGV5WBBXX_L3_1.fq
+ln: failed to access ‘../unmapped_job/trimmed.TR9_CKDL210019355-1a-AK1774_HGV5WBBXX_L3_1.fq.gz.quant/trimmed.TR9_CKDL210019355-1a-AK1774_HGV5WBBXX_L3_1.fq’: Too many levels of symbolic links
+symlink created
+continuing with loop
+#########################################
+ 
+#########################################
+here's the directory now:
+extract_unmapped_transcripts.sh
+link_fastq.sh
+multiSymlink.sh
+trimmed.TR12_CKDL210019355-1a-52_HGV5WBBXX_L3_1.fq
+trimmed.TR14_CKDL210019355-1a-AK2788_HGV5WBBXX_L3_1.fq
+trimmed.TR15_CKDL210019355-1a-AK1061_HGV5WBBXX_L3_1.fq
+trimmed.TR17_CKDL210019355-1a-AK1929_HGV5WBBXX_L3_1.fq
+trimmed.TR18_CKDL210019355-1a-AK1060_HGV5WBBXX_L3_1.fq
+trimmed.TR18_CKDL210019355-1a-AK1060_HGV5WBBXX_L3_1.fq.gz
+trimmed.TR19_CKDL210019355-1a-AK2185_HGV5WBBXX_L3_1.fq
+trimmed.TR1_CKDL210019355-1a-AK5325_HGV5WBBXX_L3_1.fq
+trimmed.TR20_CKDL210019355-1a-AK8599_HGV5WBBXX_L3_1.fq
+trimmed.TR21_CKDL210019355-1a-AK2182_HGV5WBBXX_L3_1.fq
+trimmed.TR23_CKDL210019355-1a-AK2177_HGV5WBBXX_L3_1.fq
+trimmed.TR24_CKDL210019355-1a-77_HGV5WBBXX_L3_1.fq
+trimmed.TR25_CKDL210019355-1a-AK3590_HGV5WBBXX_L3_1.fq
+trimmed.TR25_CKDL210019355-1a-AK3590_HGV5WBBXX_L3_1.fq.gz
+trimmed.TR28_CKDL210019355-1a-AK5324_HGV5WBBXX_L3_1.fq
+trimmed.TR28_CKDL210019355-1a-AK5324_HGV5WBBXX_L3_1.fq.gz
+trimmed.TR29_CKDL210019355-1a-AK8597_HGV5WBBXX_L3_1.fq
+trimmed.TR30_CKDL210019355-1a-AK2183_HGV5WBBXX_L3_1.fq
+trimmed.TR31_CKDL210019355-1a-AK2181_HGV5WBBXX_L3_1.fq
+trimmed.TR32_CKDL210019355-1a-AK2179_HGV5WBBXX_L3_1.fq
+trimmed.TR43_CKDL210019355-1a-AK1299_HGV5WBBXX_L3_1.fq
+trimmed.TR48_CKDL210019355-1a-AK5329_HGV5WBBXX_L3_1.fq
+trimmed.TR50_CKDL210019355-1a-AK1208_HGV5WBBXX_L3_1.fq
+trimmed.TR5_CKDL210019355-1a-AK2748_HGV5WBBXX_L3_1.fq
+trimmed.TR61_CKDL210019355-1a-AK5335_HGV5WBBXX_L3_1.fq
+trimmed.TR62_CKDL210019355-1a-AK1958_HGV5WBBXX_L3_1.fq
+trimmed.TR64_CKDL210019355-1a-AK1189_HGV5WBBXX_L3_1.fq
+trimmed.TR65_CKDL210019355-1a-AK2024_HGV5WBBXX_L3_1.fq
+trimmed.TR67_CKDL210019355-1a-AK1171_HGV5WBBXX_L3_1.fq
+trimmed.TR68_CKDL210019355-1a-AK2178_HGV5WBBXX_L3_1.fq
+trimmed.TR69_CKDL210019355-1a-AK2325_HGV5WBBXX_L3_1.fq
+trimmed.TR70_CKDL210019355-1a-AK1523_HGV5WBBXX_L3_1.fq
+trimmed.TR71_CKDL210019355-1a-AK2684_HGV5WBBXX_L3_1.fq
+trimmed.TR72_CKDL210019355-1a-AK1946_HGV5WBBXX_L3_1.fq
+trimmed.TR73_CKDL210019355-1a-AK1525_HGV5WBBXX_L3_1.fq
+trimmed.TR74b_CKDL210019355-1a-AK6548_HGV5WBBXX_L3_1.fq
+trimmed.TR74_CKDL210019355-1a-AK2791_HGV5WBBXX_L3_1.fq
+trimmed.TR78_CKDL210019355-1a-AK393_HGV5WBBXX_L3_1.fq
+trimmed.TR79_CKDL210019355-1a-AK2327_HGV5WBBXX_L3_1.fq
+trimmed.TR80_CKDL210019355-1a-AK870_HGV5WBBXX_L3_1.fq
+trimmed.TR82_CKDL210019355-1a-AK1899_HGV5WBBXX_L3_1.fq
+trimmed.TR83_CKDL210019355-1a-AK1177_HGV5WBBXX_L3_1.fq
+trimmed.TR84_CKDL210019355-1a-AK5219_HGV5WBBXX_L3_1.fq
+trimmed.TR85_CKDL210019355-1a-AK2184_HGV5WBBXX_L3_1.fq
+trimmed.TR86_CKDL210019355-1a-AK1960_HGV5WBBXX_L3_1.fq
+trimmed.TR87_CKDL210019355-1a-AK2180_HGV5WBBXX_L3_1.fq
+trimmed.TR88_CKDL210019355-1a-63_HGV5WBBXX_L3_1.fq
+trimmed.TR89_CKDL210019355-1a-AK2328_HGV5WBBXX_L3_1.fq
+trimmed.TR8_CKDL210019355-1a-AK2789_HGV5WBBXX_L3_1.fq
+trimmed.TR90_CKDL210019355-1a-AK969_HGV5WBBXX_L3_1.fq
+trimmed.TR92_CKDL210019355-1a-AK2326_HGV5WBBXX_L3_1.fq
+trimmed.TR9_CKDL210019355-1a-AK1774_HGV5WBBXX_L3_1.fq
+and here's ../unmapped_job/
+../unmapped_job/trimmed.TR12_CKDL210019355-1a-52_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR12_CKDL210019355-1a-52_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR14_CKDL210019355-1a-AK2788_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR14_CKDL210019355-1a-AK2788_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR15_CKDL210019355-1a-AK1061_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR15_CKDL210019355-1a-AK1061_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR17_CKDL210019355-1a-AK1929_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR17_CKDL210019355-1a-AK1929_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR18_CKDL210019355-1a-AK1060_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR18_CKDL210019355-1a-AK1060_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR19_CKDL210019355-1a-AK2185_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR19_CKDL210019355-1a-AK2185_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR1_CKDL210019355-1a-AK5325_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR1_CKDL210019355-1a-AK5325_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR20_CKDL210019355-1a-AK8599_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR20_CKDL210019355-1a-AK8599_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR21_CKDL210019355-1a-AK2182_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR21_CKDL210019355-1a-AK2182_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR23_CKDL210019355-1a-AK2177_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR23_CKDL210019355-1a-AK2177_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR24_CKDL210019355-1a-77_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR24_CKDL210019355-1a-77_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR25_CKDL210019355-1a-AK3590_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR25_CKDL210019355-1a-AK3590_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR28_CKDL210019355-1a-AK5324_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR28_CKDL210019355-1a-AK5324_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR29_CKDL210019355-1a-AK8597_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR29_CKDL210019355-1a-AK8597_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR30_CKDL210019355-1a-AK2183_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR30_CKDL210019355-1a-AK2183_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR31_CKDL210019355-1a-AK2181_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR31_CKDL210019355-1a-AK2181_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR32_CKDL210019355-1a-AK2179_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR32_CKDL210019355-1a-AK2179_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR43_CKDL210019355-1a-AK1299_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR43_CKDL210019355-1a-AK1299_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR48_CKDL210019355-1a-AK5329_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR48_CKDL210019355-1a-AK5329_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR50_CKDL210019355-1a-AK1208_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR50_CKDL210019355-1a-AK1208_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR5_CKDL210019355-1a-AK2748_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR5_CKDL210019355-1a-AK2748_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR61_CKDL210019355-1a-AK5335_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR61_CKDL210019355-1a-AK5335_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR62_CKDL210019355-1a-AK1958_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR62_CKDL210019355-1a-AK1958_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR64_CKDL210019355-1a-AK1189_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR64_CKDL210019355-1a-AK1189_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR65_CKDL210019355-1a-AK2024_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR65_CKDL210019355-1a-AK2024_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR67_CKDL210019355-1a-AK1171_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR67_CKDL210019355-1a-AK1171_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR68_CKDL210019355-1a-AK2178_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR68_CKDL210019355-1a-AK2178_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR69_CKDL210019355-1a-AK2325_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR69_CKDL210019355-1a-AK2325_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR70_CKDL210019355-1a-AK1523_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR70_CKDL210019355-1a-AK1523_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR71_CKDL210019355-1a-AK2684_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR71_CKDL210019355-1a-AK2684_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR72_CKDL210019355-1a-AK1946_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR72_CKDL210019355-1a-AK1946_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR73_CKDL210019355-1a-AK1525_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR73_CKDL210019355-1a-AK1525_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR74b_CKDL210019355-1a-AK6548_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR74b_CKDL210019355-1a-AK6548_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR74_CKDL210019355-1a-AK2791_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR74_CKDL210019355-1a-AK2791_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR78_CKDL210019355-1a-AK393_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR78_CKDL210019355-1a-AK393_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR79_CKDL210019355-1a-AK2327_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR79_CKDL210019355-1a-AK2327_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR80_CKDL210019355-1a-AK870_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR80_CKDL210019355-1a-AK870_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR82_CKDL210019355-1a-AK1899_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR82_CKDL210019355-1a-AK1899_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR83_CKDL210019355-1a-AK1177_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR83_CKDL210019355-1a-AK1177_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR84_CKDL210019355-1a-AK5219_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR84_CKDL210019355-1a-AK5219_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR85_CKDL210019355-1a-AK2184_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR85_CKDL210019355-1a-AK2184_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR86_CKDL210019355-1a-AK1960_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR86_CKDL210019355-1a-AK1960_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR87_CKDL210019355-1a-AK2180_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR87_CKDL210019355-1a-AK2180_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR88_CKDL210019355-1a-63_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR88_CKDL210019355-1a-63_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR89_CKDL210019355-1a-AK2328_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR89_CKDL210019355-1a-AK2328_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR8_CKDL210019355-1a-AK2789_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR8_CKDL210019355-1a-AK2789_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR90_CKDL210019355-1a-AK969_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR90_CKDL210019355-1a-AK969_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR92_CKDL210019355-1a-AK2326_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR92_CKDL210019355-1a-AK2326_HGV5WBBXX_L3_1.fq
+
+../unmapped_job/trimmed.TR9_CKDL210019355-1a-AK1774_HGV5WBBXX_L3_1.fq.gz.quant:
+aux_info
+cmd_info.json
+lib_format_counts.json
+libParams
+logs
+quant.sf
+trimmed.TR9_CKDL210019355-1a-AK1774_HGV5WBBXX_L3_1.fq
+ 
+#########################################
+script done!
+#########################################
+Sat Jul  9 21:43:21 CDT 2022
+#########################################
+ 
+##################################################
+now running script to extract unmapped transcripts
+##################################################
+ 
+ currently in: /work/mjfos2r/fastq
+ 
+moving to /work/unmapped_job
+ 
+ 
+ currently in: /work/mjfos2r/unmapped_job
+copying extraction script into /work/mjfos2r/unmapped_job
+extract_unmapped_transcripts.sh
+trimmed.TR12_CKDL210019355-1a-52_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR14_CKDL210019355-1a-AK2788_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR15_CKDL210019355-1a-AK1061_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR17_CKDL210019355-1a-AK1929_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR18_CKDL210019355-1a-AK1060_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR19_CKDL210019355-1a-AK2185_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR1_CKDL210019355-1a-AK5325_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR20_CKDL210019355-1a-AK8599_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR21_CKDL210019355-1a-AK2182_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR23_CKDL210019355-1a-AK2177_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR24_CKDL210019355-1a-77_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR25_CKDL210019355-1a-AK3590_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR28_CKDL210019355-1a-AK5324_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR29_CKDL210019355-1a-AK8597_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR30_CKDL210019355-1a-AK2183_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR31_CKDL210019355-1a-AK2181_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR32_CKDL210019355-1a-AK2179_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR43_CKDL210019355-1a-AK1299_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR48_CKDL210019355-1a-AK5329_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR50_CKDL210019355-1a-AK1208_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR5_CKDL210019355-1a-AK2748_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR61_CKDL210019355-1a-AK5335_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR62_CKDL210019355-1a-AK1958_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR64_CKDL210019355-1a-AK1189_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR65_CKDL210019355-1a-AK2024_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR67_CKDL210019355-1a-AK1171_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR68_CKDL210019355-1a-AK2178_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR69_CKDL210019355-1a-AK2325_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR70_CKDL210019355-1a-AK1523_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR71_CKDL210019355-1a-AK2684_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR72_CKDL210019355-1a-AK1946_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR73_CKDL210019355-1a-AK1525_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR74b_CKDL210019355-1a-AK6548_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR74_CKDL210019355-1a-AK2791_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR78_CKDL210019355-1a-AK393_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR79_CKDL210019355-1a-AK2327_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR80_CKDL210019355-1a-AK870_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR82_CKDL210019355-1a-AK1899_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR83_CKDL210019355-1a-AK1177_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR84_CKDL210019355-1a-AK5219_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR85_CKDL210019355-1a-AK2184_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR86_CKDL210019355-1a-AK1960_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR87_CKDL210019355-1a-AK2180_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR88_CKDL210019355-1a-63_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR89_CKDL210019355-1a-AK2328_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR8_CKDL210019355-1a-AK2789_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR90_CKDL210019355-1a-AK969_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR92_CKDL210019355-1a-AK2326_HGV5WBBXX_L3_1.fq.gz.quant
+trimmed.TR9_CKDL210019355-1a-AK1774_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+executing script: extract_unmapped_transcripts.sh
+ 
+Sat Jul  9 21:43:21 CDT 2022
+ 
+############################################
+script started
+############################################
+ 
+currently in: /work/mjfos2r/unmapped_job
+ 
+starting loop to look for unmapped reads
+ 
+############################################
+##  *   *   *   *   *   *   *   *   *  *  ##
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR12_CKDL210019355-1a-52_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR12_CKDL210019355-1a-52_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR14_CKDL210019355-1a-AK2788_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR14_CKDL210019355-1a-AK2788_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR15_CKDL210019355-1a-AK1061_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR15_CKDL210019355-1a-AK1061_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR17_CKDL210019355-1a-AK1929_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR17_CKDL210019355-1a-AK1929_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR18_CKDL210019355-1a-AK1060_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR18_CKDL210019355-1a-AK1060_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR19_CKDL210019355-1a-AK2185_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR19_CKDL210019355-1a-AK2185_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR1_CKDL210019355-1a-AK5325_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR1_CKDL210019355-1a-AK5325_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR20_CKDL210019355-1a-AK8599_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR20_CKDL210019355-1a-AK8599_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR21_CKDL210019355-1a-AK2182_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR21_CKDL210019355-1a-AK2182_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR23_CKDL210019355-1a-AK2177_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR23_CKDL210019355-1a-AK2177_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR24_CKDL210019355-1a-77_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR24_CKDL210019355-1a-77_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR25_CKDL210019355-1a-AK3590_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR25_CKDL210019355-1a-AK3590_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR28_CKDL210019355-1a-AK5324_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR28_CKDL210019355-1a-AK5324_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR29_CKDL210019355-1a-AK8597_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR29_CKDL210019355-1a-AK8597_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR30_CKDL210019355-1a-AK2183_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR30_CKDL210019355-1a-AK2183_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR31_CKDL210019355-1a-AK2181_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR31_CKDL210019355-1a-AK2181_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR32_CKDL210019355-1a-AK2179_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR32_CKDL210019355-1a-AK2179_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR43_CKDL210019355-1a-AK1299_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR43_CKDL210019355-1a-AK1299_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR48_CKDL210019355-1a-AK5329_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR48_CKDL210019355-1a-AK5329_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR50_CKDL210019355-1a-AK1208_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR50_CKDL210019355-1a-AK1208_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR5_CKDL210019355-1a-AK2748_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR5_CKDL210019355-1a-AK2748_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR61_CKDL210019355-1a-AK5335_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR61_CKDL210019355-1a-AK5335_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR62_CKDL210019355-1a-AK1958_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR62_CKDL210019355-1a-AK1958_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR64_CKDL210019355-1a-AK1189_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR64_CKDL210019355-1a-AK1189_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR65_CKDL210019355-1a-AK2024_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR65_CKDL210019355-1a-AK2024_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR67_CKDL210019355-1a-AK1171_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR67_CKDL210019355-1a-AK1171_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR68_CKDL210019355-1a-AK2178_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR68_CKDL210019355-1a-AK2178_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR69_CKDL210019355-1a-AK2325_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR69_CKDL210019355-1a-AK2325_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR70_CKDL210019355-1a-AK1523_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR70_CKDL210019355-1a-AK1523_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR71_CKDL210019355-1a-AK2684_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR71_CKDL210019355-1a-AK2684_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR72_CKDL210019355-1a-AK1946_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR72_CKDL210019355-1a-AK1946_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR73_CKDL210019355-1a-AK1525_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR73_CKDL210019355-1a-AK1525_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR74b_CKDL210019355-1a-AK6548_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR74b_CKDL210019355-1a-AK6548_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR74_CKDL210019355-1a-AK2791_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR74_CKDL210019355-1a-AK2791_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR78_CKDL210019355-1a-AK393_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR78_CKDL210019355-1a-AK393_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR79_CKDL210019355-1a-AK2327_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR79_CKDL210019355-1a-AK2327_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR80_CKDL210019355-1a-AK870_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR80_CKDL210019355-1a-AK870_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR82_CKDL210019355-1a-AK1899_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR82_CKDL210019355-1a-AK1899_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR83_CKDL210019355-1a-AK1177_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR83_CKDL210019355-1a-AK1177_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR84_CKDL210019355-1a-AK5219_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR84_CKDL210019355-1a-AK5219_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR85_CKDL210019355-1a-AK2184_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR85_CKDL210019355-1a-AK2184_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR86_CKDL210019355-1a-AK1960_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR86_CKDL210019355-1a-AK1960_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR87_CKDL210019355-1a-AK2180_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR87_CKDL210019355-1a-AK2180_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR88_CKDL210019355-1a-63_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR88_CKDL210019355-1a-63_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR89_CKDL210019355-1a-AK2328_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR89_CKDL210019355-1a-AK2328_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR8_CKDL210019355-1a-AK2789_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR8_CKDL210019355-1a-AK2789_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR90_CKDL210019355-1a-AK969_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR90_CKDL210019355-1a-AK969_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR92_CKDL210019355-1a-AK2326_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR92_CKDL210019355-1a-AK2326_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+running command
+ 
+extracting unmapped reads for trimmed.TR9_CKDL210019355-1a-AK1774_HGV5WBBXX_L3_1.fq.gz.quant
+ 
+grep: trimmed.TR9_CKDL210019355-1a-AK1774_HGV5WBBXX_L3_1.fq.gz.quant/aux_info/unmapped-names.txt: No such file or directory
+command finished, continuing with next iteration of loop
+ 
+############################################
+Sat Jul  9 21:43:21 CDT 2022
+############################################
+ 
+#########################################
+##              Job Done!              ##
+#########################################
+Sat Jul  9 21:43:21 CDT 2022
+#########################################
