@@ -108,3 +108,5 @@ refseq/*
 .bash_history
 spades_out/
 
+#ignore vscode
+.vscode/
