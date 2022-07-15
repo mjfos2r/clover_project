@@ -16,6 +16,7 @@ echo "###########################################"
 echo " "
 echo "loading modules"
 module load trinity/2.8.6/intel-19.0.5
+module load samtools/1.10/intel-19.0.5
 echo " "
 module list
 echo " "
@@ -26,7 +27,7 @@ cd /work/mjfos2r/fastq
 echo "currently in: $PWD"
 echo "beginning denovo assembly of alltranscripts.fq"
 echo " "
-Trinity --seqType fq --single alltranscripts.fq --output trinity-out/ --CPU 48 --max_memory 1500G
+Trinity --seqType fq --samples_file samples_trinity.txt --output /work/mjfos2r/trinity/trinity-out/ --min_contig_length 300 --CPU 48 --max_memory 1500G --full_cleanup
 echo "done!"
 echo " "
 echo "###########################################"
