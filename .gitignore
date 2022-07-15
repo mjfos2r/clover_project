@@ -110,3 +110,4 @@ spades_out/
 
 #ignore vscode
 .vscode/
+.vscode/*
