@@ -106,3 +106,5 @@ refseq/*
 .vim
 .viminfo
 .bash_history
+spades_out/
+
