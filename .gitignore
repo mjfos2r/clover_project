@@ -82,3 +82,27 @@ refseq/*
 *.err
 *.out-*
 *.err-*
+
+#ignore hidden directories of loni backup except bashhistory
+.bash_logout
+.bash_profile
+.bashrc
+.cache
+.config
+.emacs
+.emacs.d
+.kshrc
+.local
+.modules
+.mozilla
+.parallel
+.pki
+.python_history
+.slurm
+.ssh
+.subversion
+.thist
+.thist1
+.vim
+.viminfo
+
