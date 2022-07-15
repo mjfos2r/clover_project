@@ -1,0 +1,8 @@
+#!/bin/bash
+#PBS -q checkpt
+#PBS -l nodes=13:ppn=20
+#PBS -l walltime=72:00:00
+#PBS -o parallelblastTR12.out
+#PBS -e parallelblastTR12.err 
+#PBS -N multiblastTR12
+

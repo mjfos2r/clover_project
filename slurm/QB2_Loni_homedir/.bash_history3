@@ -1,0 +1,29 @@
+#0(qb024 ; mjfos2r ; root ; -bash ; /usr/local/sbin/pbs_mom ; ; 12-Jul-2022 16:51 ; )
+#0(qb024 ; mjfos2r ; root ; -bash ; /usr/local/sbin/pbs_mom ; ; 12-Jul-2022 16:55 ; )
+#0(qb024 ; mjfos2r ; root ; -bash ; /usr/local/sbin/pbs_mom ; ; 12-Jul-2022 16:56 ; )
+#0(qb024 ; mjfos2r ; root ; -bash ; /usr/local/sbin/pbs_mom ; ; 12-Jul-2022 16:57 ; )
+#0(qb024 ; mjfos2r ; root ; -bash ; /usr/local/sbin/pbs_mom ; ; 12-Jul-2022 19:29 ; )
+#0(qb134 ; mjfos2r ; root ; -bash ; /usr/local/sbin/pbs_mom ; ; 12-Jul-2022 19:32 ; )
+#0(qb055 ; mjfos2r ; root ; -bash ; /usr/local/sbin/pbs_mom ; ; 12-Jul-2022 20:47 ; )
+#0(qb055 ; mjfos2r ; root ; -bash ; /usr/local/sbin/pbs_mom ; ; 12-Jul-2022 20:49 ; )
+#0(qb096 ; mjfos2r ; root ; -bash ; /usr/local/sbin/pbs_mom ; ; 13-Jul-2022 13:03 ; )
+cd /work/mjfos2r/
+ls
+cd fastq/
+gzip --help
+gzip -9 -v -c alltranscripts.fq >alltranscripts.fq.gz
+gzip -1 -v -c alltranscripts.fq >alltranscripts.fq.gz
+bg
+jobs
+ls
+cd ..
+ls
+module avail
+ls
+top
+jobs
+fg %1
+exit
+#0(qb003 ; mjfos2r ; root ; -bash ; /usr/local/sbin/pbs_mom ; ; 13-Jul-2022 13:32 ; )
+#0(qb003 ; mjfos2r ; root ; -bash ; /usr/local/sbin/pbs_mom ; ; 13-Jul-2022 13:33 ; )
+#0(qb127 ; mjfos2r ; root ; -bash ; /usr/local/sbin/pbs_mom ; ; 14-Jul-2022 14:02 ; )

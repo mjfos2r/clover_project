@@ -1,0 +1,29 @@
+#!/bin/bash
+#PBS -q checkpt
+#PBS -l nodes=3:ppn=20
+#PBS -l walltime=72:00:00
+#PBS -o denovoassembly.out
+#PBS -e denovoassembly.err
+#PBS -A loni_pgtrain3
+#PBS -N denovo_tx_trinity 
+#PBS -M mfo010@email.latech.edu
+#PBS -m abe
+###########################
+date
+echo "starting job"
+echo " "
+echo "loading modules"
+module load trinity/2.12.0/intel-19.0.5
+module list
+echo "currently in: $PWD"
+echo "Moving to /work/mjfos2r/fastq"
+cd /work/mjfos2r/fastq
+echo "currently in $PWD"
+echo " beginning de-novo assembly of transcripts.fa via trinity"
+echo " "
+Trinity --seqType fq --single alltranscripts.fq --output trinity_out --CPU 60 --max_memory 192G
+echo " "
+echo "Done!"
+date
+echo "JOB DONE!"
+exit 0

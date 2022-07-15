@@ -1,0 +1,28 @@
+#!/bin/bash
+#PBS -q single
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=12:00:00
+#PBS -o compress.out
+#PBS -e compress.err
+#PBS -N compress
+#PBS -A loni_pgtrain3
+
+date
+echo "Job starting!"
+echo " "
+echo "currently in: $PWD"
+echo " "
+echo "moving to /work/mjfos2r/fastq"
+cd /work/mjfos2r/fastq
+echo "currently in $PWD"
+echo " "
+echo "starting compression of alltranscripts.fq"
+gzip -1 -v -c alltranscripts.fq > alltranscripts.fq.gz
+echo "compression done, check file sizes and directory contents!"
+ls -lh
+echo " "
+echo " Job done!"
+echo " "
+date
+exit 0
+
