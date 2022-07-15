@@ -52,3 +52,27 @@ samples_trinity.txt$V3
 #cool, looks great
 #Done!
 
+#okay lets redo without dupes excluded
+
+samples_hidupes <- read.table('spreadsheets/samples_hidup.txt', sep = ',', header = T)
+samples_trinity_highdup <- tibble(condition = samples_hidupes$condition, replicate = samples_hidupes$condition, fastq = samples_hidupes$quant)
+samples_trinity_highdup
+
+samples_trinity_highdup <- samples_trinity_highdup %>%
+  filter(!duplicated(paste(condition, replicate, fastq))) %>%
+  group_by(condition) %>%
+  mutate(replicate=paste0(replicate,1:n())) %>%
+  arrange(condition)
+
+samples_trinity_highdup$fastq <- stri_sub(samples_trinity_highdup$fastq, 1, -7)
+
+samples_trinity_highdup$condition  
+samples_trinity_highdup$replicate
+samples_trinity_highdup$fastq
+
+write.table(samples_trinity_highdup, file = 'spreadsheets/samples_trinity_highdups.txt',
+            quote=FALSE, sep='\t', col.names = FALSE, row.names = FALSE)
+#okay cool.
+#lets see if this changes the denovo assembly any.
+#dunno if it will. 
+#made it anyway, not interrupting the job since its currently running!
