@@ -14,14 +14,12 @@ library(stringi)
 library(dplyr)
 #okay that finally works after fixing all of the scuffed deps.
 #never update r-studio/rlang with homebrew on arm64 OSX!!!!
+setwd('/Users/michaelfoster/sequencing/summer/clover_project/')
 samples_salmon <- read.table('/Users/michaelfoster/sequencing/summer/clover_project/spreadsheets/samples.csv',
                              sep = ',', header = T)
 head(samples_salmon)
 
 samples_trinity <- tibble(condition = samples_salmon$condition, replicate = samples_salmon$condition, fastq = samples_salmon$quant)
-
-samples_trinity.txt<- samples_trinity %>%
-  arrange(condition)
 
 head(samples_trinity)
 #https://stackoverflow.com/questions/62941338/can-i-conditionally-add-numbers-to-certain-repeated-values-in-a-column-in-r
@@ -44,4 +42,13 @@ samples_trinity$fastq
 #now to write to samples.txt as a .tsv file for trinity!
 write.table(samples_trinity, 
             file='/Users/michaelfoster/sequencing/summer/clover_project/spreadsheets/samples_trinity.txt',
-            quote=FALSE, sep='\t', row.names = FALSE)
+            quote=FALSE, sep='\t', col.names = FALSE, row.names = FALSE)
+
+samples_trinity.txt <- read.table('spreadsheets/samples_trinity.txt', sep = '\t')
+samples_trinity.txt
+samples_trinity.txt$V1
+samples_trinity.txt$V2
+samples_trinity.txt$V3
+#cool, looks great
+#Done!
+
