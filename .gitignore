@@ -105,4 +105,4 @@ refseq/*
 .thist1
 .vim
 .viminfo
-
+.bash_history
