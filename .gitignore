@@ -76,3 +76,9 @@ work/*
 clover_project.code-workspace
 refseq/*
 .vscode*
+
+#ignore slurm reports
+*.out
+*.err
+*.out-*
+*.err-*
